@@ -1,13 +1,16 @@
 # DOM Cloud Templates
 
-These files are templates to install most common web frameworks. [You can start deploy them now for free on DOM Cloud](https://portal.domcloud.id/start).
 
-Available templates currently
+These files are templates to install and host most common web frameworks to internet. 
 
-+ WordPress
-+ Laravel
-+ Django
-+ Rails
+[You can start deploy them now for free on DOM Cloud](https://portal.domcloud.id/start).
+
+Available templates currently:
+
++ [WordPress](wordpress-en.yml)
++ [Laravel](laravel.yml)
++ [Django](django.yml)
++ [Rails](rails.yml)
 
 You're free to submit PR about other popular frameworks.
 
@@ -53,7 +56,7 @@ Remember that in freedom plan, you're only allowed to create one database per ho
 
 #### Commands
 
-List of linux commands that you wish to execute just after extraction complete. All commands here will be imploded with ` ; ` .
+List of linux commands that you wish to execute just after extraction complete. Think like what commands you want to call after unzipping the source files using SSH. All commands here internally will be imploded with ` ; ` .
 
 ## Limitation
 
