@@ -1,3 +1,4 @@
+# Bit of warning, You need LITE or higher because of storage limit
 source: github://domcloud/rails-template-example
 root: public_html/public
 features:
@@ -24,3 +25,4 @@ commands:
 - "sed -i \"s/SECRET_KEY_BASE: ''/SECRET_KEY_BASE: '$secret'/g\" config/application.yml"
 - "sed -i \"s/compile: false/compile: true/g\" config/webpacker.yml"
 - RAILS_ENV=production rails webpacker:compile
+- chmod -R 0755 public_html/public/packs
