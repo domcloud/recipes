@@ -7,10 +7,10 @@ These files are templates to install and host most common web frameworks to inte
 
 Available templates currently:
 
-+ [WordPress](wordpress-en.yml)
-+ [Laravel](laravel.yml)
-+ [Django](django.yml)
-+ [Rails](rails.yml)
++ [WordPress](https://portal.domcloud.id/start?from=https://raw.githubusercontent.com/domcloud/dom-templates/master/wordpress.yml)
++ [Laravel](https://portal.domcloud.id/start?from=https://raw.githubusercontent.com/domcloud/dom-templates/master/laravel.yml)
++ [Django](https://portal.domcloud.id/start?from=https://raw.githubusercontent.com/domcloud/dom-templates/master/django.yml)
++ [Rails](https://portal.domcloud.id/start?from=https://raw.githubusercontent.com/domcloud/dom-templates/master/rails.yml)
 
 You're free to submit PR about other popular frameworks.
 
