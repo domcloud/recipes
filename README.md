@@ -63,6 +63,14 @@ List of linux commands that you wish to execute just after extraction complete. 
 + `${PASSWORD}` unix password (for host and database login)
 + `${DATABASE}` database name
 
+## Embed Link
+
+You can use this link format: 
+
+```https://portal.domcloud.id/start?from=<fileurl>```
+
+where `<fileurl>` is URL to publicly accessible resource to YAML config. If that's file is in GitHub, you can use `https://raw.githubusercontent.com/owner/repo/master/configfile.yml`. Just remember to encode that URL so it can be imported properly.
+
 ## Limitation
 
 The Freedom plan gives you free domain, 200 MB storage, 6 GB net data a year, and 5 minutes (of new and re-) deployment time, and unlimited renewal per host. Of course these limitation can be increased if you're enrolling a subcription.
