@@ -75,5 +75,5 @@ where `<fileurl>` is URL to publicly accessible resource to YAML config. If that
 
 The Freedom plan gives you free domain, 200 MB storage, 6 GB net data a year, and 5 minutes (of new and re-) deployment time, and unlimited renewal per host. Of course these limitation can be increased if you're enrolling a subcription.
 
-DOM Cloud is not like Docker or Heroku, which is immutable and container-based. All deployment here are mutable, you can edit it futher or relauch your deployment under the same host.
+DOM Cloud is not like Docker or Heroku, which is immutable and container-based. All deployment here are mutable, you can edit it futher or relauch your deployment under the same host. [More information here](https://github.com/domcloud/dom-portal).
 
