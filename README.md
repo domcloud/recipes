@@ -56,7 +56,12 @@ Remember that in freedom plan, you're only allowed to create one database per ho
 
 #### Commands
 
-List of linux commands that you wish to execute just after extraction complete. Think like what commands you want to call after unzipping the source files using SSH. All commands here internally will be imploded with ` ; ` .
+List of linux commands that you wish to execute just after extraction complete. Think like what commands you want to call after unzipping the source files using SSH. All commands here internally will be imploded with ` ; `, also it has common subtitution to let you modify config files using `sed -i`:
+
++ `${DOMAIN}` the domain name (without *http://* prefix)
++ `${USERNAME}` unix username (for host and database login)
++ `${PASSWORD}` unix password (for host and database login)
++ `${DATABASE}` database name
 
 ## Limitation
 
