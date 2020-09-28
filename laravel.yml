@@ -6,10 +6,11 @@ commands:
 - php --version
 - mv .env.example .env
 - sed -i 's/DB_HOST=127.0.0.1/DB_HOST=localhost/g' .env
-- sed -i 's/DB_DATABASE=laravel/DB_DATABASE=${DATABASE}/g' .env
-- sed -i 's/DB_USERNAME=root/DB_USERNAME=${USERNAME}/g' .env
-- sed -i 's/DB_PASSWORD=/DB_PASSWORD=${PASSWORD}/g' .env
-- sed -ri 's/APP_URL=http:\/\/localhost/APP_URL=http:\/\/${DOMAIN}/g' .env
+- sed -ri 's/DB_DATABASE=.*/DB_DATABASE=${DATABASE}/g' .env
+- sed -ri 's/DB_USERNAME=.*/DB_USERNAME=${USERNAME}/g' .env
+- sed -ri 's/DB_PASSWORD=.*/DB_PASSWORD=${PASSWORD}/g' .env
+- sed -ri 's/APP_URL=.*=http:\/\/${DOMAIN}/g' .env
 - composer install --no-dev --no-progress
+- php artisan migrate:fresh
 - php artisan key:generate
 - php artisan storage:link
