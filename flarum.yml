@@ -4,10 +4,17 @@ features:
 - mysql
 commands:
 - php --version
-- wget -q https://raw.githubusercontent.com/Uninett/flarum-docker-uh/master/etc/flarum/config.php 
-- sed -i "s/\$_ENV['DB_HOST']/'localhost'/g" config.php 
-- sed -i "s/\$_ENV['DB_NAME']/'${DATABASE}'/g" config.php 
-- sed -i "s/\$_ENV['DB_UNAME']/'${USERNAME}'/g" config.php 
-- sed -i "s/\$_ENV['DB_PW']/'${PASSWORD}'/g" config.php 
-- sed -i "s/\$_ENV['BASE_URL']/'http:\/\/${DOMAIN}'/g" config.php 
+- 'echo "baseUrl: \"${SCHEME}://${DOMAIN}\"" > conf.yml'
+- 'echo "databaseConfiguration:" >> conf.yml'
+- 'echo "  host: localhost" >> conf.yml'
+- 'echo "  database: ${DATABASE}" >> conf.yml'
+- 'echo "  username: ${USERNAME}" >> conf.yml'
+- 'echo "  password: ${PASSWORD}" >> conf.yml'
+- 'echo "  prefix: flarum_" >> conf.yml'
+- 'echo "adminUser:" >> conf.yml'
+# To edit default admin user login, change here
+- 'echo "  username: admin" >> conf.yml'
+- 'echo "  password: password" >> conf.yml'
+- 'echo "  email: admin@example.com" >> conf.yml'
 - composer install --no-dev --no-progress --no-cache
+- php flarum install --file=conf.yml
