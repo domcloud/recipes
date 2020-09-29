@@ -11,4 +11,4 @@ commands:
 - sed -ri "s/(# )?app.baseURL.*/app.baseURL = ${SCHEME}:\/\/${DOMAIN}/g" .env
 - sed -i "s/Options +FollowSymlinks//g" public/.htaccess
 - sed -i "s/Options All -Indexes//g" public/.htaccess
-- composer install --no-dev --no-progress
+- composer install --no-dev --no-progress --no-cache
