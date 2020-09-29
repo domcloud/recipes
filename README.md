@@ -10,7 +10,7 @@ Available templates currently:
 CMS:
 
 + [WordPress](https://portal.domcloud.id/start?from=https://raw.githubusercontent.com/domcloud/dom-templates/master/wordpress.yml) - Blogging
-+ [Flarum](https://portal.domcloud.id/start?from=https://raw.githubusercontent.com/domcloud/dom-templates/master/codeigniter.yml) - Forum
++ [Flarum](https://portal.domcloud.id/start?from=https://raw.githubusercontent.com/domcloud/dom-templates/master/flarum.yml) - Forum
 
 Frameworks:
 
