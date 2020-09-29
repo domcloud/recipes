@@ -7,10 +7,17 @@ These files are templates to install and host most common web frameworks to inte
 
 Available templates currently:
 
-+ [WordPress](https://portal.domcloud.id/start?from=https://raw.githubusercontent.com/domcloud/dom-templates/master/wordpress.yml)
-+ [Laravel](https://portal.domcloud.id/start?from=https://raw.githubusercontent.com/domcloud/dom-templates/master/laravel.yml)
-+ [Django](https://portal.domcloud.id/start?from=https://raw.githubusercontent.com/domcloud/dom-templates/master/django.yml)
-+ [Rails](https://portal.domcloud.id/start?from=https://raw.githubusercontent.com/domcloud/dom-templates/master/rails.yml)
+CMS:
+
++ [WordPress](https://portal.domcloud.id/start?from=https://raw.githubusercontent.com/domcloud/dom-templates/master/wordpress.yml) - Blogging
++ [Flarum](https://portal.domcloud.id/start?from=https://raw.githubusercontent.com/domcloud/dom-templates/master/codeigniter.yml) - Forum
+
+Frameworks:
+
++ [Laravel](https://portal.domcloud.id/start?from=https://raw.githubusercontent.com/domcloud/dom-templates/master/laravel.yml) - PHP
++ [CodeIgniter](https://portal.domcloud.id/start?from=https://raw.githubusercontent.com/domcloud/dom-templates/master/codeigniter.yml) - PHP
++ [Django](https://portal.domcloud.id/start?from=https://raw.githubusercontent.com/domcloud/dom-templates/master/django.yml) - Python
++ [Rails](https://portal.domcloud.id/start?from=https://raw.githubusercontent.com/domcloud/dom-templates/master/rails.yml) - Ruby
 
 You're free to submit PR about other popular frameworks.
 
