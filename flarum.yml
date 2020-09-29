@@ -10,4 +10,4 @@ commands:
 - sed -i "s/\$_ENV['DB_UNAME']/'${USERNAME}'/g" config.php 
 - sed -i "s/\$_ENV['DB_PW']/'${PASSWORD}'/g" config.php 
 - sed -i "s/\$_ENV['BASE_URL']/'http:\/\/${DOMAIN}'/g" config.php 
-- composer install --no-dev --no-progress
+- composer install --no-dev --no-progress --no-cache
