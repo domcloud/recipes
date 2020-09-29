@@ -1,0 +1,19 @@
+# Due to the size, you need LITE plan
+source: https://github.com/TryGhost/Ghost
+directory: Ghost-master
+root: public_html/public
+features:
+- mysql
+commands:
+- echo export PATH="$HOME/public_html/node_modules/.bin:$PATH" > ~/.bash_profile
+- source ~/.bash_profile
+- mkdir public
+- echo "require('./index.js');" > app.js
+- wget -q -O config.production.json https://gist.githubusercontent.com/willnode/45e722be156736ea3a08f29d37ad997c/raw/064a8591de6685ffcbea9cd84f3ed6100f49f7dc/ghost-production-config.json
+- 'sed -ri "s/username_here/${USERNAME}/g" config.production.json'
+- 'sed -ri "s/password_here/${PASSWORD}/g" config.production.json'
+- 'sed -ri "s/database_here/${DATABASE}/g" config.production.json'
+- 'sed -ri "s/url_here/${SCHEME}:\/\/${DOMAIN}/g" config.production.json'
+- yarn install --production
+- knex-migrator init
+- yarn cache clean
