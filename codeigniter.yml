@@ -5,8 +5,8 @@ features:
 commands:
 - php --version
 - mv env .env
-- sed -ri 's/(# )?database.default.database.*/database.default.database = ${DATABASE}/g' .env
-- sed -ri 's/(# )?database.default.username.*/database.default.username = ${USERNAME}/g' .env
-- sed -ri 's/(# )?database.default.password.*/database.default.username = ${PASSWORD}/g' .env
-- sed -ri 's/(# )?app.baseURL.*/app.baseURL = http:\/\/${DOMAIN}/g' .env
+- sed -ri "s/(# )?database.default.database.*/database.default.database = ${DATABASE}/g" .env
+- sed -ri "s/(# )?database.default.username.*/database.default.username = ${USERNAME}/g" .env
+- sed -ri "s/(# )?database.default.password.*/database.default.username = ${PASSWORD}/g" .env
+- sed -ri "s/(# )?app.baseURL.*/app.baseURL = ${SCHEME}:\/\/${DOMAIN}/g" .env
 - composer install --no-dev --no-progress

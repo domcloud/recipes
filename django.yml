@@ -5,10 +5,10 @@ features:
 commands:
 - python3 --version
 - echo export PATH="$PATH:$HOME/.local/bin" > ~/.bash_profile
-- sed -i 's/database_here/${DATABASE}/g' app/settings.py
-- sed -i 's/username_here/${USERNAME}/g' app/settings.py
-- sed -i 's/password_here/${PASSWORD}/g' app/settings.py
-- sed -i 's/domain_here/${DOMAIN}/g' app/settings.py
+- sed -i "s/database_here/${DATABASE}/g" app/settings.py
+- sed -i "s/username_here/${USERNAME}/g" app/settings.py
+- sed -i "s/password_here/${PASSWORD}/g" app/settings.py
+- sed -i "s/domain_here/${DOMAIN}/g" app/settings.py
 - source ~/.bash_profile
 - pip3 install --user django
 - echo yes | python3 manage.py collectstatic
