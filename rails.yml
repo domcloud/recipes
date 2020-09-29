@@ -1,4 +1,3 @@
-# Bit of warning, You need LITE or higher because of storage limit
 source: github://domcloud/rails-template-example
 root: public_html/public
 features:
@@ -15,14 +14,15 @@ commands:
 - mv config/database.yml.example config/database.yml
 - "sed -i \"s/DOMAIN: ''/DOMAIN: ${DOMAIN}/g\" config/application.yml"
 - "sed -ri \"s/database: .+/database: ${DATABASE}/g\" config/database.yml"
-- "sed -i \"s/username: postgres/username: ${USERNAME}/g\" config/database.yml"
-- "sed -i \"s/password: postgres/password: ${PASSWORD}/g\" config/database.yml"
+- "sed -ri \"s/username: .+/username: ${USERNAME}/g\" config/database.yml"
+- "sed -ri \"s/password: .+/password: ${PASSWORD}/g\" config/database.yml"
 - echo versions `ruby -v` `bundle -v` `rails -v` yarn `yarn -v`
-- yarn install
+- yarn install --production --check-files
+- yarn cache clean
 - rails db:migrate
 - rails db:seed
 - secret=`rake secret`
 - "sed -i \"s/SECRET_KEY_BASE: ''/SECRET_KEY_BASE: '$secret'/g\" config/application.yml"
 - "sed -i \"s/compile: false/compile: true/g\" config/webpacker.yml"
 - RAILS_ENV=production rails webpacker:compile
-- chmod -R 0755 public_html/public/packs
+- chmod -R 0755 public/packs
