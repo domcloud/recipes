@@ -1,14 +1,17 @@
-source: github://codeigniter4/appstarter
+source: https://github.com/codeigniter4/appstarter
 root: public_html/public
 features:
 - mysql
+nginx:
+  locations:
+  - match: /
+    try_files: $uri $uri/ /index.php$is_args$args
 commands:
 - php --version
 - mv env .env
+- rm public/.htaccess
 - sed -ri "s/(# )?database.default.database.*/database.default.database = ${DATABASE}/g" .env
 - sed -ri "s/(# )?database.default.username.*/database.default.username = ${USERNAME}/g" .env
 - sed -ri "s/(# )?database.default.password.*/database.default.password = ${PASSWORD}/g" .env
 - sed -ri "s/(# )?app.baseURL.*/app.baseURL = ${SCHEME}:\/\/${DOMAIN}/g" .env
-- sed -i "s/Options +FollowSymlinks//g" public/.htaccess
-- sed -i "s/Options All -Indexes//g" public/.htaccess
 - composer install --no-dev --no-progress --no-cache

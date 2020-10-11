@@ -1,4 +1,4 @@
-source: github://domcloud/django-template
+source: https://github.com/domcloud/django-template
 root: public_html/public
 features:
 - mysql # or postgres

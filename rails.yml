@@ -1,4 +1,4 @@
-source: github://domcloud/rails-template-example
+source: https://github.com/domcloud/rails-template-example
 root: public_html/public
 features:
 - postgres

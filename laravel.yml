@@ -1,7 +1,11 @@
-source: github://laravel/laravel
+source: https://github.com/laravel/laravel
 root: public_html/public
 features:
 - mysql
+nginx:
+  locations:
+  - match: /
+    try_files: $uri $uri/ /index.php$is_args$args
 commands:
 - php --version
 - mv .env.example .env

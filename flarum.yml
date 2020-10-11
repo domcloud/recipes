@@ -1,4 +1,4 @@
-source: github://flarum/flarum
+source: https://github.com/flarum/flarum
 root: public_html/public
 features:
 - mysql
