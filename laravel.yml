@@ -1,4 +1,4 @@
-source: https://github.com/laravel/laravel
+source: https://github.com/domcloud/laravel
 root: public_html/public
 features:
 - mysql
