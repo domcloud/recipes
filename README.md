@@ -23,25 +23,31 @@ You're free to submit PR about other popular frameworks.
 
 ## Script Spec
 
-All install script templates uses YAML with following simple spec:
+All install script templates uses YAML with following options:
 
 ```yml
 source: <source url>
+subdomain: <target subdomain>
 directory: <directory to extract>
 root: <webserver root>
+nginx: <nginx configuration>
 features:
 - list of features
 commands:
 - list of shell commands
 ```
 
-All props there is optional, except source. Otherwise no install script is executed.
+All props there is optional.
 
 #### Source
 
 This source url is full path to a ZIP somewhere in internet available for public, either starts from `http://` or `https://`. If it's not a ZIP file, it'll not get executed.
 
-A special url format for fetching GitHub archives is available, using pattern `github://owner/repo#tag`. The `#tag` here is optional. Internally that GitHub URL expands to `https://github.com/owner/repo/archives/tags.zip`.
+You can also use repository URL from GitHub or GitLab (e.g. `https://github.com/domcloud/dom-templates`). It will do special URL modification to refer an actual path to ZIP file in `master` branch. If you want to download a branch other than `master`, append the branch name in hash-tag (.e.g `https://github.com/domcloud/dom-templates#master`)
+
+If you append `.git` at the end of GitHub or GitLab URL. It will do `git clone` instead.
+
+Remember that if you specify `source`,  the current content get deleted. Use it with caution.
 
 #### Directory
 
