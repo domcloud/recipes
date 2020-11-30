@@ -3,7 +3,7 @@
 
 These files are templates to install and host most common web frameworks to internet. 
 
-[You can start deploy them now for free on DOM Cloud](https://portal.domcloud.id/start).
+[You can start deploy them for free on DOM Cloud](https://portal.domcloud.id/start).
 
 Available templates currently:
 
@@ -21,11 +21,48 @@ Frameworks:
 
 You're free to submit PR about other popular frameworks.
 
-## Script Spec
+## Script Examples
+
+To enable and enforce HTTPS:
+
+```yaml
+features:
+- ssl
+nginx:
+  ssl: enforce
+```
+
+To set root as `~/public_html/public/` and internally redirect all traffic to `index.php`:
+
+```yaml
+root: public_html/public
+nginx:
+  locations:
+  - match: /
+    try_files: $uri $uri/ /index.php$is_args$args 
+```
+
+To enable MySQL and create a default database:
+
+```yaml
+features:
+- mysql
+```
+
+To set root as `~/public_html/public/` and enable Passenger mode:
+
+```yaml
+root: public_html/public
+nginx:
+  passenger:
+    enabled: on
+```
+
+## Script Specification
 
 All install script templates uses YAML with following options:
 
-```yml
+```yaml
 source: <source url>
 subdomain: <target subdomain>
 directory: <directory to extract>
@@ -61,20 +98,25 @@ The webserver root to serve. By default it's `public_html`. Usually for modern f
 
 List of features of hosts that you need. Valid values are: 
 
-+ `mysql`, enable MySQL database feature 
-+ `postgres`, enable Postgres database feature 
++ `mysql`, enable MySQL feature and create default database 
++ `postgres`, enable PosgreSQL feature and create default database
 + `ssl`, enable HTTPS and attempt to validate domain to Let's Encrypt.
 
-Remember that in freedom plan, you're only allowed to create one database per host.
+The default database name is the username postfixed with `_db`. If you want a different prefix then specify it like `mysql app`.
 
 #### Commands
 
-List of linux commands that you wish to execute just after extraction complete. Think like what commands you want to call after unzipping the source files using SSH. All commands here internally will be imploded with ` ; `, also it has common subtitution to let you modify config files using `sed -i`:
+List of linux commands that you want to execute. Think like what commands you want to call using SSH. All commands here internally will be imploded with ` ; `, also it has common subtitution to let you modify config files using `sed -i`:
 
 + `${DOMAIN}` the domain name (without *http://* prefix)
++ `${SCHEME}` the preferred scheme (either *http* or *https*)
 + `${USERNAME}` unix username (for host and database login)
 + `${PASSWORD}` unix password (for host and database login)
-+ `${DATABASE}` database name
++ `${DATABASE}` default or given database name
+
+### Nginx
+
+This is the setup needed for configuring Nginx file. See also [available config for this option](https://github.com/domcloud/dom-nginx/blob/master/validator.php).
 
 ## Embed Link
 
@@ -86,7 +128,7 @@ where `<fileurl>` is URL to publicly accessible resource to YAML config. If that
 
 ## Limitation
 
-The Freedom plan gives you free domain, 200 MB storage, 6 GB net data a year, and 5 minutes (of new and re-) deployment time, and unlimited renewal per host. Of course these limitation can be increased if you're enrolling a subcription.
+The Freedom plan gives you free domain, 256 MB storage, 18 GB bandwidth a year, and 5 minutes (of new and re-) deployment time, and unlimited renewal per host. Of course these limitation can be increased if you're enrolling a subcription.
 
 DOM Cloud is not like Docker or Heroku, which is immutable and container-based. All deployment here are mutable, you can edit it futher or relauch your deployment under the same host. [More information here](https://github.com/domcloud/dom-portal).
 
