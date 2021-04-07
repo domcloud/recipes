@@ -1,0 +1,10 @@
+source: https://github.com/huashengdun/webssh.git
+features: ['ssl']
+root: public_html/public
+nginx:
+  ssl: enforce
+  passenger:
+    enabled: on
+    app_start_command: python run.py --port=$PORT
+commands:
+- pip install --user -r requirements.txt

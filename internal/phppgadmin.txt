@@ -1,0 +1,6 @@
+source: https://github.com/phppgadmin/phppgadmin.git
+features: ['ssl']
+nginx:
+  ssl: enforce
+commands:
+- cp conf/config.inc.php-dist conf/config.inc.php

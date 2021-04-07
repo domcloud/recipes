@@ -1,0 +1,8 @@
+source: https://github.com/phpmyadmin/phpmyadmin.git
+directory: STABLE
+features: ['ssl']
+nginx:
+  ssl: enforce
+commands:
+- composer install --no-dev
+- yarn install --production
