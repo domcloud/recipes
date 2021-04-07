@@ -13,7 +13,7 @@ commands:
 - 'sed -ri "s/username_here/${USERNAME}/g" config.production.json'
 - 'sed -ri "s/password_here/${PASSWORD}/g" config.production.json'
 - 'sed -ri "s/database_here/${DATABASE}/g" config.production.json'
-- 'sed -ri "s/url_here/${SCHEME}:\/\/${DOMAIN}/g" config.production.json'
+- 'sed -ri "s/url_here/https:\/\/${DOMAIN}/g" config.production.json'
 - yarn install --production
 - knex-migrator init
 - yarn cache clean

@@ -1,7 +1,7 @@
 # DOM Cloud Templates
 
 
-These files are templates to install and host most common web frameworks to internet. 
+These files are templates to install and host most common web frameworks to internet.
 
 [You can start deploy them for free on DOM Cloud](https://portal.domcloud.id/start).
 
@@ -39,7 +39,7 @@ root: public_html/public
 nginx:
   locations:
   - match: /
-    try_files: $uri $uri/ /index.php$is_args$args 
+    try_files: $uri $uri/ /index.php$is_args$args
 ```
 
 To enable MySQL and create a default database:
@@ -96,9 +96,9 @@ The webserver root to serve. By default it's `public_html`. Usually for modern f
 
 #### Features
 
-List of features of hosts that you need. Valid values are: 
+List of features of hosts that you need. Valid values are:
 
-+ `mysql`, enable MySQL feature and create default database 
++ `mysql`, enable MySQL feature and create default database
 + `postgres`, enable PosgreSQL feature and create default database
 + `ssl`, enable HTTPS and attempt to validate domain to Let's Encrypt.
 
@@ -109,7 +109,6 @@ The default database name is the username postfixed with `_db`. If you want a di
 List of linux commands that you want to execute. Think like what commands you want to call using SSH. All commands here internally will be imploded with ` ; `, also it has common subtitution to let you modify config files using `sed -i`:
 
 + `${DOMAIN}` the domain name (without *http://* prefix)
-+ `${SCHEME}` the preferred scheme (either *http* or *https*)
 + `${USERNAME}` unix username (for host and database login)
 + `${PASSWORD}` unix password (for host and database login)
 + `${DATABASE}` default or given database name
@@ -120,7 +119,7 @@ This is the setup needed for configuring Nginx file. See also [available config 
 
 ## Embed Link
 
-You can use this link format: 
+You can use this link format:
 
 ```https://portal.domcloud.id/start?from=<fileurl>```
 

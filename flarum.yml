@@ -4,7 +4,7 @@ features:
 - mysql
 commands:
 - php --version
-- 'echo "baseUrl: \"${SCHEME}://${DOMAIN}\"" > conf.yml'
+- 'echo "baseUrl: \"https://${DOMAIN}\"" > conf.yml'
 - 'echo "databaseConfiguration:" >> conf.yml'
 - 'echo "  host: localhost" >> conf.yml'
 - 'echo "  database: ${DATABASE}" >> conf.yml'
