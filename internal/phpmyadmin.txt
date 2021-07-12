@@ -6,3 +6,5 @@ nginx:
 commands:
 - composer install --no-dev
 - yarn install --production
+- cp config.sample.inc.php config.inc.php
+- sed -ri "s/\['blowfish_secret'\] = '';/['blowfish_secret'] = '`node -e "console.log(require('crypto').randomBytes(16).toString('hex'))"`';/g" config.inc.php
