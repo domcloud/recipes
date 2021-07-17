@@ -15,7 +15,7 @@ commands:
 - cd ~/.jupyter
 - rm jupyter_notebook_config.py
 - jupyter notebook --generate-config
-- hash=python -c "from notebook.auth import passwd;print(passwd('${PASSWORD}'),end='')"
+- hash=`python -c "from notebook.auth import passwd;print(passwd('${PASSWORD}'),end='')"`
 - sed -i "s/# c.NotebookApp.password = ''/c.NotebookApp.password = u'${hash}'/g" jupyter_notebook_config.py
 - sed -i "s/# c.NotebookApp.password_required = False/c.NotebookApp.password_required = True/g" jupyter_notebook_config.py
 - sed -i "s/# c.NotebookApp.quit_button = True/c.NotebookApp.quit_button = False/g" jupyter_notebook_config.py
