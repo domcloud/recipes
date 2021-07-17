@@ -9,10 +9,16 @@ nginx:
 features:
 - ssl
 commands:
-- pip install --user jupyter notebook
-- pip install --user pandas numpy matplotlib
+- pip install --user --progress-bar off jupyter notebook
+- pip install --user --progress-bar off pandas numpy matplotlib
 - mkdir public
 - cd ~/.jupyter
+- rm jupyter_notebook_config.py
 - jupyter notebook --generate-config
-- sed "s/# c.NotebookApp.password_required = False/c.NotebookApp.password_required = True/g" jupyter_notebook_config.py
-- sed "s/# c.NotebookApp.quit_button = True/c.NotebookApp.quit_button = False/g" jupyter_notebook_config.py
+- hash=python -c "from notebook.auth import passwd;print(passwd('${PASSWORD}'),end='')"
+- sed -i "s/# c.NotebookApp.password = ''/c.NotebookApp.password = u'${hash}'/g" jupyter_notebook_config.py
+- sed -i "s/# c.NotebookApp.password_required = False/c.NotebookApp.password_required = True/g" jupyter_notebook_config.py
+- sed -i "s/# c.NotebookApp.quit_button = True/c.NotebookApp.quit_button = False/g" jupyter_notebook_config.py
+- sed -i "s/# c.NotebookApp.open_browser = True/c.NotebookApp.open_browser = False/g" jupyter_notebook_config.py
+- sed -i "s/# c.NotebookApp.allow_origin = ''/c.NotebookApp.allow_origin = '*'/g" jupyter_notebook_config.py
+- sed -i "s/# c.NotebookApp.allow_remote_access = False/c.NotebookApp.allow_remote_access = True/g" jupyter_notebook_config.py
