@@ -115,7 +115,7 @@ List of linux commands that you want to execute. Think like what commands you wa
 
 ### Nginx
 
-This is the setup needed for configuring Nginx file. See also [available config for this option](https://github.com/domcloud/dom-nginx/blob/master/validator.php).
+This is the setup needed for configuring Nginx file. See also [available config for this option](https://github.com/domcloud/dom-rootkit/blob/master/src/nginx/validator.php).
 
 ## Embed Link
 

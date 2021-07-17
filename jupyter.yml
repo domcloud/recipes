@@ -1,0 +1,18 @@
+source: https://portal.domcloud.id/null.zip
+root: public_html/public
+nginx:
+  fastcgi: off
+  ssl: enforce
+  passenger:
+    enabled: on
+    app_start_command: jupyter notebook --port $PORT
+features:
+- ssl
+commands:
+- pip install --user jupyter notebook
+- pip install --user pandas numpy matplotlib
+- mkdir public
+- cd ~/.jupyter
+- jupyter notebook --generate-config
+- sed "s/# c.NotebookApp.password_required = False/c.NotebookApp.password_required = True/g" jupyter_notebook_config.py
+- sed "s/# c.NotebookApp.quit_button = True/c.NotebookApp.quit_button = False/g" jupyter_notebook_config.py

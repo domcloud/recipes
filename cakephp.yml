@@ -1,0 +1,18 @@
+source: https://portal.domcloud.id/null.zip
+root: public_html/webroot
+features:
+- mysql
+- ssl
+nginx:
+  ssl: enforce
+  locations:
+  - match: /
+    try_files: $uri $uri/ /index.php$is_args$args
+commands:
+- composer create-project cakephp/app . --no-dev
+- chmod +x bin/cake
+- cd ./app/config
+- cp app_local.example.php app_local.php
+- sed -ri "s/'username' => 'my_app'/'username' => '${USERNAME}'/g" pp_local.php
+- sed -ri "s/'password' => 'secret'/'password' => '${PASSWORD}'/g" pp_local.php
+- sed -ri "s/'database' => 'my_app'/'database' => '${DATABASE}'/g" pp_local.php

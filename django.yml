@@ -2,6 +2,10 @@ source: https://github.com/domcloud/django-template
 root: public_html/public
 features:
 - mysql # or postgres
+nginx:
+  fastcgi: off
+  passenger:
+    enabled: on
 commands:
 - python3 --version
 - echo export PATH="$PATH:$HOME/.local/bin" > ~/.bash_profile
@@ -10,9 +14,9 @@ commands:
 - sed -i "s/password_here/${PASSWORD}/g" app/settings.py
 - sed -i "s/domain_here/${DOMAIN}/g" app/settings.py
 - source ~/.bash_profile
-- pip3 install --user django
+- pip install --user django
 - echo yes | python3 manage.py collectstatic
-- pip3 install --user mysqlclient # or psycopg2 for postgres
+- pip install --user mysqlclient # or psycopg2 for postgres
 # sed -i 's/mysql/posgresql/g' app/settings.py ; sed -i 's/3306/5432/g' app/settings.py  # <-- If you prefer postgres
 - hash=`python3 -c 'from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())'`
 - sed -i "s/secret_key_here/$hash/g" app/settings.py

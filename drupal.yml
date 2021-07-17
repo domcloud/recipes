@@ -1,0 +1,19 @@
+source: https://portal.domcloud.id/null.zip
+features:
+- mysql
+- ssl
+nginx:
+  ssl: enforce
+  locations:
+  - match: /
+    try_files: $uri $uri/ /index.php$is_args$args
+commands:
+- composer create-project drupal/recommended-project . --no-dev
+- echo "\$base_url = 'https://${DOMAIN}';" > settings.php
+- echo "\$databases['default']['default'] = array(" >> settings.php
+- echo "'driver' => 'mysql'," >> settings.php
+- echo "'database' => '${DATABASE}'," >> settings.php
+- echo "'username' => '${USERNAME}'," >> settings.php
+- echo "'password' => '${PASSWORD}'," >> settings.php
+- echo "'host' => 'localhost'," >> settings.php
+- echo ");" >> settings.php

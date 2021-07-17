@@ -1,0 +1,13 @@
+source: https://portal.domcloud.id/null.zip
+root: public_html/pub
+features:
+- mysql
+- ssl
+nginx:
+  ssl: enforce
+  locations:
+  - match: /
+    try_files: $uri $uri/ /index.php$is_args$args
+commands:
+- composer create-project --repository-url=https://repo.magento.com/ magento/project-community-edition .
+- ./bin/magento cron:install

@@ -1,5 +1,10 @@
 source: https://github.com/domcloud/rails-template-example
 root: public_html/public
+nginx:
+  fastcgi: off
+  ssl: enforce
+  passenger:
+    enabled: on
 features:
 - postgres
 commands:

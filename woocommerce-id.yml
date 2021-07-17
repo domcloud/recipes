@@ -1,0 +1,19 @@
+source: https://id.wordpress.org/latest-id_ID.zip
+directory: wordpress
+features:
+- mysql
+- ssl
+nginx:
+  ssl: enforce
+  locations:
+  - match: /
+    try_files: $uri $uri/ /index.php$is_args$args
+commands:
+- cp wp-config-sample.php wp-config.php
+- sed -i "s/database_name_here/${DATABASE}/g" wp-config.php
+- sed -i "s/username_here/${USERNAME}/g" wp-config.php
+- sed -i "s/password_here/${PASSWORD}/g" wp-config.php
+- sed -i "s/utf8/utf8mb4/g" wp-config.php
+- cd ./wp-content/plugins
+- wget -q -O __.zip https://downloads.wordpress.org/plugin/woocommerce.zip
+- unzip -q -o __.zip ; rm __.zip ; chmod -R 0750 * .*
