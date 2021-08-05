@@ -125,6 +125,18 @@ You can use this link format:
 
 where `<fileurl>` is URL to publicly accessible resource to YAML config. If that's file is in GitHub, you can use `https://raw.githubusercontent.com/owner/repo/master/configfile.yml`. Just remember to encode that URL so it can be imported properly.
 
+### Webhook
+
+DOM Cloud provides public endpoint available to perform remote control for certain github events, this feature can be leveraged using [GitHub action](https://github.com/marketplace/actions/workflow-webhook-action). Most of the time this feature is useful for keep syncing files between GitHub repo and files on DOM Cloud.
+
+To begin setup the webhook, go to Deploy tab and write the commands you want to execute and click "Setup Webhook". You'll be prompted with this dialog:
+
+![image](https://user-images.githubusercontent.com/20214420/128415871-7f7eca65-f85a-4123-9dfc-79f37d506e50.png)
+
+Put this file in `.github/workflows/domcloud.yml` (can be any filename) and before you push it to GitHub, add these `WEBHOOK_URL`, `WEBHOOK_SECRET`, `WEBHOOK_AUTH` to [Repository Secrets](https://docs.github.com/en/actions/reference/encrypted-secrets). Note you might need to change "main" to your repo's desired main branch.
+
+Note if your host domain URL, username, or password is changed, then you need to update these variables accordingly. Maximum webhook calls is 5 times a hour for given host.
+
 ## Limitation
 
 The Freedom plan gives you free domain, 256 MB storage, 18 GB bandwidth a year, and 5 minutes (of new and re-) deployment time, and unlimited renewal per host. Of course these limitation can be increased if you're enrolling a subcription.
