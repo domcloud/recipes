@@ -2,6 +2,11 @@ source: https://github.com/flarum/flarum
 root: public_html/public
 features:
 - mysql
+nginx:
+  ssl: enforce
+  locations:
+  - match: /
+    try_files: $uri $uri/ /index.php$is_args$args
 commands:
 - php --version
 - 'echo "baseUrl: \"https://${DOMAIN}\"" > conf.yml'
