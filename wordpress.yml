@@ -3,7 +3,9 @@ directory: wordpress
 features:
 - mysql
 - ssl
+- firewall
 nginx:
+  fastcgi: on
   ssl: enforce
   locations:
   - match: /

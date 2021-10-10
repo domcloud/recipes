@@ -3,7 +3,9 @@ root: public_html/webroot
 features:
 - mysql
 - ssl
+- firewall
 nginx:
+  fastcgi: on
   ssl: enforce
   locations:
   - match: /

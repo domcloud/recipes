@@ -2,6 +2,5 @@ features:
 - ssl
 nginx:
   ssl: enforce
-  fastcgi: off
   error_pages:
   - 404 /404.html

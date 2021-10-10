@@ -2,7 +2,9 @@ source: https://github.com/flarum/flarum
 root: public_html/public
 features:
 - mysql
+- firewall
 nginx:
+  fastcgi: on
   ssl: enforce
   locations:
   - match: /

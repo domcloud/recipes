@@ -2,7 +2,9 @@ source: https://github.com/codeigniter4/appstarter
 root: public_html/public
 features:
 - mysql
+- firewall
 nginx:
+  fastcgi: on
   locations:
   - match: /
     try_files: $uri $uri/ /index.php$is_args$args

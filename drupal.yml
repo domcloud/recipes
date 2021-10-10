@@ -4,6 +4,7 @@ features:
 - mysql
 - ssl
 nginx:
+  fastcgi: on
   ssl: enforce
   locations:
   - match: /

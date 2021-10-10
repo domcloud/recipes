@@ -1,0 +1,6 @@
+source: https://portal.domcloud.id/null.zip
+root: public_html/public
+features:
+- mysql
+commands:
+- npx create-strapi-app . --quickstart
