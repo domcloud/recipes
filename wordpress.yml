@@ -10,6 +10,8 @@ nginx:
   locations:
   - match: /
     try_files: $uri $uri/ /index.php$is_args$args
+  - match: = /xmlrpc.php
+    deny: all
 commands:
 - cp wp-config-sample.php wp-config.php
 - sed -i "s/database_name_here/${DATABASE}/g" wp-config.php
