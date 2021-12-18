@@ -1,0 +1,88 @@
+# Index data for DOM Cloud templates
+relative_url: https://raw.githubusercontent.com/domcloud/dom-templates/master/
+templates:
+- title: WordPress
+  file: wordpress.yml
+  icon: https://simpleicons.org/icons/wordpress.svg
+  color: '#21759B'
+- title: Laravel
+  file: laravel.yml
+  icon: https://simpleicons.org/icons/laravel.svg
+  color: '#FF2D20'
+- title: Flarum
+  file: flarum.yml
+  icon: https://domcloud.io/assets/feat/flarum.svg
+  color: '#FF2D20'
+- title: Ghost
+  file: ghost.yml
+  icon: https://domcloud.io/assets/feat/ghost.svg
+  color: '#15171A'
+- title: Strapi
+  file: strapi.yml
+  icon: https://domcloud.io/assets/feat/strapi.svg
+  color: '#2F2E8B'
+- title: Django
+  file: django.yml
+  icon: https://domcloud.io/assets/feat/django.svg
+  color: '#092E20'
+- title: Jupyter
+  file: jupyter.yml
+  icon: https://simpleicons.org/icons/jupyter.svg
+  color: '#F37626'
+- title: Rails
+  file: rails.yml
+  icon: https://simpleicons.org/icons/rubyonrails.svg
+  color: '#CC0000'
+frameworks:
+- title: Static Web
+  file: regular-html.yml
+  description: Just a regular HTML webserver
+  group: HTML
+- title: Static Web (SPA)
+  file: spa.yml
+  description: HTML webserver designed for Single Page Apps
+  group: HTML
+- title: Regular PHP
+  description: Regular PHP webserver
+  file: regular-php.yml
+  group: PHP
+- title: CodeIgniter 4
+  description: PHP webserver designed for CodeIgniter4
+  file: codeigniter.yml
+  group: PHP
+- title: Laravel
+  description: PHP webserver designed for Laravel
+  file: laravel.yml
+  group: PHP
+- title: CakePHP
+  description: PHP webserver designed for CakePHP
+  file: cakephp.yml
+  group: PHP
+- title: Typical server.js
+  description: Typical NodeJS webserver (modify the config to suit your need)
+  file: regular-node.yml
+  group: NodeJS
+- title: Next.js
+  description: NodeJS webserver designed for Next.js
+  file: nextjs.yml
+  group: NodeJS
+- title: Nuxt.js
+  description: NodeJS webserver designed for Nuxt.js
+  file: nuxt.yml
+  group: NodeJS
+- title: Typical WSGI
+  description: Typical Python webserver using WSGI
+  file: regular-python.yml
+  group: NodeJS
+- title: Flask
+  description: Python webserver designed for Flask
+  file: flask.yml
+  group: Python
+- title: Django
+  description: Python webserver designed for Django
+  file: django.yml
+  group: Python
+- title: Rails
+  description: Ruby webserver designed for Rails
+  file: rails.yml
+  group: Ruby
