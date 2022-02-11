@@ -4,3 +4,9 @@ features:
 - mysql
 commands:
 - npx create-strapi-app . --quickstart
+nginx:
+  passenger:
+    enabled: 'on'
+  locations:
+    - match: /admin/
+      alias: public_html/build/
