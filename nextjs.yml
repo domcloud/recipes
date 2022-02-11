@@ -1,1 +1,8 @@
-# WIP
+nginx:
+  passenger:
+    enabled: 'on'
+    app_start_command: 'env PORT=$PORT yarn start'
+  locations:
+    # optimizing static cache
+    - match: /_next/
+      alias: public_html/.next/
