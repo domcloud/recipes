@@ -1,12 +1,13 @@
-source: https://portal.domcloud.id/null.zip
+source: clear
 root: public_html/public
-features:
-- mysql
 commands:
-- npx create-strapi-app . --quickstart
+- yarn global add create-strapi-app
+- create-strapi-app . --quickstart
+- yarn build
 nginx:
   passenger:
     enabled: 'on'
+    app_start_command: env PORT=$PORT yarn start
   locations:
     - match: /admin/
       alias: public_html/build/
