@@ -1,6 +1,7 @@
 source: clear
 root: public_html/public
 commands:
+- yarn config set prefix ~/.local
 - yarn global add create-strapi-app
 - create-strapi-app . --quickstart
 - yarn build
