@@ -9,15 +9,16 @@ Available templates currently:
 
 CMS:
 
-+ [WordPress](https://portal.domcloud.id/start?from=https://raw.githubusercontent.com/domcloud/dom-templates/master/wordpress.yml) - Blogging
-+ [Flarum](https://portal.domcloud.id/start?from=https://raw.githubusercontent.com/domcloud/dom-templates/master/flarum.yml) - Forum
++ [WordPress](https://my.domcloud.co/start?from=https://raw.githubusercontent.com/domcloud/dom-templates/master/wordpress.yml) - Blogging
++ [Flarum](https://my.domcloud.co/start?from=https://raw.githubusercontent.com/domcloud/dom-templates/master/flarum.yml) - Forum
++ [Strapi](https://my.domcloud.co/start?from=https://raw.githubusercontent.com/domcloud/dom-templates/master/strapi.yml) - API
 
 Frameworks:
 
-+ [Laravel](https://portal.domcloud.id/start?from=https://raw.githubusercontent.com/domcloud/dom-templates/master/laravel.yml) - PHP
-+ [CodeIgniter](https://portal.domcloud.id/start?from=https://raw.githubusercontent.com/domcloud/dom-templates/master/codeigniter.yml) - PHP
-+ [Django](https://portal.domcloud.id/start?from=https://raw.githubusercontent.com/domcloud/dom-templates/master/django.yml) - Python
-+ [Rails](https://portal.domcloud.id/start?from=https://raw.githubusercontent.com/domcloud/dom-templates/master/rails.yml) - Ruby
++ [Laravel](https://my.domcloud.co/start?from=https://raw.githubusercontent.com/domcloud/dom-templates/master/laravel.yml) - PHP
++ [CodeIgniter](https://my.domcloud.co/start?from=https://raw.githubusercontent.com/domcloud/dom-templates/master/codeigniter.yml) - PHP
++ [Django](https://my.domcloud.co/start?from=https://raw.githubusercontent.com/domcloud/dom-templates/master/django.yml) - Python
++ [Rails](https://my.domcloud.co/start?from=https://raw.githubusercontent.com/domcloud/dom-templates/master/rails.yml) - Ruby
 
 You're free to submit PR about other popular frameworks.
 
