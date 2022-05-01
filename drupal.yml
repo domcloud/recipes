@@ -1,4 +1,4 @@
-source: https://portal.domcloud.id/null.zip
+source: clear
 root: public_html/web
 features:
 - mysql
