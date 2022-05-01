@@ -1,5 +1,5 @@
-source: https://portal.domcloud.id/null.zip
-root: public_html/pub
+source: clear
+root: public_html/public
 features:
 - mysql
 - ssl

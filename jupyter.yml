@@ -1,12 +1,17 @@
 source: clear
+root: public_html/public
+features:
+- python 3.9
+- ssl
 nginx:
   ssl: enforce
   passenger:
     enabled: on
     app_start_command: jupyter notebook --port $PORT
 commands:
-- pip install --user --progress-bar off jupyter notebook
-- pip install --user --progress-bar off pandas numpy matplotlib
+- pip config set global.progress_bar off
+- pip install jupyter notebook
+- pip install pandas numpy matplotlib
 - mkdir public
 - cd ~/.jupyter
 - rm jupyter_notebook_config.py
@@ -18,5 +23,3 @@ commands:
 - sed -i "s/# c.NotebookApp.open_browser = True/c.NotebookApp.open_browser = False/g" jupyter_notebook_config.py
 - sed -i "s/# c.NotebookApp.allow_origin = ''/c.NotebookApp.allow_origin = '*'/g" jupyter_notebook_config.py
 - sed -i "s/# c.NotebookApp.allow_remote_access = False/c.NotebookApp.allow_remote_access = True/g" jupyter_notebook_config.py
-- feature: root public_html/public
-- feature: ssl

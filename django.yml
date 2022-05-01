@@ -1,4 +1,5 @@
 source: clear
+root: public_html/public
 features:
 - python 3.9
 nginx:
@@ -12,4 +13,3 @@ commands:
 - echo "from app.wsgi import application" > passenger_wsgi.py
 - python manage.py migrate 
 - mkdir public
-- feature: root public_html/public
