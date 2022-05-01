@@ -1,9 +1,6 @@
-source: https://portal.domcloud.id/null.zip
-root: public_html/webroot
+source: clear
 features:
 - mysql
-- ssl
-- firewall
 nginx:
   fastcgi: on
   ssl: enforce
@@ -19,3 +16,5 @@ commands:
 - sed -ri "s/'database' => 'my_app'/'database' => '${DATABASE}'/g" app_local.php
 - hash=`node -e "console.log(require('crypto').randomBytes(16).toString('hex'))"`
 - sed -i "s/__SALT__/${hash}/g" app_local.php
+- feature: root public_html/webroot
+- feature: ssl
