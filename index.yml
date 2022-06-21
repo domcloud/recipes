@@ -11,7 +11,7 @@ templates:
   color: '#FF2D20'
 - title: Flarum
   file: flarum.yml
-  icon: https://domcloud.io/assets/feat/flarum.svg
+  icon: https://domcloud.co/assets/feat/flarum.svg
   color: '#FF2D20'
 - title: Ghost
   file: ghost.yml
