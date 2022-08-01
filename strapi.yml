@@ -2,10 +2,11 @@ source: clear
 root: public_html/public
 features:
 - ssl
+- node lts
 nginx:
   passenger:
     enabled: 'on'
-    app_start_command: env PORT=$PORT yarn develop
+    app_start_command: env PORT=$PORT ~/.local/opt/node/bin/yarn develop
   locations:
     - match: /admin/
       alias: public_html/build/
