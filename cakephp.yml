@@ -1,9 +1,9 @@
 source: clear
-root: public_html/webroot
 features:
 - mysql
 - ssl
 nginx:
+  root: public_html/webroot
   fastcgi: on
   ssl: enforce
   locations:

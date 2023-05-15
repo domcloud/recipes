@@ -1,10 +1,9 @@
 source: clear
-root: public_html/public
 features:
-- python 3.9
+- python
 - ssl
 nginx:
-  ssl: enforce
+  root: public_html/public
   passenger:
     enabled: on
     app_start_command: jupyter notebook --port $PORT

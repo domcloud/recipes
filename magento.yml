@@ -1,9 +1,9 @@
 source: clear
-root: public_html/public
 features:
 - mysql
 - ssl
 nginx:
+  root: public_html/public
   ssl: enforce
   locations:
   - match: /

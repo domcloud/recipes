@@ -1,7 +1,7 @@
 source: https://github.com/huashengdun/webssh.git
 features: ['ssl']
-root: public_html/public
 nginx:
+  root: public_html/public
   ssl: enforce
   passenger:
     enabled: on

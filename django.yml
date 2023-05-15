@@ -1,8 +1,8 @@
 source: clear
-root: public_html/public
 features:
-- python 3.9
+- python lts
 nginx:
+  root: public_html/public
   passenger:
     enabled: on
     python: .pyenv/shims/python

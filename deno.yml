@@ -1,8 +1,6 @@
 # WIP
 source: clear
 features:
-- node
+- deno
 nginx:
   root: public_html/public
-commands:
-- npx express-generator

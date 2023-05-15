@@ -1,8 +1,7 @@
 source: https://github.com/domcloud/rails-template-example
-root: public_html/public
 nginx:
+  root: public_html/public
   fastcgi: off
-  ssl: enforce
   passenger:
     enabled: on
 features:

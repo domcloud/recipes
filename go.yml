@@ -1,3 +1,6 @@
 # WIP
-source: https://portal.domcloud.id/null.zip
-root: public_html/public
+source: clear
+features:
+- go
+nginx:
+  root: public_html/public

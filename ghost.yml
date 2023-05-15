@@ -1,14 +1,12 @@
-# Due to the size, you need LITE plan
-source: https://github.com/TryGhost/Ghost/releases/download/v4.4.0/Ghost-4.4.0.zip
-root: public_html/public
+source: https://github.com/TryGhost/Ghost/archive/refs/heads/main.zip
 nginx:
-  ssl: enforce
-  fastcgi: off
+  root: public_html/public
   passenger:
     enabled: on
 features:
 - mysql
 - ssl
+- node lts
 commands:
 - echo export PATH="$HOME/public_html/node_modules/.bin:$PATH" > ~/.bash_profile
 - source ~/.bash_profile

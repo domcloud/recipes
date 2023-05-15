@@ -1,9 +1,9 @@
 source: clear
-root: public_html/public
 features:
 - ssl
 - node lts
 nginx:
+  root: public_html/public
   passenger:
     enabled: 'on'
     app_start_command: env PORT=$PORT ~/.local/opt/node/bin/yarn develop
