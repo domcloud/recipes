@@ -7,8 +7,8 @@ templates:
   color: '#21759B'
 - title: Drupal
   file: boot-drupal.yml
-  icon: https://simpleicons.org/icons/wordpress.svg
-  color: '#21759B'
+  icon: https://simpleicons.org/icons/drupal.svg
+  color: '#0678BE'
 - title: CodeIgniter
   file: boot-codeigniter.yml
   icon: https://simpleicons.org/icons/codeigniter.svg
@@ -74,6 +74,7 @@ frameworks:
   group: HTML
 - title: Vite
   file: html-vite.yml
+  group: HTML
 - title: Gatsby
   file: html-gatsby.yml
   group: HTML
