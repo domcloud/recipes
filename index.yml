@@ -2,87 +2,107 @@
 relative_url: https://raw.githubusercontent.com/domcloud/dom-templates/master/
 templates:
 - title: WordPress
-  file: wordpress.yml
+  file: boot-wordpress.yml
   icon: https://simpleicons.org/icons/wordpress.svg
   color: '#21759B'
 - title: Laravel
-  file: laravel.yml
+  file: boot-laravel.yml
   icon: https://simpleicons.org/icons/laravel.svg
   color: '#FF2D20'
 - title: Flarum
-  file: flarum.yml
+  file: boot-flarum.yml
   icon: https://domcloud.co/assets/feat/flarum.svg
   color: '#FF2D20'
 - title: Ghost
-  file: ghost.yml
+  file: boot-ghost.yml
   icon: https://simpleicons.org/icons/ghost.svg
   color: '#15171A'
 - title: Strapi
-  file: strapi.yml
+  file: boot-strapi.yml
   icon: https://simpleicons.org/icons/strapi.svg
   color: '#2F2E8B'
 - title: Django
-  file: django.yml
+  file: boot-django.yml
   icon: https://simpleicons.org/icons/django.svg
   color: '#092E20'
 - title: Jupyter
-  file: jupyter.yml
+  file: boot-jupyter.yml
   icon: https://simpleicons.org/icons/jupyter.svg
   color: '#F37626'
 - title: Rails
-  file: rails.yml
+  file: boot-rails.yml
   icon: https://simpleicons.org/icons/rubyonrails.svg
   color: '#CC0000'
 frameworks:
-- title: Static Web
-  file: regular-html.yml
-  description: Just a regular HTML webserver
+- title: Static Web (HTML)
+  file: html.yml
   group: HTML
 - title: Static Web (SPA)
-  file: spa.yml
-  description: HTML webserver designed for Single Page Apps
+  file: html-spa.yml
   group: HTML
-- title: Regular PHP
-  description: Regular PHP webserver
-  file: regular-php.yml
+- title: Vite
+  file: html-vite.yml
+  group: HTML
+- title: Jekyll
+  file: html-jekyll.yml
+  group: HTML
+- title: Hugo
+  file: html-hugo.yml
+  group: HTML
+- title: PHP + Debug
+  file: php-debug.yml
+  group: PHP
+- title: CodeIgniter 3
+  file: php-codeigniter3.yml
   group: PHP
 - title: CodeIgniter 4
-  description: PHP webserver designed for CodeIgniter4
-  file: codeigniter.yml
+  file: php-codeigniter4.yml
   group: PHP
 - title: Laravel
-  description: PHP webserver designed for Laravel
-  file: laravel.yml
+  file: php-laravel.yml
   group: PHP
-- title: CakePHP
-  description: PHP webserver designed for CakePHP
-  file: cakephp.yml
-  group: PHP
-- title: Typical server.js
-  description: Typical NodeJS webserver (modify the config to suit your need)
-  file: regular-node.yml
-  group: NodeJS
+- title: Node app.js (CJS)
+  file: node-cjs.yml
+  group: Node
+- title: Node app.js (ESM/GLS)
+  file: node-cjs.yml
+  group: Node
 - title: Next.js
-  description: NodeJS webserver designed for Next.js
-  file: nextjs.yml
-  group: NodeJS
+  file: node-nextjs.yml
+  group: Node
 - title: Nuxt.js
-  description: NodeJS webserver designed for Nuxt.js
-  file: nuxt.yml
-  group: NodeJS
-- title: Typical WSGI
-  description: Typical Python webserver using WSGI
-  file: regular-python.yml
-  group: NodeJS
+  file: node-nuxtjs.yml
+  group: Node
+- title: SvelteKit
+  file: node-sveltekit.yml
+  group: Node
+- title: Python main.py (WSGI)
+  file: python-wsgi.yml
+  group: Python
+- title: Python main.py (GLS)
+  file: python-gls.yml
+  group: Python
 - title: Flask
-  description: Python webserver designed for Flask
-  file: flask.yml
+  file: python-flask.yml
   group: Python
 - title: Django
-  description: Python webserver designed for Django
-  file: django.yml
+  file: python-django.yml
   group: Python
-- title: Rails
-  description: Ruby webserver designed for Rails
-  file: rails.yml
+- title: Ruby on Rails
+  file: ruby-rails.yml
   group: Ruby
+- title: Go (GLS + Go Run)
+  file: go-gls.yml
+  group: Go
+- title: Go (GLS + Binary Build)
+  file: go-binary.yml
+  group: Go
+- title: Rust (GLS + Cargo Run)
+  file: rust-gls.yml
+  group: Go
+- title: Rust (GLS + Binary Build)
+  file: rust-binary.yml
+  group: Go
+- title: Deno (GLS)
+  file: deno.yml
+  group: Deno

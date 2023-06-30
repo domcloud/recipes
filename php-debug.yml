@@ -1,0 +1,6 @@
+nginx:
+  fastcgi: on
+commands:
+- echo "<?php phpinfo(15);" > phpinfo.php
+- echo "display_errors = On" > .user.ini
+- echo "display_startup_errors = On" >> .user.ini

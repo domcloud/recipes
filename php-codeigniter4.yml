@@ -1,0 +1,17 @@
+features:
+- mysql
+- php latest
+nginx:
+  root: public_html/public
+  fastcgi: on
+  locations:
+  - match: /
+    try_files: $uri $uri/ /index.php$is_args$args
+commands:
+- cp env .env
+- rm public/.htaccess
+- sed -ri "s/(# )?database.default.database.*/database.default.database = ${DATABASE}/g" .env
+- sed -ri "s/(# )?database.default.username.*/database.default.username = ${USERNAME}/g" .env
+- sed -ri "s/(# )?database.default.password.*/database.default.password = ${PASSWORD}/g" .env
+- sed -ri "s/(# )?app.baseURL.*/app.baseURL = https:\/\/${DOMAIN}/g" .env
+- composer install

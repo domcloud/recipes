@@ -1,7 +1,4 @@
-features:
-- ssl
 nginx:
-  ssl: enforce
   locations:
   - match: /
     try_files: $uri /index.html
