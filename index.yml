@@ -5,34 +5,66 @@ templates:
   file: boot-wordpress.yml
   icon: https://simpleicons.org/icons/wordpress.svg
   color: '#21759B'
+- title: Drupal
+  file: boot-drupal.yml
+  icon: https://simpleicons.org/icons/wordpress.svg
+  color: '#21759B'
+- title: CodeIgniter
+  file: boot-codeigniter.yml
+  icon: https://simpleicons.org/icons/codeigniter.svg
+  color: '#EF4223'
 - title: Laravel
   file: boot-laravel.yml
   icon: https://simpleicons.org/icons/laravel.svg
   color: '#FF2D20'
-- title: Flarum
-  file: boot-flarum.yml
-  icon: https://domcloud.co/assets/feat/flarum.svg
-  color: '#FF2D20'
-- title: Ghost
-  file: boot-ghost.yml
-  icon: https://simpleicons.org/icons/ghost.svg
-  color: '#15171A'
-- title: Strapi
-  file: boot-strapi.yml
-  icon: https://simpleicons.org/icons/strapi.svg
-  color: '#2F2E8B'
+- title: Express
+  file: boot-express.yml
+  icon: https://simpleicons.org/icons/express.svg
+  color: '#000000'
+- title: Flask
+  file: boot-flask.yml
+  icon: https://simpleicons.org/icons/flask.svg
+  color: '#000000'
 - title: Django
   file: boot-django.yml
   icon: https://simpleicons.org/icons/django.svg
   color: '#092E20'
-- title: Jupyter
-  file: boot-jupyter.yml
-  icon: https://simpleicons.org/icons/jupyter.svg
-  color: '#F37626'
 - title: Rails
   file: boot-rails.yml
   icon: https://simpleicons.org/icons/rubyonrails.svg
   color: '#CC0000'
+- title: Strapi
+  file: boot-strapi.yml
+  icon: https://simpleicons.org/icons/strapi.svg
+  color: '#2F2E8B'
+- title: Jekyll
+  file: boot-jekyll.yml
+  icon: https://simpleicons.org/icons/jekyll.svg
+  color: '#CC0000'
+- title: Directus
+  file: boot-directus.yml
+  icon: https://simpleicons.org/icons/directus.svg
+  color: '#263238'
+- title: Wagtail
+  file: boot-wagtail.yml
+  icon: https://simpleicons.org/icons/wagtail.svg
+  color: '#43B1B0'
+- title: Ghost
+  file: boot-ghost.yml
+  icon: https://simpleicons.org/icons/ghost.svg
+  color: '#15171A'
+- title: Flarum
+  file: boot-flarum.yml
+  icon: https://domcloud.co/assets/feat/flarum.svg
+  color: '#FF2D20'
+- title: RocketChat
+  file: boot-rocketchat.yml
+  icon: https://simpleicons.org/icons/rocketdotchat.svg
+  color: '#F5455C'
+- title: Jupyter
+  file: boot-jupyter.yml
+  icon: https://simpleicons.org/icons/jupyter.svg
+  color: '#F37626'
 frameworks:
 - title: Static Web (HTML)
   file: html.yml
@@ -42,12 +74,29 @@ frameworks:
   group: HTML
 - title: Vite
   file: html-vite.yml
+- title: Gatsby
+  file: html-gatsby.yml
+  group: HTML
+- title: Docusaurus
+  file: html-docusaurus.yml
+  group: HTML
+- title: Create React App
+  file: html-cra.yml
   group: HTML
 - title: Jekyll
   file: html-jekyll.yml
   group: HTML
 - title: Hugo
   file: html-hugo.yml
+  group: HTML
+- title: MkDocs
+  file: html-mkdocs.yml
+  group: HTML
+- title: Hexo
+  file: html-hexo.yml
+  group: HTML
+- title: Slate Docs
+  file: html-slatedocs.yml
   group: HTML
 - title: PHP + Debug
   file: php-debug.yml
