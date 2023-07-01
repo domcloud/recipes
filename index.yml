@@ -149,10 +149,10 @@ frameworks:
   group: Go
 - title: Rust (GLS + Cargo Run)
   file: rust-gls.yml
-  group: Go
+  group: Rust
 - title: Rust (GLS + Binary Build)
   file: rust-binary.yml
-  group: Go
+  group: Rust
 - title: Deno (GLS)
   file: deno.yml
   group: Deno
