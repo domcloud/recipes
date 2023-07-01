@@ -1,11 +1,9 @@
 source: clear
 features:
 - mysql
-- ssl
 nginx:
   root: public_html/webroot
   fastcgi: on
-  ssl: enforce
   locations:
   - match: /
     try_files: $uri $uri/ /index.php$is_args$args

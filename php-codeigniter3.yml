@@ -1,0 +1,9 @@
+features:
+- mysql
+- php latest
+nginx:
+  root: public_html
+  fastcgi: on
+  locations:
+  - match: /
+    try_files: $uri $uri/ /index.php$is_args$args

@@ -1,7 +1,6 @@
 source: clear
 features:
 - python
-- ssl
 nginx:
   root: public_html/public
   passenger:

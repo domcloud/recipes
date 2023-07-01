@@ -5,7 +5,6 @@ features:
 nginx:
   root: public_html/public
   fastcgi: on
-  ssl: enforce
   locations:
   - match: /
     try_files: $uri $uri/ /index.php$is_args$args
@@ -21,7 +20,7 @@ commands:
 - 'echo "adminUser:" >> conf.yml'
 # To edit default admin user login, change here
 - 'echo "  username: admin" >> conf.yml'
-- 'echo "  password: password" >> conf.yml'
+- 'echo "  password: ${PASSWORD}" >> conf.yml'
 - 'echo "  email: admin@example.com" >> conf.yml'
-- composer install --no-dev --no-progress --no-cache
+- composer install -o --no-progress
 - php flarum install --file=conf.yml

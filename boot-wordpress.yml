@@ -2,11 +2,9 @@ source: https://wordpress.org/latest.zip
 directory: wordpress
 features:
 - mysql
-- ssl
 - firewall
 nginx:
   fastcgi: on
-  ssl: enforce
   locations:
   - match: /
     try_files: $uri $uri/ /index.php$is_args$args

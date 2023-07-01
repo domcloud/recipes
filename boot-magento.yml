@@ -1,10 +1,8 @@
 source: clear
 features:
 - mysql
-- ssl
 nginx:
   root: public_html/public
-  ssl: enforce
   locations:
   - match: /
     try_files: $uri $uri/ /index.php$is_args$args

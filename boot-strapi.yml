@@ -1,6 +1,5 @@
 source: clear
 features:
-- ssl
 - node lts
 nginx:
   root: public_html/public
