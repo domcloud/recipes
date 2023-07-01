@@ -1,0 +1,7 @@
+features:
+- node lts
+nginx:
+  root: public_html/build
+commands:
+- yarn install
+- yarn build
