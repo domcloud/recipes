@@ -5,28 +5,28 @@ nginx:
   passenger:
     enabled: on
 features:
-- postgres
+  - postgres
 commands:
-- echo export PATH="$HOME/bin:$PATH" > ~/.bash_profile
-- sed -i "s/ruby '2.5.3'/ruby '>= 2.5.3'/g" Gemfile
-- source ~/.bash_profile
-- gem install bundler
-- bundle config set bin ~/bin
-- bundle config set path ~/.gem/ruby
-- bundle install --quiet
-- mv config/application.yml.example config/application.yml
-- mv config/database.yml.example config/database.yml
-- "sed -i \"s/DOMAIN: ''/DOMAIN: ${DOMAIN}/g\" config/application.yml"
-- "sed -ri \"s/database: .+/database: ${DATABASE}/g\" config/database.yml"
-- "sed -ri \"s/username: .+/username: ${USERNAME}/g\" config/database.yml"
-- "sed -ri \"s/password: .+/password: ${PASSWORD}/g\" config/database.yml"
-- echo versions `ruby -v` `bundle -v` `rails -v` yarn `yarn -v`
-- yarn install --production --check-files
-- yarn cache clean
-- rails db:migrate
-- rails db:seed
-- secret=`rake secret`
-- "sed -i \"s/SECRET_KEY_BASE: ''/SECRET_KEY_BASE: '$secret'/g\" config/application.yml"
-- "sed -i \"s/compile: false/compile: true/g\" config/webpacker.yml"
-- RAILS_ENV=production rails webpacker:compile
-- chmod -R 0755 public/packs
+  - echo export PATH="$HOME/bin:$PATH" > ~/.bash_profile
+  - sed -i "s/ruby '2.5.3'/ruby '>= 2.5.3'/g" Gemfile
+  - source ~/.bash_profile
+  - gem install bundler
+  - bundle config set bin ~/bin
+  - bundle config set path ~/.gem/ruby
+  - bundle install --quiet
+  - mv config/application.yml.example config/application.yml
+  - mv config/database.yml.example config/database.yml
+  - "sed -i \"s/DOMAIN: ''/DOMAIN: ${DOMAIN}/g\" config/application.yml"
+  - "sed -ri \"s/database: .+/database: ${DATABASE}/g\" config/database.yml"
+  - "sed -ri \"s/username: .+/username: ${USERNAME}/g\" config/database.yml"
+  - "sed -ri \"s/password: .+/password: ${PASSWORD}/g\" config/database.yml"
+  - echo versions `ruby -v` `bundle -v` `rails -v` yarn `yarn -v`
+  - yarn install --production --check-files
+  - yarn cache clean
+  - rails db:migrate
+  - rails db:seed
+  - secret=`rake secret`
+  - "sed -i \"s/SECRET_KEY_BASE: ''/SECRET_KEY_BASE: '$secret'/g\" config/application.yml"
+  - "sed -i \"s/compile: false/compile: true/g\" config/webpacker.yml"
+  - RAILS_ENV=production rails webpacker:compile
+  - chmod -R 0755 public/packs

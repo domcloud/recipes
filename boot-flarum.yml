@@ -1,7 +1,7 @@
 source: https://github.com/flarum/flarum
 features:
-- mysql
-- firewall
+  - mysql
+  - firewall
 nginx:
   root: public_html/public
   fastcgi: on
@@ -9,18 +9,18 @@ nginx:
   - match: /
     try_files: $uri $uri/ /index.php$is_args$args
 commands:
-- php --version
-- 'echo "baseUrl: \"https://${DOMAIN}\"" > conf.yml'
-- 'echo "databaseConfiguration:" >> conf.yml'
-- 'echo "  host: localhost" >> conf.yml'
-- 'echo "  database: ${DATABASE}" >> conf.yml'
-- 'echo "  username: ${USERNAME}" >> conf.yml'
-- 'echo "  password: ${PASSWORD}" >> conf.yml'
-- 'echo "  prefix: flarum_" >> conf.yml'
-- 'echo "adminUser:" >> conf.yml'
+  - php --version
+  - 'echo "baseUrl: \"https://${DOMAIN}\"" > conf.yml'
+  - 'echo "databaseConfiguration:" >> conf.yml'
+  - 'echo "  host: localhost" >> conf.yml'
+  - 'echo "  database: ${DATABASE}" >> conf.yml'
+  - 'echo "  username: ${USERNAME}" >> conf.yml'
+  - 'echo "  password: ${PASSWORD}" >> conf.yml'
+  - 'echo "  prefix: flarum_" >> conf.yml'
+  - 'echo "adminUser:" >> conf.yml'
 # To edit default admin user login, change here
-- 'echo "  username: admin" >> conf.yml'
-- 'echo "  password: ${PASSWORD}" >> conf.yml'
-- 'echo "  email: admin@example.com" >> conf.yml'
-- composer install -o --no-progress
-- php flarum install --file=conf.yml
+  - 'echo "  username: admin" >> conf.yml'
+  - 'echo "  password: ${PASSWORD}" >> conf.yml'
+  - 'echo "  email: admin@example.com" >> conf.yml'
+  - composer install -o --no-progress
+  - php flarum install --file=conf.yml

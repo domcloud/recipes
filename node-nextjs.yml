@@ -1,4 +1,3 @@
-source: clear
 features:
   - node lts
 nginx:
@@ -10,5 +9,5 @@ nginx:
     - match: /_next/
       alias: public_html/.next/
 commands:
-  - yarn create next-app .
+  - yarn install
   - yarn build

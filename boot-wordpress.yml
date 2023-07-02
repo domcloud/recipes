@@ -1,18 +1,22 @@
 source: https://wordpress.org/latest.zip
 directory: wordpress
 features:
-- mysql
-- firewall
+  - mysql
+  - firewall
 nginx:
   fastcgi: on
   locations:
-  - match: /
-    try_files: $uri $uri/ /index.php$is_args$args
-  - match: ~ /xmlrpc\.php$
-    deny: all
+    - match: /
+      try_files: $uri $uri/ /index.php$is_args$args
+    - match: ~ /xmlrpc\.php$
+      deny: all
 commands:
-- cp wp-config-sample.php wp-config.php
-- sed -i "s/database_name_here/${DATABASE}/g" wp-config.php
-- sed -i "s/username_here/${USERNAME}/g" wp-config.php
-- sed -i "s/password_here/${PASSWORD}/g" wp-config.php
-- sed -i "s/utf8/utf8mb4/g" wp-config.php
+  - cp wp-config-sample.php wp-config.php
+  - sed -i "s/database_name_here/${DATABASE}/g" wp-config.php
+  - sed -i "s/username_here/${USERNAME}/g" wp-config.php
+  - sed -i "s/password_here/${PASSWORD}/g" wp-config.php
+  - sed -i "s/utf8/utf8mb4/g" wp-config.php
+  - curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
+  - mkdir -p ~/.local/bin && mv wp-cli.phar ~/.local/bin/wp && chmod +x $_
+# To bypass the WordPress installation wizard, uncomment the following lines
+# - wp core install --url=${DOMAIN} --title="My WordPress Site" --admin_user=admin --admin_password=${PASSWORD} --

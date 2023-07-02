@@ -4,18 +4,18 @@ nginx:
   passenger:
     enabled: on
 features:
-- mysql
-- node lts
+  - mysql
+  - node lts
 commands:
-- echo export PATH="$HOME/public_html/node_modules/.bin:$PATH" > ~/.bash_profile
-- source ~/.bash_profile
-- mkdir public
-- echo "require('./index.js');" > app.js
-- wget -q -O config.production.json https://gist.githubusercontent.com/willnode/45e722be156736ea3a08f29d37ad997c/raw/93dbbecc209ac9e6b9eb0a9d22ece1f14ab54e67/ghost-production-config.json
-- 'sed -ri "s/username_here/${USERNAME}/g" config.production.json'
-- 'sed -ri "s/password_here/${PASSWORD}/g" config.production.json'
-- 'sed -ri "s/database_here/${DATABASE}/g" config.production.json'
-- 'sed -ri "s/url_here/https:\/\/${DOMAIN}/g" config.production.json'
-- yarn install --production --no-progress
-- knex-migrator init
-- yarn cache clean
+  - echo export PATH="$HOME/public_html/node_modules/.bin:$PATH" > ~/.bash_profile
+  - source ~/.bash_profile
+  - mkdir public
+  - echo "require('./index.js');" > app.js
+  - wget -q -O config.production.json https://gist.githubusercontent.com/willnode/45e722be156736ea3a08f29d37ad997c/raw/93dbbecc209ac9e6b9eb0a9d22ece1f14ab54e67/ghost-production-config.json
+  - 'sed -ri "s/username_here/${USERNAME}/g" config.production.json'
+  - 'sed -ri "s/password_here/${PASSWORD}/g" config.production.json'
+  - 'sed -ri "s/database_here/${DATABASE}/g" config.production.json'
+  - 'sed -ri "s/url_here/https:\/\/${DOMAIN}/g" config.production.json'
+  - yarn install --production --no-progress
+  - knex-migrator init
+  - yarn cache clean

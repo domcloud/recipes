@@ -1,22 +1,22 @@
 source: clear
 features:
-- node lts
+  - node lts
 nginx:
   root: public_html/public
   passenger:
-    enabled: 'on'
+    enabled: "on"
     app_start_command: env PORT=$PORT ~/.local/opt/node/bin/yarn develop
   locations:
     - match: /admin/
       alias: public_html/build/
 commands:
-- yarn config set prefix ~/.local
-- yarn global add create-strapi-app
-- create-strapi-app . --quickstart --no-run
-- echo JWT_SECRET=`node -e "console.log(crypto.randomBytes(16).toString('base64'))"` > .env
-- echo APP_KEYS=`node -e "console.log(crypto.randomBytes(16).toString('base64'))"` >> .env
-- echo ADMIN_JWT_SECRET=`node -e "console.log(crypto.randomBytes(16).toString('base64'))"` >> .env
-- echo API_TOKEN_SALT=`node -e "console.log(crypto.randomBytes(16).toString('base64'))"` >> .env
-- echo STRAPI_ADMIN_BACKEND_URL=//${DOMAIN} >> .env 
-- echo NODE_ENV=development >> .env
-- STRAPI_ADMIN_BACKEND_URL=//${DOMAIN} yarn build
+  - yarn config set prefix ~/.local
+  - yarn global add create-strapi-app
+  - create-strapi-app . --quickstart --no-run
+  - echo JWT_SECRET=`node -e "console.log(crypto.randomBytes(16).toString('base64'))"` > .env
+  - echo APP_KEYS=`node -e "console.log(crypto.randomBytes(16).toString('base64'))"` >> .env
+  - echo ADMIN_JWT_SECRET=`node -e "console.log(crypto.randomBytes(16).toString('base64'))"` >> .env
+  - echo API_TOKEN_SALT=`node -e "console.log(crypto.randomBytes(16).toString('base64'))"` >> .env
+  - echo STRAPI_ADMIN_BACKEND_URL=//${DOMAIN} >> .env
+  - echo NODE_ENV=development >> .env
+  - STRAPI_ADMIN_BACKEND_URL=//${DOMAIN} yarn build

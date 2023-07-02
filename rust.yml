@@ -1,6 +1,6 @@
 # WIP
 source: clear
 features:
-- rust
+  - rust
 nginx:
   root: public_html/public

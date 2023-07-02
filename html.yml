@@ -1,3 +1,3 @@
 nginx:
   error_pages:
-  - 404 /404.html
+    - 404 /404.html

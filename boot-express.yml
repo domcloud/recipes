@@ -1,8 +1,12 @@
-# WIP
 source: clear
 features:
-- node
+  - node lts
 nginx:
   root: public_html/public
+  passenger:
+    enabled: "on"
+    app_type: node
+    startup_file: bin/www
 commands:
-- npx express-generator
+  - npx express-generator
+  - npm install

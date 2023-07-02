@@ -1,4 +1,4 @@
 nginx:
   locations:
-  - match: /
-    try_files: $uri /index.html
+    - match: /
+      try_files: $uri /index.html

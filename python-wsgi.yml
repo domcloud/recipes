@@ -1,0 +1,10 @@
+features:
+  - python latest
+nginx:
+  root: public_html/public
+  passenger:
+    enabled: on
+    python: .pyenv/shims/python
+commands:
+  - test -f requirements.txt && pip install -r $_
+  - echo "from app.wsgi import application" > passenger_wsgi.py

@@ -28,7 +28,7 @@ To enable and enforce HTTPS:
 
 ```yaml
 features:
-- ssl
+  - ssl
 nginx:
   ssl: enforce
 ```
@@ -47,7 +47,7 @@ To enable MySQL and create a default database:
 
 ```yaml
 features:
-- mysql
+  - mysql
 ```
 
 To set root as `~/public_html/public/` and enable Passenger mode:
@@ -70,9 +70,9 @@ directory: <directory to extract>
 root: <webserver root>
 nginx: <nginx configuration>
 features:
-- list of features
+  - list of features
 commands:
-- list of shell commands
+  - list of shell commands
 ```
 
 All props there is optional.

@@ -1,0 +1,9 @@
+features:
+  - python latest
+nginx:
+  root: public_html/public
+  passenger:
+    enabled: on
+    app_start_command: env PORT=$PORT python app.py
+commands:
+  - test -f requirements.txt && pip install -r $_

@@ -1,7 +1,7 @@
 features:
-- node lts
+  - node lts
 nginx:
   root: public_html/dist
 commands:
-- npm install
-- npm run build
+  - npm install
+  - npm run build
