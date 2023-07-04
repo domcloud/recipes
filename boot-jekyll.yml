@@ -2,12 +2,12 @@ source: clear
 features:
   - ruby latest
 nginx:
+  root: public_html/_site
   passenger:
-    enabled: on
-    app_start_command: bundle exec jekyll serve --port $PORT
+    enabled: "on"
+    app_start_command: jekyll serve --port $PORT
 commands:
-  - gem install jekyll bundler
-  - jekyll new .
+  - gem install jekyll && jekyll new .
   - bundle add webrick
   - bundle add jekyll-admin --group=jekyll_plugins
   - 'echo "url: ''https://$DOMAIN''" >> _config.yml'

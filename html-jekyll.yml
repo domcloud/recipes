@@ -1,0 +1,8 @@
+source: clear
+features:
+  - ruby latest
+nginx:
+  root: public_html/_site
+commands:
+  - test -f Gemfile && bundle install || (bundle init && bundle add jekyll webrick)
+  - jekyll build

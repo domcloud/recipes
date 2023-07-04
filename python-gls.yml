@@ -3,7 +3,7 @@ features:
 nginx:
   root: public_html/public
   passenger:
-    enabled: on
+    enabled: "on"
     app_start_command: env PORT=$PORT python app.py
 commands:
   - test -f requirements.txt && pip install -r $_

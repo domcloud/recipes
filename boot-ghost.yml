@@ -2,7 +2,7 @@ source: https://github.com/TryGhost/Ghost/archive/refs/heads/main.zip
 nginx:
   root: public_html/public
   passenger:
-    enabled: on
+    enabled: "on"
 features:
   - mysql
   - node lts

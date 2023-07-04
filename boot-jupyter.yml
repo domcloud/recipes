@@ -4,7 +4,7 @@ features:
 nginx:
   root: public_html/public
   passenger:
-    enabled: on
+    enabled: "on"
     app_start_command: jupyter notebook --port $PORT
 commands:
   - pip config set global.progress_bar off

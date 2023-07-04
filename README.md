@@ -56,7 +56,7 @@ To set root as `~/public_html/public/` and enable Passenger mode:
 root: public_html/public
 nginx:
   passenger:
-    enabled: on
+    enabled: "on"
 ```
 
 ## Script Specification

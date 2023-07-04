@@ -3,7 +3,7 @@ features:
 nginx:
   root: public_html/public
   passenger:
-    enabled: on
+    enabled: "on"
     python: .pyenv/shims/python
 commands:
   - test -f requirements.txt && pip install -r $_

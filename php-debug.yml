@@ -1,5 +1,5 @@
 nginx:
-  fastcgi: on
+  fastcgi: "on"
 commands:
   - echo "<?php phpinfo(15);" > phpinfo.php
   - echo "display_errors = On" > .user.ini

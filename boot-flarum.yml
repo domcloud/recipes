@@ -4,7 +4,7 @@ features:
   - firewall
 nginx:
   root: public_html/public
-  fastcgi: on
+  fastcgi: "on"
   locations:
   - match: /
     try_files: $uri $uri/ /index.php$is_args$args

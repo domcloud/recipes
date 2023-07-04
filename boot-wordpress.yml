@@ -1,10 +1,10 @@
-source: https://wordpress.org/latest.zip
-directory: wordpress
+source: https://wordpress.org/latest.zip#wordpress
 features:
   - mysql
   - firewall
 nginx:
-  fastcgi: on
+  root: public_html
+  fastcgi: "on"
   locations:
     - match: /
       try_files: $uri $uri/ /index.php$is_args$args
@@ -18,5 +18,5 @@ commands:
   - sed -i "s/utf8/utf8mb4/g" wp-config.php
   - curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
   - mkdir -p ~/.local/bin && mv wp-cli.phar ~/.local/bin/wp && chmod +x $_
-# To bypass the WordPress installation wizard, uncomment the following lines
-# - wp core install --url=${DOMAIN} --title="My WordPress Site" --admin_user=admin --admin_password=${PASSWORD} --
+#  - wp core install --url=${DOMAIN} --title="My WordPress Site" --admin_user=admin --admin_password=${PASSWORD} --admin_email=admin@${DOMAIN}
+# ^^^ To bypass the WordPress installation wizard, uncomment above line

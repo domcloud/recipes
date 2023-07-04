@@ -1,11 +1,12 @@
 source: https://github.com/domcloud/rails-template-example
+features:
+  - ruby latest
+  - postgres
 nginx:
   root: public_html/public
   fastcgi: off
   passenger:
-    enabled: on
-features:
-  - postgres
+    enabled: "on"
 commands:
   - echo export PATH="$HOME/bin:$PATH" > ~/.bash_profile
   - sed -i "s/ruby '2.5.3'/ruby '>= 2.5.3'/g" Gemfile

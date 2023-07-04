@@ -3,7 +3,7 @@ features:
 nginx:
   root: public_html/.output/public
   passenger:
-    enabled: on
+    enabled: "on"
     app_start_command: env PORT=$PORT node server/index.mjs
 commands:
   - yarn install

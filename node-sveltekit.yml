@@ -3,7 +3,7 @@ features:
 nginx:
   root: public_html/.svelte-kit/output/client
   passenger:
-    enabled: on
+    enabled: "on"
     app_start_command: yarn preview --port $PORT --host
     app_root: public_html
 commands:

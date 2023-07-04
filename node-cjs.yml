@@ -1,1 +1,10 @@
-# NOTE: This only works for app.js using require()-style imports!
+features:
+  - node lts
+nginx:
+  root: public_html/public
+  passenger:
+    enabled: "on"
+    app_type: node
+    startup_file: app.js
+commands:
+  - npm install

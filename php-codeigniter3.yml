@@ -3,7 +3,7 @@ features:
   - php latest
 nginx:
   root: public_html
-  fastcgi: on
+  fastcgi: "on"
   locations:
     - match: /
       try_files: $uri $uri/ /index.php$is_args$args

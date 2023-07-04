@@ -4,7 +4,7 @@ features:
 nginx:
   root: public_html/public
   passenger:
-    enabled: on
+    enabled: "on"
     python: .pyenv/shims/python
 commands:
   - pip install django
@@ -12,4 +12,3 @@ commands:
   - sed -i "s/ALLOWED_HOSTS = \[\]/ALLOWED_HOSTS = \['${DOMAIN}'\]/g" app/settings.py
   - echo "from app.wsgi import application" > passenger_wsgi.py
   - python manage.py migrate
-  - mkdir public
