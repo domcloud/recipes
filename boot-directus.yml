@@ -1,0 +1,11 @@
+source: https://github.com/directus/directus
+nginx:
+  root: public_html/public
+  passenger:
+    enabled: "on"
+features:
+  - mysql
+  - node latest
+commands:
+  - pnpm install
+  - pnpm build

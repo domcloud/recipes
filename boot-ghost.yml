@@ -1,21 +1,17 @@
-source: https://github.com/TryGhost/Ghost/archive/refs/heads/main.zip
+source: clear
 nginx:
-  root: public_html/public
+  root: public_html/content/public
+  index: 'index.html index.php'
   passenger:
-    enabled: "on"
+    enabled: 'on'
+    node: .local/opt/node/bin/node
+    app_root: public_html
+    startup_file: current/index.js
+    app_type: node
+    app_env: development
 features:
   - mysql
   - node lts
 commands:
-  - echo export PATH="$HOME/public_html/node_modules/.bin:$PATH" > ~/.bash_profile
-  - source ~/.bash_profile
-  - mkdir public
-  - echo "require('./index.js');" > app.js
-  - wget -q -O config.production.json https://gist.githubusercontent.com/willnode/45e722be156736ea3a08f29d37ad997c/raw/93dbbecc209ac9e6b9eb0a9d22ece1f14ab54e67/ghost-production-config.json
-  - 'sed -ri "s/username_here/${USERNAME}/g" config.production.json'
-  - 'sed -ri "s/password_here/${PASSWORD}/g" config.production.json'
-  - 'sed -ri "s/database_here/${DATABASE}/g" config.production.json'
-  - 'sed -ri "s/url_here/https:\/\/${DOMAIN}/g" config.production.json'
-  - yarn install --production --no-progress
-  - knex-migrator init
-  - yarn cache clean
+  - npm install ghost-cli@latest -g
+  - ghost install local --url https://${DOMAIN} --no-prompt --db mysql --dbhost localhost --dbuser ${USERNAME} --dbpass ${PASSWORD} --dbname ${DATABASE}
