@@ -1,0 +1,9 @@
+features:
+  - ruby latest
+nginx:
+  root: public_html/public
+  passenger:
+    enabled: "on"
+    ruby: .rvm/rubies/default/bin/ruby
+commands:
+  - test -f Gemfile && bundle install

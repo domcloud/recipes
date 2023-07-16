@@ -1,0 +1,27 @@
+source: clear
+features:
+  - php latest
+nginx:
+  fastcgi: "on"
+  root: public_html
+commands:
+  - filename: index.php
+    content: |
+      <!DOCTYPE html>
+      <html>
+      <head>
+          <title>PHP App</title>
+          <link rel="stylesheet" href="//unpkg.com/bootstrap/dist/css/bootstrap.min.css">
+      </head>
+      <body class="p-5 text-center">
+          <p><img src="//images.unsplash.com/photo-1465153690352-10c1b29577f8?fit=crop&w=200&h=200" 
+                  class="img-fluid rounded-circle"></p>
+          <h1 class="mb-3">Hello, world!</h1>
+          <p>Serving from PHP version <?= phpversion() ?></p>
+          <p><a href="phpinfo.php">See phpinfo()</a></p>
+          <p class="text-muted">DOM Cloud</p>
+      </body>
+      </html>
+  - echo "<?php phpinfo(15);" > phpinfo.php
+  - echo "display_errors = On" > .user.ini
+  - echo "display_startup_errors = On" >> .user.ini

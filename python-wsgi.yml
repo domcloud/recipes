@@ -4,7 +4,8 @@ nginx:
   root: public_html/public
   passenger:
     enabled: "on"
+    startup_file: app.py
+    app_type: python
     python: .pyenv/shims/python
 commands:
   - test -f requirements.txt && pip install -r $_
-  - echo "from app.wsgi import application" > passenger_wsgi.py

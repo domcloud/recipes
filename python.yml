@@ -1,0 +1,40 @@
+source: clear
+features:
+  - python latest
+nginx:
+  root: public_html/public
+  passenger:
+    enabled: "on"
+    startup_file: app.py
+    app_type: python
+    python: .pyenv/shims/python
+commands:
+  - filename: app.py
+    content: |
+      import platform
+
+      html_text = '''
+      <!DOCTYPE html>
+      <html>
+      <head>
+          <title>Python App</title>
+          <link rel="stylesheet" href="%s">
+      </head>
+      <body class="p-5 text-center">
+          <p><img src="%s" class="img-fluid rounded-circle"></p>
+          <h1 class="mb-3">Hello, world!</h1>
+          <p>Serving from Python version %s</p>
+          <p class="text-muted">DOM Cloud</p>
+      </body>
+      </html>
+      ''' % (
+        '//unpkg.com/bootstrap/dist/css/bootstrap.min.css',
+        '//images.unsplash.com/photo-1465153690352-10c1b29577f8?fit=crop&w=200&h=200',
+        platform.python_version(),
+      )
+
+      def application(environ, start_response):
+          status = '200 OK'
+          response_headers = [('Content-type', 'text/html')]
+          start_response(status, response_headers)
+          return [html_text.encode('utf-8')]

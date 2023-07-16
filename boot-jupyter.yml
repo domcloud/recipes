@@ -1,19 +1,14 @@
 source: clear
 features:
-  - python
+  - python latest
 nginx:
   root: public_html/public
   passenger:
     enabled: "on"
     app_start_command: jupyter notebook --port $PORT
 commands:
-  - pip config set global.progress_bar off
-  - pip install jupyter notebook
-  - pip install pandas numpy matplotlib
-  - mkdir public
-  - cd ~/.jupyter
-  - rm jupyter_notebook_config.py
-  - jupyter notebook --generate-config
+  - pip install jupyter notebook pandas numpy matplotlib spacy scikit-learn
+  - mkdir -p ~/.jupyter ; cd $_ ; rm -f jupyter_notebook_config.py ; jupyter notebook --generate-config
   - hash=`python -c "from notebook.auth import passwd;print(passwd('${PASSWORD}'),end='')"`
   - sed -i "s@# c.NotebookApp.password = ''@c.NotebookApp.password = u'${hash}'@g" jupyter_notebook_config.py
   - sed -i "s/# c.NotebookApp.password_required = False/c.NotebookApp.password_required = True/g" jupyter_notebook_config.py

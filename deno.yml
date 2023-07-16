@@ -1,0 +1,54 @@
+source: clear
+features:
+  - deno latest
+nginx:
+  root: public_html/public
+  passenger:
+    enabled: "on"
+    app_start_command: deno run --allow-net app.ts --port=$PORT
+commands:
+  - filename: app.ts
+    content: |
+      import { parse } from "https://deno.land/std@0.194.0/flags/mod.ts";
+
+      const flags = parse(Deno.args, {
+          string: ["port"],
+          default: { port: "8080" },
+      });
+
+      const html_text = `
+      <!DOCTYPE html>
+      <html>
+      <head>
+          <title>Deno App</title>
+          <link rel="stylesheet" href="//unpkg.com/bootstrap/dist/css/bootstrap.min.css">
+      </head>
+      <body class="p-5 text-center">
+          <p><img src="//images.unsplash.com/photo-1465153690352-10c1b29577f8?fit=crop&w=200&h=200" 
+                  class="img-fluid rounded-circle"></p>
+          <h1 class="mb-3">Hello, world!</h1>
+          <p>Serving from Deno version ${Deno.version.deno}</p>
+          <p class="text-muted">DOM Cloud</p>
+      </body>
+      </html>
+      `
+
+      const server = Deno.listen({ port: parseInt(flags.port) });
+
+      for await (const conn of server) {
+        serveHttp(conn);
+      }
+
+      async function serveHttp(conn: Deno.Conn) {
+        const httpConn = Deno.serveHttp(conn);
+        for await (const requestEvent of httpConn) {
+          requestEvent.respondWith(
+            new Response(html_text, {
+              headers: {
+                  "content-type": "text/html",
+              },
+              status: 200,
+            }),
+          );
+        }
+      }

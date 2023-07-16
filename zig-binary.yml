@@ -1,9 +1,9 @@
 features:
-  - rust
+  - zig latest
 nginx:
   root: public_html/public
   passenger:
     enabled: "on"
     app_start_command: env PORT=$PORT ./target/release/app
 commands:
-  - cargo build --release -o target/release/app
+  - zig build-exe src/main.zig --output-dir target/release

@@ -1,11 +1,10 @@
-source: https://github.com/directus/directus
+source: https://github.com/directus/directus/archive/refs/heads/main.zip#directus-main
 nginx:
   root: public_html/public
   passenger:
     enabled: "on"
 features:
-  - mysql
-  - node latest
+  - node lts
 commands:
   - pnpm install
   - pnpm build

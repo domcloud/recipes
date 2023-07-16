@@ -1,6 +1,67 @@
-# WIP
 source: clear
 features:
   - rust
 nginx:
   root: public_html/public
+  passenger:
+    enabled: "on"
+    app_start_command: env PORT=$PORT ./main
+commands:
+  - filename: main.rs
+    content: |
+      use std::{env,str};
+      use std::io::Write;
+      use std::net::TcpListener;
+      use std::process::Command;
+
+      const HTTP_HEADER: &str = "HTTP/1.1 200 OK\r\nContent-Type: text/html; charset=UTF-8\r\n\r\n";
+      const HTML_TEXT: &str = r#"
+      <!DOCTYPE html>
+      <html>
+      <head>
+          <title>Rust App</title>
+          <link rel="stylesheet" href="//unpkg.com/bootstrap/dist/css/bootstrap.min.css">
+      </head>
+      <body class="p-5 text-center">
+          <p><img src="//images.unsplash.com/photo-1465153690352-10c1b29577f8?fit=crop&w=200&h=200" 
+                  class="img-fluid rounded-circle"></p>
+          <h1 class="mb-3">Hello, world!</h1>
+          <p>Serving from Rust version {}</p>
+          <p class="text-muted">DOM Cloud</p>
+      </body>
+      </html>
+      "#;
+
+      fn get_version() -> String {
+          let stdout = Command::new("rustc")
+              .arg("-V")
+              .output()
+              .expect("failed to execute process")
+              .stdout;
+
+          let text = str::from_utf8(&stdout).unwrap().to_string();
+          let chunks: Vec<&str> = text.split(" ").collect();
+
+          chunks[1].to_string()
+      }
+
+      fn main() {
+          let port = env::var("PORT").expect("$PORT is not set");
+          let socket_addr = "127.0.0.1".to_string() + ":" + &port;
+          let listener = TcpListener::bind(socket_addr).unwrap();
+          let version = get_version();
+          println!("Listening for connections on port {}", port);
+
+          for stream in listener.incoming() {
+              match stream {
+                  Ok(mut stream) => {
+                      let response = HTTP_HEADER.to_string() + &HTML_TEXT.replace("{}", &version);
+                      stream.write(response.as_bytes()).unwrap();
+                  }
+                  Err(e) => {
+                      println!("Unable to connect: {}", e);
+                  }
+              }
+          }
+      }
+  - rustc main.rs

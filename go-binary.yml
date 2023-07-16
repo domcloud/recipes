@@ -1,6 +1,11 @@
-# WIP
-source: clear
 features:
   - go
 nginx:
   root: public_html/public
+  passenger:
+    enabled: "on"
+    app_start_command: env PORT=$PORT ./app
+commands:
+  - go mod download
+  - go build -o app
+

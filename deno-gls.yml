@@ -1,6 +1,7 @@
-# WIP
-source: clear
 features:
-  - deno
+  - deno latest
 nginx:
   root: public_html/public
+  passenger:
+    enabled: "on"
+    app_start_command: deno run --allow-net app.ts --port=$PORT

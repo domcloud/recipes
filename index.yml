@@ -138,6 +138,9 @@ frameworks:
   - title: Django
     file: python-django.yml
     group: Python
+  - title: Ruby config.ru
+    file: ruby-ru.yml
+    group: Ruby
   - title: Ruby on Rails
     file: ruby-rails.yml
     group: Ruby
@@ -156,3 +159,6 @@ frameworks:
   - title: Deno (GLS)
     file: deno-gls.yml
     group: Deno
+  - title: Zig (GLS + Binary Build)
+    file: zig-binary.yml
+    group: Zig

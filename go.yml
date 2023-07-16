@@ -1,0 +1,55 @@
+source: clear
+features:
+  - go
+nginx:
+  root: public_html/public
+  passenger:
+    enabled: "on"
+    app_start_command: env PORT=$PORT ./main
+commands:
+  - filename: main.go
+    content: |
+      package main
+
+      import (
+        "fmt"
+        "net/http"
+        "os"
+        "runtime"
+        "strings"
+      )
+
+      const html_text = `
+      <!DOCTYPE html>
+      <html>
+      <head>
+        <title>Go App</title>
+        <link rel="stylesheet" href="//unpkg.com/bootstrap/dist/css/bootstrap.min.css">
+      </head>
+      <body class="p-5 text-center">
+        <p><img src="//images.unsplash.com/photo-1465153690352-10c1b29577f8?fit=crop&w=200&h=200" 
+            class="img-fluid rounded-circle"></p>
+        <h1 class="mb-3">Hello, world!</h1>
+        <p>Serving from Go version %s</p>
+        <p class="text-muted">DOM Cloud</p>
+      </body>
+      </html>
+      `
+
+      func home(w http.ResponseWriter, req *http.Request) {
+        w.Header().Set("Content-Type", "text/html")
+        version := strings.Replace(runtime.Version(), "go", "", 1)
+        fmt.Fprintf(w, html_text, version)
+      }
+
+      func main() {
+        http.HandleFunc("/", home)
+        port := os.Getenv("PORT")
+        if port == "" {
+          fmt.Print("PORT environment variable not set")
+          os.Exit(1)
+        }
+        http.ListenAndServe("127.0.0.1:"+port, nil)
+      }
+
+  - go build main.go
