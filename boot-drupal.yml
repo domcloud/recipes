@@ -7,6 +7,8 @@ nginx:
   locations:
     - match: /
       try_files: $uri $uri/ /index.php$is_args$args
+    - match: ~ \.[^\/]+(?<!\.php)$
+      try_files: $uri =404
 commands:
   - composer create-project --no-progress --no-dev drupal/recommended-project .
   - cd web ; echo "<?php\n\$base_url = 'https://${DOMAIN}';" > settings.php
