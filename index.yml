@@ -1,5 +1,5 @@
 # Index data for DOM Cloud templates
-relative_url: https://raw.githubusercontent.com/domcloud/dom-templates/master/
+relative_url: https://raw.githubusercontent.com/domcloud/recipes/master/
 templates:
   - title: WordPress
     file: boot-wordpress.yml
