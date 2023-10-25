@@ -1,10 +1,17 @@
-source: https://github.com/directus/directus/archive/refs/heads/main.zip#directus-main
+source: clear
 nginx:
   root: public_html/public
   passenger:
     enabled: "on"
+    app_start_command: env PORT=$PORT npx directus start
 features:
   - node lts
 commands:
-  - pnpm install
-  - pnpm build
+  - DB_CLIENT=sqlite >> .env
+  - DB_FILENAME=$HOME/db.sqlite >> .env
+  - WEBSOCKETS_ENABLED=true >> .env
+  - KEY=replace-with-random-value >> .env
+  - SECRET=replace-with-random-value >> .env
+  - export ADMIN_EMAIL=admin@$DOMAIN
+  - export ADMIN_PASSWORD=$PASSWORD
+  - npx directus bootstrap
