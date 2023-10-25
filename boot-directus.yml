@@ -7,11 +7,12 @@ nginx:
 features:
   - node lts
 commands:
-  - DB_CLIENT=sqlite >> .env
-  - DB_FILENAME=$HOME/db.sqlite >> .env
-  - WEBSOCKETS_ENABLED=true >> .env
-  - KEY=replace-with-random-value >> .env
-  - SECRET=replace-with-random-value >> .env
+  - get_hash() { node -e "console.log(crypto.randomBytes(16).toString('base64'))"; }
+  - echo DB_CLIENT=sqlite3 >> .env
+  - echo DB_FILENAME=$HOME/db.sqlite >> .env
+  - echo WEBSOCKETS_ENABLED=true >> .env
+  - echo KEY=`get_hash` >> .env
+  - echo SECRET=`get_hash` >> .env
   - export ADMIN_EMAIL=admin@$DOMAIN
   - export ADMIN_PASSWORD=$PASSWORD
   - npx directus bootstrap
