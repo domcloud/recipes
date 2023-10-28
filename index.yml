@@ -132,6 +132,9 @@ frameworks:
   - title: Python main.py (GLS)
     file: python-gls.yml
     group: Python
+  - title: Uvicorn (ASGI)
+    file: python-uvicorn.yml
+    group: Python
   - title: Flask
     file: python-flask.yml
     group: Python

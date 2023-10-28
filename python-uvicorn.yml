@@ -1,0 +1,9 @@
+features:
+  - python latest
+nginx:
+  root: public_html/public
+  passenger:
+    enabled: "on"
+    app_start_command: uvicorn main:app --port $PORT
+commands:
+  - test -f requirements.txt && pip install -r $_ || pip install uvicorn
