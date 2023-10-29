@@ -1,8 +1,9 @@
-source: clear
 features:
   - ruby latest
 nginx:
   root: public_html/_site
+  error_pages:
+    - 404 /404.html
 commands:
   - test -f Gemfile && bundle install || (bundle init && bundle add jekyll webrick)
   - jekyll build

@@ -57,10 +57,10 @@ templates:
     file: boot-flarum.yml
     icon: https://domcloud.co/assets/feat/flarum.svg
     color: "#FF2D20"
-  - title: RocketChat
-    file: boot-rocketchat.yml
-    icon: https://simpleicons.org/icons/rocketdotchat.svg
-    color: "#F5455C"
+  - title: Magento
+    file: boot-magento.yml
+    icon: https://simpleicons.org/icons/magento.svg
+    color: "#EE672F"
   - title: Jupyter
     file: boot-jupyter.yml
     icon: https://simpleicons.org/icons/jupyter.svg

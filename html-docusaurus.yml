@@ -2,6 +2,8 @@ features:
   - node lts
 nginx:
   root: public_html/build
+  error_pages:
+    - 404 /404.html
 commands:
   - yarn install
   - yarn build

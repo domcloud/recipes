@@ -1,0 +1,13 @@
+source: clear
+features:
+  - zig
+nginx:
+  root: public_html/public
+  passenger:
+    enabled: "on"
+    app_start_command: env PORT=$PORT ./main
+commands:
+  - filename: main.rs
+    content: |
+      // TODO
+  - zig build

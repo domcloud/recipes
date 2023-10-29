@@ -1,3 +1,4 @@
 nginx:
+  index: index.html
   error_pages:
     - 404 /404.html
