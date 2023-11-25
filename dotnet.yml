@@ -1,0 +1,72 @@
+source: clear
+features:
+  - dotnet latest
+nginx:
+  root: public_html/public
+  passenger:
+    enabled: "on"
+    app_start_command: env PORT=$PORT dotnet run
+commands:
+  - dotnet new console --name App
+  - filename: Program.cs
+    content: |
+      using System.Text;
+      using System.Net;
+      class HttpServer
+      {
+          public static HttpListener listener = new();
+          public static string pageBody = @"      
+          <!DOCTYPE html>
+          <html>
+          <head>
+              <title>DotNet App</title>
+              <link rel=""stylesheet"" href=""//unpkg.com/bootstrap/dist/css/bootstrap.min.css"">
+          </head>
+          <body class=""p-5 text-center"">
+              <p><img src=""//images.unsplash.com/photo-1465153690352-10c1b29577f8?fit=crop&w=200&h=200"" 
+                  class=""img-fluid rounded-circle""></p>
+              <h1 class=""mb-3"">Hello, world!</h1>
+              <p>Serving from DotNet version {0}</p>
+              <p class=""text-muted"">DOM Cloud</p>
+          </body>
+          </html>
+          ";
+
+
+          public static async Task HandleIncomingConnections()
+          {
+              string version = Environment.Version.ToString();
+              byte[] pageData = Encoding.UTF8.GetBytes(string.Format(pageBody, version));
+              while (true)
+              {
+                  // Will wait here until we hear from a connection
+                  HttpListenerContext ctx = await listener.GetContextAsync();
+
+                  // Peel out the requests and response objects
+                  HttpListenerResponse resp = ctx.Response;
+
+                  resp.ContentType = "text/html";
+                  resp.ContentEncoding = Encoding.UTF8;
+                  resp.ContentLength64 = pageData.LongLength;
+
+                  await resp.OutputStream.WriteAsync(pageData);
+                  resp.Close();
+              }
+          }
+
+          public static void Main(string[] args)
+          {
+              // Create a Http server and start listening for incoming connections
+              string? port = Environment.GetEnvironmentVariable("PORT") ?? "3000";
+              listener.Prefixes.Add($"http://localhost:{port}/");
+              listener.Start();
+              Console.WriteLine("Listening for connections on localhost:{0}", port);
+
+              // Handle requests
+              Task listenTask = HandleIncomingConnections();
+              listenTask.GetAwaiter().GetResult();
+
+              // Close the listener
+              listener.Close();
+          }
+      }
