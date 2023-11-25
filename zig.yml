@@ -7,7 +7,69 @@ nginx:
     enabled: "on"
     app_start_command: env PORT=$PORT ./main
 commands:
-  - filename: main.rs
+  - filename: main.zig
     content: |
-      // TODO
-  - zig build
+      const std = @import("std");
+      const debug = std.debug;
+      const getenv = std.os.getenv;
+      const Server = std.http.Server;
+      const parseInt = std.fmt.parseInt;
+      const allocPrintZ = std.fmt.allocPrintZ;
+      const parseIp = std.net.Address.parseIp;
+  
+      const body =
+          \\<!DOCTYPE html>
+          \\<html>
+          \\<head>
+          \\  <title>Zig App</title>
+          \\  <link rel="stylesheet" href="//unpkg.com/bootstrap/dist/css/bootstrap.min.css">
+          \\</head>
+          \\<body class="p-5 text-center">
+          \\  <p><img src="//images.unsplash.com/photo-1465153690352-10c1b29577f8?fit=crop&w=200&h=200" 
+          \\      class="img-fluid rounded-circle"></p>
+          \\  <h1 class="mb-3">Hello, world!</h1>
+          \\  <p>Serving from Zig version {s}</p>
+          \\  <p class="text-muted">DOM Cloud</p>
+          \\</body>
+          \\</html>
+      ;
+  
+      pub fn getVersion(allocator: std.mem.Allocator) []const u8 {
+          const zV = std.ChildProcess.exec(.{
+              .allocator = allocator,
+              .argv = &[_][]const u8{ "zig", "version" },
+          }) catch unreachable;
+          defer allocator.free(zV.stderr);
+          return zV.stdout;
+      }
+  
+      pub fn main() !void {
+          var gpa = std.heap.GeneralPurposeAllocator(.{}){};
+          const allocator = gpa.allocator();
+          var server = Server.init(allocator, .{ .reuse_address = true });
+          const port = try parseInt(u16, getenv("PORT") orelse "3000", 10);
+          try server.listen(try parseIp("127.0.0.1", port));
+          debug.print("Listening to 127.0.0.1:{d}\n", .{port});
+          const version = getVersion(allocator);
+          const respBody = try allocPrintZ(allocator, body, .{version});
+  
+          defer allocator.free(respBody);
+          defer allocator.free(version);
+          defer server.deinit();
+          defer debug.assert(gpa.deinit() == .ok);
+  
+          while (true) {
+              var resp = try server.accept(.{ .allocator = allocator });
+              defer resp.deinit();
+              while (resp.reset() != .closing) {
+                  try resp.wait();
+  
+                  resp.transfer_encoding = .{ .content_length = respBody.len };
+                  try resp.headers.append("Content-Type", "text/http");
+                  try resp.do();
+                  try resp.writeAll(respBody);
+                  try resp.finish();
+              }
+          }
+      }
+  - zig build-exe main.zig 
