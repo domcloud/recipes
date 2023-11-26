@@ -1,0 +1,58 @@
+source: clear
+features:
+  - java
+nginx:
+  root: public_html/public
+  passenger:
+    enabled: "on"
+    app_start_command: env PORT=$PORT java Main.java
+commands:
+  - filename: Main.java
+    content: |
+      import java.io.IOException;
+      import java.io.OutputStream;
+      import java.net.InetSocketAddress;
+
+      import com.sun.net.httpserver.HttpExchange;
+      import com.sun.net.httpserver.HttpHandler;
+      import com.sun.net.httpserver.HttpServer;
+
+      public class Main {
+          public static void main(String[] args) throws Exception {
+              String portStr = System.getenv("PORT");
+              int port = portStr == null ? 3000 : Integer.parseInt(portStr);
+              HttpServer server = HttpServer.create(new InetSocketAddress(port), 0);
+              System.out.println("Server is listening to localhost:" + port);
+              server.createContext("/", new DefaultHandler());
+              server.setExecutor(null); // creates a default executor
+              server.start();
+          }
+      }
+
+      class DefaultHandler implements HttpHandler {
+          private static String template = """
+            <!DOCTYPE html>
+            <html>
+            <head>
+              <title>Java App</title>
+              <link rel="stylesheet" href="//unpkg.com/bootstrap/dist/css/bootstrap.min.css">
+            </head>
+            <body class="p-5 text-center">
+              <p><img src="//images.unsplash.com/photo-1465153690352-10c1b29577f8?fit=crop&w=200&h=200" 
+                  class="img-fluid rounded-circle"></p>
+              <h1 class="mb-3">Hello, world!</h1>
+              <p>Serving from Java version %s</p>
+              <p class="text-muted">DOM Cloud</p>
+            </body>
+            </html>
+          """;
+
+          public void handle(HttpExchange t) throws IOException {
+              String version = Runtime.version().toString();
+              String response = String.format(template, version);
+              t.sendResponseHeaders(200, response.length());
+              OutputStream os = t.getResponseBody();
+              os.write(response.getBytes());
+              os.close();
+          }
+      }
