@@ -20,3 +20,4 @@ commands:
   - php artisan migrate:fresh
   - php artisan key:generate
   - php artisan storage:link
+  - chmod g+r -R storage || true 
