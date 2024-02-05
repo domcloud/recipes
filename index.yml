@@ -113,19 +113,25 @@ frameworks:
     group: PHP
   - title: Node app.js (CJS)
     file: node-cjs.yml
-    group: Node
+    group: JavaScript
   - title: Node app.js (ESM/GLS)
     file: node-esm.yml
-    group: Node
+    group: JavaScript
   - title: Next.js
     file: node-nextjs.yml
-    group: Node
+    group: JavaScript
   - title: Nuxt.js
     file: node-nuxtjs.yml
-    group: Node
+    group: JavaScript
   - title: SvelteKit
     file: node-sveltekit.yml
-    group: Node
+    group: JavaScript
+  - title: Deno (GLS)
+    file: deno-gls.yml
+    group: JavaScript
+  - title: Bun (GLS)
+    file: bun-gls.yml
+    group: JavaScript
   - title: Python main.py (WSGI)
     file: python-wsgi.yml
     group: Python
@@ -159,9 +165,6 @@ frameworks:
   - title: Rust (GLS + Binary Build)
     file: rust-binary.yml
     group: Rust
-  - title: Deno (GLS)
-    file: deno-gls.yml
-    group: Deno
   - title: Zig (GLS + Binary Build)
     file: zig-binary.yml
     group: Zig

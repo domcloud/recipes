@@ -1,0 +1,7 @@
+features:
+  - bun latest
+nginx:
+  root: public_html/public
+  passenger:
+    enabled: "on"
+    app_start_command: env PORT=$PORT bunfix bun app.ts
