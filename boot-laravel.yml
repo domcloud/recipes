@@ -20,4 +20,6 @@ commands:
   - php artisan migrate:fresh
   - php artisan key:generate
   - php artisan storage:link
+  - npm install
+  - npm run build
   - chmod g+r -R storage || true 
