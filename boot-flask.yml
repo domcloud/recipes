@@ -1,6 +1,6 @@
 source: clear
 features:
-  - python latest
+  - python system
 nginx:
   root: public_html/app/static
   passenger:
@@ -9,10 +9,8 @@ nginx:
     app_root: public_html
     python: .pyenv/shims/python
 commands:
-  - pip install createflaskapp
+  - pip install https://github.com/domcloud/create-flask-app/archive/refs/heads/master.tar.gz
   - create-flask-app project
   - mv project/* . ; rm -rf project
-  - cat requirements.txt | grep -v "pkg-resources" > requirements.txt || true
   - pip install -r requirements.txt
   - echo "from app import app as application" > passenger_wsgi.py
-  
