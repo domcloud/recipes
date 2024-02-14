@@ -7,7 +7,6 @@ nginx:
     enabled: "on"
     app_env: development
     app_root: public_html
-    python: .pyenv/shims/python
 commands:
   - pip install https://github.com/domcloud/create-flask-app/archive/refs/heads/master.tar.gz
   - create-flask-app project
