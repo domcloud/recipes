@@ -1,0 +1,18 @@
+source: https://github.com/pkp/ojs/archive/refs/tags/3_3_0-16.tar.gz#ojs-3_3_0-16
+root: public_html/public
+features:
+  - php latest
+  - mysql
+nginx:
+  fastcgi: "always"
+  locations:
+  - match: /
+    try_files: $uri $uri/ /index.php$is_args$args
+commands:
+  - cp config.TEMPLATE.inc.php config.inc.php
+  - sed -i "s/base_url = \"http://pkp.sfu.ca/ojs\"/base_url = \"https://${DOMAIN}\"/g" config.inc.php
+  - sed -i "s/allowed_hosts = ''/allowed_hosts = '[\"${DOMAIN}\"]'/g" config.inc.php
+  - sed -i "s/username = ojs/username = ${USERNAME}/g" config.inc.php
+  - sed -i "s/password = ojs/password = ${PASSWORD}/g" config.inc.php
+  - sed -i "s/name = ojs/name = ${DATABASE}/g" config.inc.php
+

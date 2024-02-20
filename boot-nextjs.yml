@@ -1,0 +1,15 @@
+source: clear
+features:
+- node lts
+nginx:
+  root: public_html/public
+  passenger:
+    enabled: 'on'
+    app_start_command: 'env PORT=$PORT yarn start'
+  locations:
+    -
+      match: /_next/
+      alias: public_html/.next/
+commands:
+  - 'npx create-react-app@latest .'
+  - 'npm run build'
