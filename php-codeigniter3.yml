@@ -1,6 +1,6 @@
 features:
   - mysql
-  - php latest
+  - php 8.1
 nginx:
   root: public_html
   fastcgi: "on"
