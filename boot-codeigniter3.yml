@@ -9,6 +9,7 @@ nginx:
       try_files: $uri $uri/ /index.php$is_args$args
     - match: ~ \.[^\/]+(?<!\.php)$
       try_files: $uri =404
+source: https://codeload.github.com/bcit-ci/CodeIgniter/zip/3.1.13#CodeIgniter-3.1.13
 commands:
   - sed -ri "s/(config\['base_url'\]).*/\1 = 'https:\/\/${DOMAIN}\/';/g" application/config/config.php
   - sed -ri "s/(config\['index_page'\]).*/\1 = '';/g" application/config/config.php
