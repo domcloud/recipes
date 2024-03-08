@@ -5,7 +5,8 @@ nginx:
   root: public_html/public
   passenger:
     enabled: "on"
-    app_start_command: env PORT=$PORT yarn develop
+    app_env: development
+    app_start_command: env PORT=$PORT yarn start
   locations:
     - match: /admin/
       alias: public_html/build/
