@@ -2,67 +2,67 @@
 relative_url: https://raw.githubusercontent.com/domcloud/recipes/master/
 templates:
   - title: WordPress
-    file: boot-wordpress.yml
+    file: boot/wordpress.yml
     icon: https://simpleicons.org/icons/wordpress.svg
     color: "#21759B"
   - title: Drupal
-    file: boot-drupal.yml
+    file: boot/drupal.yml
     icon: https://simpleicons.org/icons/drupal.svg
     color: "#0678BE"
   - title: CodeIgniter
-    file: boot-codeigniter.yml
+    file: boot/codeigniter.yml
     icon: https://simpleicons.org/icons/codeigniter.svg
     color: "#EF4223"
   - title: Laravel
-    file: boot-laravel.yml
+    file: boot/laravel.yml
     icon: https://simpleicons.org/icons/laravel.svg
     color: "#FF2D20"
   - title: Express
-    file: boot-express.yml
+    file: boot/express.yml
     icon: https://simpleicons.org/icons/express.svg
     color: "#000000"
   - title: Flask
-    file: boot-flask.yml
+    file: boot/flask.yml
     icon: https://simpleicons.org/icons/flask.svg
     color: "#000000"
   - title: Django
-    file: boot-django.yml
+    file: boot/django.yml
     icon: https://simpleicons.org/icons/django.svg
     color: "#092E20"
   - title: Rails
-    file: boot-rails.yml
+    file: boot/rails.yml
     icon: https://simpleicons.org/icons/rubyonrails.svg
     color: "#CC0000"
   - title: Strapi
-    file: boot-strapi.yml
+    file: boot/strapi.yml
     icon: https://simpleicons.org/icons/strapi.svg
     color: "#2F2E8B"
   - title: Jekyll
-    file: boot-jekyll.yml
+    file: boot/jekyll.yml
     icon: https://simpleicons.org/icons/jekyll.svg
     color: "#CC0000"
   - title: Directus
-    file: boot-directus.yml
+    file: boot/directus.yml
     icon: https://simpleicons.org/icons/directus.svg
     color: "#263238"
   - title: Wagtail
-    file: boot-wagtail.yml
+    file: boot/wagtail.yml
     icon: https://simpleicons.org/icons/wagtail.svg
     color: "#43B1B0"
   - title: Ghost
-    file: boot-ghost.yml
+    file: boot/ghost.yml
     icon: https://simpleicons.org/icons/ghost.svg
     color: "#15171A"
   - title: Flarum
-    file: boot-flarum.yml
+    file: boot/flarum.yml
     icon: https://domcloud.co/assets/feat/flarum.svg
     color: "#FF2D20"
   - title: Magento
-    file: boot-magento.yml
+    file: boot/magento.yml
     icon: https://simpleicons.org/icons/magento.svg
     color: "#EE672F"
   - title: Jupyter
-    file: boot-jupyter.yml
+    file: boot/jupyter.yml
     icon: https://simpleicons.org/icons/jupyter.svg
     color: "#F37626"
 frameworks:
