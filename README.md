@@ -6,7 +6,7 @@ To ease navigation, we separate this repository into sections:
 
 ## Boot-From-Stratch Recipes
 
-These are recipes for self-hosted web software or creates a new framework from stratch. Top 8 recipes are listed here but we have way way more complete recipes [in separate section](./boot/). 
+These are recipes for self-hosted web software or creates a new framework from stratch. Top 8 recipes are listed here but we have way way more complete recipes [in separate section](./boot/README.md). 
 
 | Recipe name | Deploy now | See template |
 | --- | --- | --- |
