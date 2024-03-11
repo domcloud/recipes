@@ -50,6 +50,11 @@ These recipes includes framework or open-source software that can be self-hosted
 
   ![php] [![deploy]](https://my.domcloud.co/start?from=https://raw.githubusercontent.com/domcloud/dom-templates/master/boot/magento.yml) [![recipe]](./magento.yml) [![website]](https://business.adobe.com/products/magento/open-source.html) [![source]](https://github.com/magento/magento2)
 
++ **Bagisto**  
+  Leading Laravel open source e-commerce framework with multi-inventory sources, taxation, localization, dropshipping and more exciting features.
+
+  ![php] [![deploy]](https://my.domcloud.co/start?from=https://raw.githubusercontent.com/domcloud/dom-templates/master/boot/bagisto.yml) [![recipe]](./bagisto.yml) [![website]](https://bagisto.com/) [![source]](https://github.com/bagisto/bagisto/)
+
 + **Ghost**  
   Independent technology for modern publishing, memberships, subscriptions and newsletters.
 
@@ -60,14 +65,26 @@ These recipes includes framework or open-source software that can be self-hosted
 
   ![node] [![deploy]](https://my.domcloud.co/start?from=https://raw.githubusercontent.com/domcloud/dom-templates/master/boot/strapi.yml) [![recipe]](./strapi.yml) [![website]](https://strapi.io/) [![source]](https://github.com/strapi/strapi)
 
++ **Medusa.js**  
+  Medusa is an open-source headless commerce engine that enables developers to create amazing digital commerce experiences.
+  
+  https://medusajs.com/
+
 + **Wagtail**  
   Django content management system focused on flexibility and user experience.
 
-  ![python] [![deploy]](https://my.domcloud.co/start?from=https://raw.githubusercontent.com/domcloud/dom-templates/master/boot/magento.yml) [![recipe]](./magento.yml) [![website]](https://business.adobe.com/products/magento/open-source.html) [![source]](https://github.com/magento/magento2)
+  ![python] [![deploy]](https://my.domcloud.co/start?from=https://raw.githubusercontent.com/domcloud/dom-templates/master/boot/wagtail.yml) [![recipe]](./wagtail.yml) [![website]](https://wagtail.io/) [![source]](https://github.com/wagtail/wagtail)
 
-  
++ **Saleor**  
+  https://saleor.io/
 
-## Collaboration / Forum Software
++ **Spree Commerce**  
+  https://spreecommerce.org/
+
++ **QloApps**  
+  https://qloapps.com/
+
+## Collaboration / Forum / Administration Software
 
 + **Flarum**  
   Simple forum software for building great communities.
@@ -79,9 +96,57 @@ These recipes includes framework or open-source software that can be self-hosted
 
   ![php] [![deploy]](https://my.domcloud.co/start?from=https://raw.githubusercontent.com/domcloud/dom-templates/master/boot/ojs.yml) [![recipe]](./ojs.yml) [![website]](https://pkp.sfu.ca/software/ojs) [![source]](https://github.com/pkp/ojs)
 
++ **Cal.com**  
+  https://cal.com/
+
++ **Linkwarden**  
+  https://linkwarden.app/
+
++ **Chatwoot**  
+  https://www.chatwoot.com/
+
++ **Mattermost**  
+  https://mattermost.com/
+
++ **Rocket.Chat**  
+  https://www.rocket.chat/
+
++ **Zulip**  
+  https://zulip.com/
+
++ **Moodle**  
+  https://moodle.org/
+
++ **Canvas**  
+  https://www.instructure.com/canvas
+
++ **Fider**  
+  https://fider.io/
+
++ **Limesurvey**  
+  https://limesurvey.org/
+
+## Office / Memo / Document Software
+
++ **InvoiceNinja**  
+  https://www.instructure.com/canvas
+
++ **Paperless-Ngx**  
+  https://docs.paperless-ngx.com/
+
++ **Joplin App**  
+  https://joplinapp.org/
+
++ **UseMemos**  
+  https://www.usememos.com/
+
++ **Grist**  
+  https://getgrist.com/
+
++ **ERPNext**  
+  https://erpnext.com/
 
 ## Developer Tools
-
 
 + **Directus**  
   An Instant App & API for your SQL Database.
@@ -92,3 +157,42 @@ These recipes includes framework or open-source software that can be self-hosted
   The classic web-based interactive computing platform.
 
   ![python] [![deploy]](https://my.domcloud.co/start?from=https://raw.githubusercontent.com/domcloud/dom-templates/master/boot/jupyter.yml) [![recipe]](./jupyter.yml) [![website]](https://jupyter.org/) [![source]](https://github.com/jupyter/notebook)
+
++ **Payload CMS**  
+  https://payloadcms.com/
+
++ **ArchiveBox**  
+  https://archivebox.io/
+
++ **ChangeDetection.io**  
+  https://changedetection.io/
+
++ **Novu**  
+  https://novu.co/
+
++ **Ntfy.sh**  
+  https://ntfy.sh/
+
++ **NocoDB**  
+  https://www.nocodb.com/
+
++ **OpenSearch**  
+  https://opensearch.org/
+
++ **Meilisearch**  
+  https://meilisearch.com/
+
++ **PocketBase**  
+  https://pocketbase.io/
+
++ **Appflowy**  
+  https://appflowy.io/
+
++ **Focalboard**  
+  https://focalboard.com/
+
++ **Yourls**  
+  https://yourls.org/
+
++ **Weblate**  
+  https://weblate.org/

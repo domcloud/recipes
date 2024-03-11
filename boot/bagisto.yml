@@ -9,16 +9,12 @@ nginx:
   - match: /
     try_files: $uri $uri/ /index.php$is_args$args
 commands:
-  - composer create-project laravel/laravel .
+  - composer create-project bagisto/bagisto .
   - cp .env.example .env
   - sed -i "s/DB_HOST=127.0.0.1/DB_HOST=localhost/g" .env
   - sed -ri "s/DB_DATABASE=.*/DB_DATABASE=${DATABASE}/g" .env
   - sed -ri "s/DB_USERNAME=.*/DB_USERNAME=${USERNAME}/g" .env
   - sed -ri "s/DB_PASSWORD=.*/DB_PASSWORD=${PASSWORD}/g" .env
   - sed -ri "s/APP_URL=.*/APP_URL=http:\/\/${DOMAIN}/g" .env
-  - php artisan migrate:fresh
-  - php artisan key:generate
-  - php artisan storage:link
-  - npm install
-  - npm run build
+  - php artisan bagisto:install --no-interaction
   - chmod g+r -R storage || true 
