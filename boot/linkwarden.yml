@@ -1,0 +1,20 @@
+source: https://github.com/linkwarden/linkwarden
+features:
+- node lts
+- postgres
+nginx:
+  root: public_html/public
+  passenger:
+    enabled: "on"
+    app_env: development
+    app_start_command: env PORT=$PORT yarn start
+commands:
+- DB_URL="postgres://${USERNAME}:${PASSWORD}@localhost:5432/${DATABASE}"
+- get_hash() { openssl rand -base64 24 }
+- echo NEXTAUTH_SECRET=`get_hash` > .env
+- echo NEXTAUTH_URL=https://${DOMAIN}/api/v1/auth >> .env
+- echo DATABASE_URL=${DB_URL} >> .env
+- yarn
+- npx playwright install-deps
+- yarn build
+- yarn prisma migrate deploy

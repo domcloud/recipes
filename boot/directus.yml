@@ -7,7 +7,7 @@ nginx:
 features:
   - node lts
 commands:
-  - get_hash() { node -e "console.log(crypto.randomBytes(16).toString('base64'))"; }
+  - get_hash() { openssl rand -base64 24 }
   - echo DB_CLIENT=sqlite3 >> .env
   - echo DB_FILENAME=$HOME/db.sqlite >> .env
   - echo WEBSOCKETS_ENABLED=true >> .env

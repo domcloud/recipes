@@ -6,6 +6,8 @@
 [node]: https://img.shields.io/badge/Node.js-43853D?style=flat-square&logo=node.js&logoColor=white
 [python]: https://img.shields.io/badge/Python-14354C?style=flat-square&logo=python&logoColor=white
 [ruby]: https://img.shields.io/badge/Ruby-CC342D?style=flat-square&logo=ruby&logoColor=white
+[untested]: https://img.shields.io/badge/Untested-red?style=flat-square&logoColor=white
+[lite_plan]: https://img.shields.io/badge/require%20plan-LITE-gold?style=flat-square&logoColor=white
 
 # List of Boot-From-Stratch Recipes
 
@@ -55,6 +57,9 @@ These recipes includes framework or open-source software that can be self-hosted
 
   ![php] [![deploy]](https://my.domcloud.co/start?from=https://raw.githubusercontent.com/domcloud/dom-templates/master/boot/bagisto.yml) [![recipe]](./bagisto.yml) [![website]](https://bagisto.com/) [![source]](https://github.com/bagisto/bagisto/)
 
++ **QloApps**  
+  https://qloapps.com/
+
 + **Ghost**  
   Independent technology for modern publishing, memberships, subscriptions and newsletters.
 
@@ -65,10 +70,13 @@ These recipes includes framework or open-source software that can be self-hosted
 
   ![node] [![deploy]](https://my.domcloud.co/start?from=https://raw.githubusercontent.com/domcloud/dom-templates/master/boot/strapi.yml) [![recipe]](./strapi.yml) [![website]](https://strapi.io/) [![source]](https://github.com/strapi/strapi)
 
-+ **Medusa.js**  
-  Medusa is an open-source headless commerce engine that enables developers to create amazing digital commerce experiences.
++ **Medusa.js** ![untested]  
+  Open-source headless commerce engine that enables developers to create amazing digital commerce experiences.
   
-  https://medusajs.com/
+  ![node] [![deploy]](https://my.domcloud.co/start?from=https://raw.githubusercontent.com/domcloud/dom-templates/master/boot/medusajs.yml) [![recipe]](./medusajs.yml) [![website]](https://medusajs.com/) [![source]](https://github.com/medusajs/medusa)
+
++ **Payload CMS**  
+  https://payloadcms.com/
 
 + **Wagtail**  
   Django content management system focused on flexibility and user experience.
@@ -80,9 +88,6 @@ These recipes includes framework or open-source software that can be self-hosted
 
 + **Spree Commerce**  
   https://spreecommerce.org/
-
-+ **QloApps**  
-  https://qloapps.com/
 
 ## Collaboration / Forum / Administration Software
 
@@ -96,11 +101,15 @@ These recipes includes framework or open-source software that can be self-hosted
 
   ![php] [![deploy]](https://my.domcloud.co/start?from=https://raw.githubusercontent.com/domcloud/dom-templates/master/boot/ojs.yml) [![recipe]](./ojs.yml) [![website]](https://pkp.sfu.ca/software/ojs) [![source]](https://github.com/pkp/ojs)
 
-+ **Cal.com**  
-  https://cal.com/
++ **Cal.com** ![untested]  
+  The open-source online appointment scheduling system.
 
-+ **Linkwarden**  
-  https://linkwarden.app/
+  ![node] [![deploy]](https://my.domcloud.co/start?from=https://raw.githubusercontent.com/domcloud/dom-templates/master/boot/calcom.yml) [![recipe]](./calcom.yml) [![website]](https://cal.com/) [![source]]( https://github.com/calcom/cal.com)
+
++ **Linkwarden** ![untested] ![lite_plan]  
+  A self-hosted bookmark + archive manager to store your useful links.
+   
+  ![node] [![deploy]](https://my.domcloud.co/start?from=https://raw.githubusercontent.com/domcloud/dom-templates/master/boot/linkwarden.yml) [![recipe]](./linkwarden.yml) [![website]](https://linkwarden.app/) [![source]](https://github.com/linkwarden/linkwarden)
 
 + **Chatwoot**  
   https://www.chatwoot.com/
@@ -157,9 +166,6 @@ These recipes includes framework or open-source software that can be self-hosted
   The classic web-based interactive computing platform.
 
   ![python] [![deploy]](https://my.domcloud.co/start?from=https://raw.githubusercontent.com/domcloud/dom-templates/master/boot/jupyter.yml) [![recipe]](./jupyter.yml) [![website]](https://jupyter.org/) [![source]](https://github.com/jupyter/notebook)
-
-+ **Payload CMS**  
-  https://payloadcms.com/
 
 + **ArchiveBox**  
   https://archivebox.io/
