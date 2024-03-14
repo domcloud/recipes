@@ -123,8 +123,10 @@ These recipes includes framework or open-source software that can be self-hosted
 + **Zulip**  
   https://zulip.com/
 
-+ **Moodle**  
-  https://moodle.org/
++ **Moodle**   
+  Learning and courses platform with one of the largest open source communities worldwide.
+
+  ![node] [![deploy]](https://my.domcloud.co/start?from=https://raw.githubusercontent.com/domcloud/dom-templates/master/boot/moodle.yml) [![recipe]](./moodle.yml) [![website]](https://moodle.org/) [![source]](https://git.in.moodle.com/moodle/moodle)
 
 + **Canvas**  
   https://www.instructure.com/canvas

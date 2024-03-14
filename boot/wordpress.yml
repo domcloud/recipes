@@ -1,7 +1,6 @@
 source: https://wordpress.org/latest.zip#wordpress
 features:
   - mysql
-  - firewall
 nginx:
   root: public_html
   fastcgi: "on"

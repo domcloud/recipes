@@ -1,0 +1,15 @@
+source: https://github.com/plausible/hosting
+features:
+  - docker
+nginx:
+  root: public_html/public
+  passenger:
+    enabled: 'on'
+    app_start_command: 'socat TCP-LISTEN:$PORT,fork TCP:localhost:$$STATIC_PORT$$'
+commands:
+  - get_hash() { openssl rand -base64 64; }
+  - sed -i 's/8000:8000/$$STATIC_PORT$$:8000/g' docker-compose.yml
+  - echo BASE_URL=https://$DOMAIN > plausible-conf.env
+  - echo SECRET_KEY_BASE=`get_hash` >> plausible-conf.env
+  - podman-compose down
+  - podman-compose up -d

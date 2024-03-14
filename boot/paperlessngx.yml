@@ -1,0 +1,7 @@
+source: https://github.com/paperless-ngx/paperless-ngx#main
+features:
+- python lts
+commands:
+- export PIPENV_PYTHON=`which python`
+- pip install pipenv
+- pipenv install

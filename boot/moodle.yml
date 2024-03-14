@@ -1,0 +1,17 @@
+source:	https://git.in.moodle.com/moodle/moodle#MOODLE_403_STABLE
+features:
+  - mysql
+nginx:
+  root: public_html
+  fastcgi: "on"
+  locations:
+    - match: /
+      try_files: $uri $uri/ /index.php$is_args$args
+commands:
+  - cp config-dist.php config.php
+  - sed -i "s/= 'pgsql'/= 'mariadb'/g" config.php
+  - sed -i "s/= 'moodle'/= '${DATABASE}'/g" config.php
+  - sed -i "s/= 'username'/= '${USERNAME}'/g" config.php
+  - sed -i "s/= 'password'/= '${PASSWORD}'/g" config.php
+  - sed -i "s|/home/example|${HOME}|g" config.php
+  - sed -i "s|http://example.com/moodle|https://${DOMAIN}|g" config.php
