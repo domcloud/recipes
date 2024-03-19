@@ -12,7 +12,7 @@ nginx:
       alias: public_html/build/
 commands:
   - npx create-strapi-app . --quickstart --no-run
-  - get_hash() { openssl rand -base64 24 }
+  - get_hash() { openssl rand -base64 24; }
   - echo JWT_SECRET=`get_hash` > .env
   - echo APP_KEYS=`get_hash` >> .env
   - echo ADMIN_JWT_SECRET=`get_hash` >> .env
