@@ -1,6 +1,10 @@
 features:
   - mysql
 nginx:
+  location:
+  - match: /
+    try_files: $uri $uri/ $uri.php
+  autoindex: on
   fastcgi: "on"
 commands:
   - echo "<?php phpinfo(15);" > phpinfo.php

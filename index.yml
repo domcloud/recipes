@@ -99,7 +99,7 @@ frameworks:
   - title: Slate Docs
     file: html-slatedocs.yml
     group: HTML
-  - title: Custom PHP
+  - title: PHP Dev (like XAMPP)
     file: php-debug.yml
     group: PHP
   - title: CodeIgniter 3
