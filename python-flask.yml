@@ -1,12 +1,11 @@
 features:
-  - python latest
+  - python system
 nginx:
   root: public_html/app/static
   passenger:
     enabled: "on"
     app_env: development
     app_root: public_html
-    python: .pyenv/shims/python
 commands:
   - test -f requirements.txt && pip install -r $_ || pip install flask
   - echo "from app import app as application" > passenger_wsgi.py

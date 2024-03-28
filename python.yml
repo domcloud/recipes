@@ -1,6 +1,6 @@
 source: clear
 features:
-  - python latest
+  - python stable
 nginx:
   root: public_html/public
   passenger:

@@ -1,6 +1,6 @@
 features:
-  - php latest
   - mysql
+  - php latest
 nginx:
   root: public_html/public
   fastcgi: "on"

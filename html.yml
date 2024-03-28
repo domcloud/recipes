@@ -1,4 +1,8 @@
 nginx:
+  root: public_html
+  locations:
+  - match: /
+    try_files: $uri $uri/ $uri.html
   index: index.html
   error_pages:
     - 404 /404.html

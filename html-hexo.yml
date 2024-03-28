@@ -1,2 +1,2 @@
 features:
-  - node latest
+  - node lts

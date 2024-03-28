@@ -1,7 +1,9 @@
 features:
   - mysql
+  - php 7.4
 nginx:
-  location:
+  root: public_html
+  locations:
   - match: /
     try_files: $uri $uri/ $uri.php
   autoindex: on
