@@ -1,7 +1,8 @@
-source: https://github.com/pkp/ojs/archive/refs/tags/3_3_0-16.tar.gz#ojs-3_3_0-16
+source: https://github.com/pkp/ojs#stable-3_3_0 # pick version here
 root: public_html/public
 features:
-  - php latest
+  - php 7.4
+  - node 16
   - mysql
 nginx:
   fastcgi: "always"
@@ -9,10 +10,15 @@ nginx:
   - match: /
     try_files: $uri $uri/ /index.php$is_args$args
 commands:
+  - git submodule update --init --recursive
   - cp config.TEMPLATE.inc.php config.inc.php
-  - sed -i "s/base_url = \"http://pkp.sfu.ca/ojs\"/base_url = \"https://${DOMAIN}\"/g" config.inc.php
+  - sed -i "s@base_url = \"http://pkp.sfu.ca/ojs\"@base_url = \"https://${DOMAIN}\"@g" config.inc.php
   - sed -i "s/allowed_hosts = ''/allowed_hosts = '[\"${DOMAIN}\"]'/g" config.inc.php
   - sed -i "s/username = ojs/username = ${USERNAME}/g" config.inc.php
   - sed -i "s/password = ojs/password = ${PASSWORD}/g" config.inc.php
   - sed -i "s/name = ojs/name = ${DATABASE}/g" config.inc.php
-
+  - composer --working-dir=lib/pkp install
+  - composer --working-dir=plugins/paymethod/paypal install
+  - composer --working-dir=plugins/generic/citationStyleLanguage install
+  - npm install
+  - npm run build
