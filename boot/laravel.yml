@@ -24,4 +24,4 @@ commands:
   - php artisan storage:link
   - npm install
   - npm run build
-  - chmod g+r -R storage || true 
+  - chmod 0750 -R storage || true 
