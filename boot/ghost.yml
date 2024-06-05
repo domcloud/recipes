@@ -1,7 +1,7 @@
 source: clear
 nginx:
   root: public_html/content/public
-  index: 'index.html index.php'
+  index: index.html
   passenger:
     enabled: 'on'
     node: .local/opt/node/bin/node

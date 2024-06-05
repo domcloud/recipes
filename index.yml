@@ -111,11 +111,14 @@ frameworks:
   - title: Laravel
     file: php-laravel.yml
     group: PHP
-  - title: Node app.js (CJS)
+  - title: Node CJS
     file: node-cjs.yml
     group: JavaScript
-  - title: Node app.js (ESM/GLS)
+  - title: Node ESM
     file: node-esm.yml
+    group: JavaScript
+  - title: Node TSC
+    file: node-tsc.yml
     group: JavaScript
   - title: Next.js
     file: node-nextjs.yml
@@ -125,6 +128,9 @@ frameworks:
     group: JavaScript
   - title: SvelteKit
     file: node-sveltekit.yml
+    group: JavaScript
+  - title: Nest.js
+    file: node-nestjs.yml
     group: JavaScript
   - title: Deno (GLS)
     file: deno-gls.yml

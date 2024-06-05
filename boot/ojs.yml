@@ -1,14 +1,14 @@
-source: https://github.com/pkp/ojs#stable-3_3_0 # pick version here
-root: public_html/public
+source: https://github.com/pkp/ojs#stable-3_4_0
+root: public_html
 features:
-  - php 7.4
-  - node 16
+  - php 8.2
+  - node 18
   - mysql
 nginx:
   fastcgi: "always"
   locations:
   - match: /
-    try_files: $uri $uri/ /index.php$is_args$args
+    try_files: $uri $uri/ /index.php$uri$is_args$args
 commands:
   - git submodule update --init --recursive
   - cp config.TEMPLATE.inc.php config.inc.php
@@ -17,8 +17,9 @@ commands:
   - sed -i "s/username = ojs/username = ${USERNAME}/g" config.inc.php
   - sed -i "s/password = ojs/password = ${PASSWORD}/g" config.inc.php
   - sed -i "s/name = ojs/name = ${DATABASE}/g" config.inc.php
+  - sed -i "s/restful_urls = Off/restful_urls = On/g" config.inc.php
   - composer --working-dir=lib/pkp install
   - composer --working-dir=plugins/paymethod/paypal install
   - composer --working-dir=plugins/generic/citationStyleLanguage install
-  - npm install
+  - npm ci
   - npm run build

@@ -1,3 +1,4 @@
+source: https://github.com/sveltejs/kit-template-default/archive/refs/heads/main.zip#kit-template-default-main
 features:
   - node lts
 nginx:

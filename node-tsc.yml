@@ -1,8 +1,6 @@
-source: https://github.com/w3cj/express-api-starter-ts/archive/refs/heads/main.zip#express-api-starter-ts-main
 features:
   - node lts
 nginx:
-  index: index.html
   root: public_html/public
   passenger:
     enabled: 'on'

@@ -1,0 +1,12 @@
+source: clear
+features:
+- node lts
+nginx:
+  root: public_html/.output/public
+  passenger:
+    enabled: 'on'
+    app_start_command: env PORT=$PORT node server/index.mjs
+commands:
+  - echo "telemetry.enabled=false" > ~/.nuxtrc
+  - npx nuxi init . --packageManager yarn --gitInit
+  - yarn build

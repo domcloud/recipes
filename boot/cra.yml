@@ -1,0 +1,12 @@
+source: clear
+features:
+- node lts
+nginx:
+  index: index.html
+  root: public_html/build
+  locations:
+    - match: /
+      try_files: $uri /index.html
+commands:
+  - npx create-react-app@latest .
+  - npm run build
