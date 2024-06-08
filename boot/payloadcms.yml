@@ -1,0 +1,15 @@
+source: clear
+features:
+  - node lts
+  - postgresql
+nginx:
+  root: public_html/public
+  passenger:
+    enabled: "on"
+    app_env: development
+    app_start_command: env PORT=$PORT yarn start
+commands:
+  - npx create-payload-app@latest . -t payload-demo
+  - get_hash() { openssl rand -base64 24; }
+  - echo PAYLOAD_SECRET=`get_hash` > .env
+  - echo DATABASE_URI="postgres://${USERNAME}:${PASSWORD}@localhost:5432/${DATABASE}" >> .env
