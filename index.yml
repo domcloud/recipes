@@ -52,19 +52,19 @@ templates:
   - title: Payload CMS
     file: boot/payloadcms.yml
     icon: https://simpleicons.org/icons/payloadcms.svg
-    color: "#2F2E8B"
-  - title: Jekyll
-    file: boot/jekyll.yml
-    icon: https://simpleicons.org/icons/jekyll.svg
-    color: "#CC0000"
-  - title: Directus
-    file: boot/directus.yml
-    icon: https://simpleicons.org/icons/directus.svg
-    color: "#263238"
+    color: "#000000"
   - title: Ghost
     file: boot/ghost.yml
     icon: https://simpleicons.org/icons/ghost.svg
     color: "#15171A"
+  - title: Directus
+    file: boot/directus.yml
+    icon: https://simpleicons.org/icons/directus.svg
+    color: "#263238"
+  - title: Jekyll
+    file: boot/jekyll.yml
+    icon: https://simpleicons.org/icons/jekyll.svg
+    color: "#CC0000"
   - title: Flarum
     file: boot/flarum.yml
     icon: https://domcloud.co/assets/feat/flarum.svg
