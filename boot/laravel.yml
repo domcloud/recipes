@@ -13,8 +13,9 @@ nginx:
 commands:
   - composer create-project laravel/laravel .
   - cp .env.example .env
-  - sed -i "s/DB_CONNECTION=sqlite/DB_CONNECTION=mysql/g" .env
-  - sed -ri "s/(# )?DB_HOST=127.0.0.1/DB_HOST=localhost/g" .env
+  - sed -ri "s/(# )?DB_CONNECTION=.*/DB_CONNECTION=mysql/g" .env
+  - sed -ri "s/(# )?DB_HOST=.*/DB_HOST=localhost/g" .env
+  - sed -ri "s/(# )?DB_PORT=.*/DB_PORT=3306/g" .env
   - sed -ri "s/(# )?DB_DATABASE=.*/DB_DATABASE=${DATABASE}/g" .env
   - sed -ri "s/(# )?DB_USERNAME=.*/DB_USERNAME=${USERNAME}/g" .env
   - sed -ri "s/(# )?DB_PASSWORD=.*/DB_PASSWORD=${PASSWORD}/g" .env
