@@ -1,0 +1,11 @@
+features:
+  - docker
+nginx:
+  root: public_html/public
+  passenger:
+    enabled: 'on'
+    app_start_command: 'socat TCP-LISTEN:$PORT,fork TCP:$$RESERVED_IP$$:80'
+commands:
+  - sed -i 's/\([0-9]\+\):\([0-9]\+\)/$$RESERVED_IP$$:80:\2/g' docker-compose.yml
+  - docker compose down
+  - docker compose up -d

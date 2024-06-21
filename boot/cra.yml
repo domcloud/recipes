@@ -8,5 +8,5 @@ nginx:
     - match: /
       try_files: $uri /index.html
 commands:
-  - npx create-react-app@latest .
-  - npm run build
+  - yarn create react-app .
+  - yarn build

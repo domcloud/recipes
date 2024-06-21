@@ -11,5 +11,5 @@ commands:
   - sed -i 's/8000:8000/$$STATIC_PORT$$:8000/g' docker-compose.yml
   - echo BASE_URL=https://$DOMAIN > plausible-conf.env
   - echo SECRET_KEY_BASE=`get_hash` >> plausible-conf.env
-  - podman-compose down
-  - podman-compose up -d
+  - docker compose down
+  - docker compose up -d
