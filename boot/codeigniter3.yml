@@ -13,6 +13,6 @@ source: https://codeload.github.com/bcit-ci/CodeIgniter/zip/3.1.13#CodeIgniter-3
 commands:
   - sed -ri "s/(config\['base_url'\]).*/\1 = 'https:\/\/${DOMAIN}\/';/g" application/config/config.php
   - sed -ri "s/(config\['index_page'\]).*/\1 = '';/g" application/config/config.php
-  - sed -ri "s/('database').*/\1 = '${DATABASE}';/g" application/config/database.php
-  - sed -ri "s/('username').*/\1 = '${USERNAME}';/g" application/config/database.php
-  - sed -ri "s/('password').*/\1 = '${PASSWORD}';/g" application/config/database.php
+  - sed -ri "s/('database').*/\1 => '${DATABASE}',/g" application/config/database.php
+  - sed -ri "s/('username').*/\1 => '${USERNAME}',/g" application/config/database.php
+  - sed -ri "s/('password').*/\1 => '${PASSWORD}',/g" application/config/database.php
