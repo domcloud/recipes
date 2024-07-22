@@ -11,7 +11,7 @@ nginx:
     - match: /admin/
       alias: public_html/build/
 commands:
-  - npx create-strapi-app . --quickstart --no-run
+  - npx create-strapi-app . --quickstart --no-run --skip-cloud
   - get_hash() { openssl rand -base64 24; }
   - echo JWT_SECRET=`get_hash` > .env
   - echo APP_KEYS=`get_hash` >> .env
