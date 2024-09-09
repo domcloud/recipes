@@ -1,15 +1,17 @@
-source: clear
+source: https://github.com/riad-azz/flask-template
 features:
-  - python system
+  - python stable
 nginx:
   root: public_html/app/static
   passenger:
     enabled: "on"
     app_env: development
     app_root: public_html
+    app_type: python
+    startup_file: server.py
+    env_var_list:
+    - PYTHONDONTWRITEBYTECODE=1
 commands:
-  - pip install https://github.com/domcloud/create-flask-app/archive/refs/heads/master.tar.gz
-  - create-flask-app project
-  - mv project/* . ; rm -rf project
+  - cp .env.example .env
   - pip install -r requirements.txt
-  - echo "from app import app as application" > passenger_wsgi.py
+  - echo "application = app" >> server.py

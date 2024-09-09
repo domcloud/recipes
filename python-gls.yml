@@ -4,6 +4,7 @@ nginx:
   root: public_html/public
   passenger:
     enabled: "on"
+    python: .pyenv/shims/python
     app_start_command: env PORT=$PORT python app.py
 commands:
-  - test -f requirements.txt && pip install -r $_
+  - requirements.txt && pip install -r requirements.txt || touch $_

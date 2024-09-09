@@ -6,7 +6,7 @@ nginx:
     enabled: "on"
     python: .pyenv/shims/python
 commands:
-  - test -f requirements.txt && pip install -r $_ || pip install django
+  - pip install -r requirements.txt || pip install django
   - sed -i "s/ALLOWED_HOSTS = \[\]/ALLOWED_HOSTS = \['${DOMAIN}'\]/g" app/settings.py
   - echo "from app.wsgi import application" > passenger_wsgi.py
   - python manage.py migrate || true

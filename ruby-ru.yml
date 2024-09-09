@@ -6,4 +6,4 @@ nginx:
     enabled: "on"
     ruby: .rvm/rubies/default/bin/ruby
 commands:
-  - test -f Gemfile && bundle install
+  - bundle install || touch Gemfile

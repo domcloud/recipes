@@ -10,7 +10,7 @@ nginx:
     - match: ~ \.[^\/]+(?<!\.php)$
       try_files: $uri =404
 commands:
-  - cp .env.example .env
+  - cp .env.example .env || touch .env
   - sed -ri "s/(# )?DB_CONNECTION=.*/DB_CONNECTION=mysql/g" .env
   - sed -ri "s/(# )?DB_HOST=.*/DB_HOST=localhost/g" .env
   - sed -ri "s/(# )?DB_PORT=.*/DB_PORT=3306/g" .env

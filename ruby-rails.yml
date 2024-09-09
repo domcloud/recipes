@@ -6,6 +6,6 @@ nginx:
     enabled: "on"
     ruby: .rvm/rubies/default/bin/ruby
 commands:
-  - test -f Gemfile && bundle install || (bundle init && bundle add rails)
+  - bundle install || (bundle init && bundle add rails)
   - rails db:migrate && rake db:setup && rails db:seed || true
   - rake assets:precompile

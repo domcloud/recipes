@@ -4,8 +4,12 @@ nginx:
   root: public_html/public
   passenger:
     enabled: "on"
-    startup_file: app.py
-    app_type: python
+    app_env: development
+    app_root: public_html
     python: .pyenv/shims/python
+    app_type: python
+    startup_file: wsgi.py
+    env_var_list:
+    - PYTHONDONTWRITEBYTECODE=1
 commands:
-  - test -f requirements.txt && pip install -r $_
+  - pip install requirements.txt 
