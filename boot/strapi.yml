@@ -12,11 +12,10 @@ nginx:
       alias: public_html/build/
 commands:
   - npx create-strapi-app . --quickstart --no-run --skip-cloud
-  - get_hash() { openssl rand -base64 24; }
-  - echo JWT_SECRET=`get_hash` > .env
-  - echo APP_KEYS=`get_hash` >> .env
-  - echo ADMIN_JWT_SECRET=`get_hash` >> .env
-  - echo API_TOKEN_SALT=`get_hash` >> .env
+  - echo JWT_SECRET=$(openssl rand -base64 24) > .env
+  - echo APP_KEYS=$(openssl rand -base64 24) >> .env
+  - echo ADMIN_JWT_SECRET=$(openssl rand -base64 24) >> .env
+  - echo API_TOKEN_SALT=$(openssl rand -base64 24) >> .env
   - echo STRAPI_ADMIN_BACKEND_URL=//${DOMAIN} >> .env
   - echo NODE_ENV=development >> .env
   - STRAPI_ADMIN_BACKEND_URL=//${DOMAIN} yarn build

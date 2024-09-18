@@ -7,12 +7,11 @@ nginx:
 features:
   - node lts
 commands:
-  - get_hash() { openssl rand -base64 24; }
   - echo DB_CLIENT=sqlite3 >> .env
   - echo DB_FILENAME=$HOME/db.sqlite >> .env
   - echo WEBSOCKETS_ENABLED=true >> .env
-  - echo KEY=`get_hash` >> .env
-  - echo SECRET=`get_hash` >> .env
+  - echo KEY=$(openssl rand -base64 24) >> .env
+  - echo SECRET=$(openssl rand -base64 24) >> .env
   - export ADMIN_EMAIL=admin@$DOMAIN
   - export ADMIN_PASSWORD=$PASSWORD
   - npx directus bootstrap

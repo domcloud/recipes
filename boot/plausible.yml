@@ -1,15 +1,6 @@
 source: https://github.com/plausible/hosting
-features:
-  - docker
-nginx:
-  root: public_html/public
-  passenger:
-    enabled: 'on'
-    app_start_command: 'socat TCP-LISTEN:$PORT,fork TCP:localhost:$$STATIC_PORT$$'
+features: docker
 commands:
-  - get_hash() { openssl rand -base64 64; }
-  - sed -i 's/8000:8000/$$STATIC_PORT$$:8000/g' docker-compose.yml
   - echo BASE_URL=https://$DOMAIN > plausible-conf.env
-  - echo SECRET_KEY_BASE=`get_hash` >> plausible-conf.env
-  - docker compose down
-  - docker compose up -d
+  - echo SECRET_KEY_BASE=$(openssl rand -base64 48) >> plausible-conf.env
+  - echo TOTP_VAULT_KEY=$(openssl rand -base64 32) >> plausible-conf.env

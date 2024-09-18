@@ -26,6 +26,7 @@ These are recipes for demonstration on running specific runtime application on D
 | Runtime | See documentation | See example | Deploy now |
 | --- | --- | --- | --- |
 | Static HTML | [📖](https://domcloud.co/docs/deployment/static-site) | [📜](./html.yml) | [↗️](https://my.domcloud.co/start?from=https://raw.githubusercontent.com/domcloud/dom-templates/master/html.yml) |
+| Docker | [📖](https://domcloud.co/docs/deployment/docker) | [📜](./docker.yml) | [↗️](https://my.domcloud.co/start?from=https://raw.githubusercontent.com/domcloud/dom-templates/master/docker.yml) |
 | PHP | [📖](https://domcloud.co/docs/deployment/php) | [📜](./php.yml) | [↗️](https://my.domcloud.co/start?from=https://raw.githubusercontent.com/domcloud/dom-templates/master/php.yml) |
 | Node.js | [📖](https://domcloud.co/docs/deployment/php) | [📜](./node.yml) | [↗️](https://my.domcloud.co/start?from=https://raw.githubusercontent.com/domcloud/dom-templates/master/node.yml) |
 | Python | [📖](https://domcloud.co/docs/deployment/python) | [📜](./python.yml) | [↗️](https://my.domcloud.co/start?from=https://raw.githubusercontent.com/domcloud/dom-templates/master/python.yml) |

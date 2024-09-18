@@ -1,4 +1,3 @@
-source: https://wordpress.org/latest.zip#wordpress
 features:
   - mysql
 nginx:
@@ -17,5 +16,3 @@ commands:
   - sed -i "s/utf8/utf8mb4/g" wp-config.php
   - curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
   - mkdir -p ~/.local/bin && mv wp-cli.phar ~/.local/bin/wp && chmod +x $_
-#  - wp core install --url=${DOMAIN} --title="My WordPress Site" --admin_user=admin --admin_password=${PASSWORD} --admin_email=admin@${DOMAIN}
-# ^^^ To bypass the WordPress installation wizard, uncomment above line

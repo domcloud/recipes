@@ -1,0 +1,9 @@
+source: clear
+features:
+  - docker
+services:
+  hello_world:
+    image: cernoel/hello-world:main
+    restart: always
+    ports:
+      - 8080:8000
