@@ -52,7 +52,7 @@ templates:
   - title: PocketBase
     file: boot/pocketbase.yml
     icon: https://simpleicons.org/icons/pocketbase.svg
-    color: "#B8DBE4"
+    color: "#769BA5"
   - title: Ghost
     file: boot/ghost.yml
     icon: https://simpleicons.org/icons/ghost.svg
