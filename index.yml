@@ -49,10 +49,10 @@ templates:
     file: boot/strapi.yml
     icon: https://simpleicons.org/icons/strapi.svg
     color: "#2F2E8B"
-  - title: Payload CMS
-    file: boot/payloadcms.yml
-    icon: https://simpleicons.org/icons/payloadcms.svg
-    color: "#000000"
+  - title: PocketBase
+    file: boot/pocketbase.yml
+    icon: https://simpleicons.org/icons/pocketbase.svg
+    color: "#B8DBE4"
   - title: Ghost
     file: boot/ghost.yml
     icon: https://simpleicons.org/icons/ghost.svg
