@@ -1,0 +1,11 @@
+source: clear
+nginx:
+  root: public_html/public
+  passenger:
+    enabled: "on"
+    app_start_command: ./pocketbase serve --http=0.0.0.0:$PORT --dir=data --publicDir=public --hooksDir=hooks
+commands:
+- POCKETBASE=pocketbase_0.22.21_linux_$( [ "$(uname -m)" = "aarch64" ] && echo "arm64" || echo "amd64" )
+- wget https://github.com/pocketbase/pocketbase/releases/download/v0.22.21/$POCKETBASE.zip
+- unzip $POCKETBASE.zip && rm $POCKETBASE.zip
+- mkdir -p data public hooks

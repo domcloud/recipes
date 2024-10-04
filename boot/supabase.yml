@@ -1,0 +1,11 @@
+source: https://github.com/supabase/supabase
+features: docker
+commands:
+  - cd docker
+  - cp .env.example .env
+  - sed -i 's|- ${KONG_HTTPS_PORT}:8443/tcp||g' docker-compose.yml
+  - sed -i 's|- ${KONG_HTTP_PORT}:8000/tcp|- 8000:8000|g' docker-compose.yml
+  - sed -i 's|- 4000:4000|[]|g' docker-compose.yml
+  - sed -i 's|- ${POSTGRES_PORT}:${POSTGRES_PORT}|[]|g' docker-compose.yml
+  - cd ..
+services: docker/docker-compose.yml
