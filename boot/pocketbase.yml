@@ -9,3 +9,4 @@ commands:
 - wget https://github.com/pocketbase/pocketbase/releases/download/v0.22.21/$POCKETBASE.zip
 - unzip $POCKETBASE.zip && rm $POCKETBASE.zip
 - mkdir -p data public hooks
+- echo "<html><head><meta http-equiv='refresh' content='0; url=/_/'></head></html>" > public/index.html
