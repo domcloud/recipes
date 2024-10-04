@@ -9,6 +9,7 @@ nginx:
     app_root: public_html
     app_type: python
     startup_file: server.py
+    python: .pyenv/shims/python
     env_var_list:
     - PYTHONDONTWRITEBYTECODE=1
 commands:
