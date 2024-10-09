@@ -4,10 +4,12 @@
 [source]: https://img.shields.io/badge/See%20source-dimgrey?style=flat-square
 [php]: https://img.shields.io/badge/PHP-777BB4?style=flat-square&logo=php&logoColor=white
 [node]: https://img.shields.io/badge/Node.js-43853D?style=flat-square&logo=node.js&logoColor=white
+[docker]: https://img.shields.io/badge/Docker-384d54?style=flat-square&logo=docker&logoColor=white
 [python]: https://img.shields.io/badge/Python-14354C?style=flat-square&logo=python&logoColor=white
 [ruby]: https://img.shields.io/badge/Ruby-CC342D?style=flat-square&logo=ruby&logoColor=white
 [untested]: https://img.shields.io/badge/Untested-red?style=flat-square&logoColor=white
 [lite_plan]: https://img.shields.io/badge/require%20plan-LITE-gold?style=flat-square&logoColor=white
+[kit_plan]: https://img.shields.io/badge/require%20plan-KIT-gold?style=flat-square&logoColor=white
 
 # List of Boot-From-Stratch Recipes
 
@@ -167,6 +169,11 @@ These recipes includes framework or open-source software that can be self-hosted
   An Instant App & API for your SQL Database.
 
   ![node] [![deploy]](https://my.domcloud.co/start?from=https://raw.githubusercontent.com/domcloud/dom-templates/master/boot/flarum.yml) [![recipe]](./flarum.yml) [![website]](https://directus.io/) [![source]](https://github.com/directus/directus)
+
++ **Supabase**  ![kit_plan]  
+  The Open Source Firebase Alternative.
+   
+  ![docker] [![deploy]](https://my.domcloud.co/start?from=https://raw.githubusercontent.com/domcloud/dom-templates/master/boot/supabase.yml) [![recipe]](./supabase.yml) [![website]](https://supabase.io/) [![source]](https://github.com/supabase/supabase)
   
 + **Jupyter Notebook**  
   The classic web-based interactive computing platform.
