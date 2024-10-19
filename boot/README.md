@@ -107,6 +107,11 @@ These recipes includes framework or open-source software that can be self-hosted
 
   ![php] [![deploy]](https://my.domcloud.co/start?from=https://raw.githubusercontent.com/domcloud/dom-templates/master/boot/ojs.yml) [![recipe]](./ojs.yml) [![website]](https://pkp.sfu.ca/software/ojs) [![source]](https://github.com/pkp/ojs)
 
++ **Open Monograph Press**  
+  Open source software to manage scholarly presses.
+
+  ![php] [![deploy]](https://my.domcloud.co/start?from=https://raw.githubusercontent.com/domcloud/dom-templates/master/boot/omp.yml) [![recipe]](./omp.yml) [![website]](https://pkp.sfu.ca/software/omp) [![source]](https://github.com/pkp/omp)
+
 + **Cal.com** ![untested]  
   The open-source online appointment scheduling system.
 

@@ -1,4 +1,4 @@
-source: https://github.com/pkp/ojs#stable-3_4_0
+source: https://github.com/pkp/omp#stable-3_4_0
 root: public_html
 features:
   - php 8.2
@@ -12,14 +12,15 @@ nginx:
 commands:
   - git submodule update --init --recursive
   - cp config.TEMPLATE.inc.php config.inc.php
-  - sed -i "s@base_url = \"https://pkp.sfu.ca/ojs\"@base_url = \"https://${DOMAIN}\"@g" config.inc.php
+  - sed -i "s@base_url = \"https://pkp.sfu.ca/omp\"@base_url = \"https://${DOMAIN}\"@g" config.inc.php
   - sed -i "s/allowed_hosts = ''/allowed_hosts = '[\"${DOMAIN}\"]'/g" config.inc.php
-  - sed -i "s/username = ojs/username = ${USERNAME}/g" config.inc.php
-  - sed -i "s/password = ojs/password = ${PASSWORD}/g" config.inc.php
-  - sed -i "s/name = ojs/name = ${DATABASE}/g" config.inc.php
+  - sed -i "s/username = omp/username = ${USERNAME}/g" config.inc.php
+  - sed -i "s/password = omp/password = ${PASSWORD}/g" config.inc.php
+  - sed -i "s/name = omp/name = ${DATABASE}/g" config.inc.php
   - sed -i "s/restful_urls = Off/restful_urls = On/g" config.inc.php
   - composer --working-dir=lib/pkp install
   - composer --working-dir=plugins/paymethod/paypal install
   - composer --working-dir=plugins/generic/citationStyleLanguage install
   - npm ci
   - npm run build
+
