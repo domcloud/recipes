@@ -10,6 +10,7 @@ nginx:
   - match: /
     try_files: $uri $uri/ /index.php$uri$is_args$args
 commands:
+  - mkdir -p ~/files
   - git submodule update --init --recursive
   - cp config.TEMPLATE.inc.php config.inc.php
   - sed -i "s@base_url = \"https://pkp.sfu.ca/ojs\"@base_url = \"https://${DOMAIN}\"@g" config.inc.php
