@@ -126,6 +126,7 @@ frameworks:
     group: PHP
   - title: Laravel (MySQL)
     file: php-laravel.yml
+    group: PHP
   - title: Laravel (PostgreSQL)
     file: php-laravel-pgsql.yml
     group: PHP
