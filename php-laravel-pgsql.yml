@@ -1,0 +1,29 @@
+features:
+  - postgresql
+  - php latest
+nginx:
+  root: public_html/public
+  fastcgi: "on"
+  locations:
+    - match: /
+      try_files: $uri $uri/ /index.php$is_args$args
+    - match: ~ \.[^\/]+(?<!\.php)$
+      try_files: $uri =404
+commands:
+  - cp .env.example .env || touch .env
+  - sed -ri "s/(# )?DB_CONNECTION=.*/DB_CONNECTION=pgsql/g" .env
+  - sed -ri "s/(# )?DB_HOST=.*/DB_HOST=localhost/g" .env
+  - sed -ri "s/(# )?DB_PORT=.*/DB_PORT=5432/g" .env
+  - sed -ri "s/(# )?DB_DATABASE=.*/DB_DATABASE=${DATABASE}/g" .env
+  - sed -ri "s/(# )?DB_USERNAME=.*/DB_USERNAME=${USERNAME}/g" .env
+  - sed -ri "s/(# )?DB_PASSWORD=.*/DB_PASSWORD=${PASSWORD}/g" .env
+  - sed -ri "s/APP_URL=.*/APP_URL=https:\/\/${DOMAIN}/g" .env
+  - composer install
+  - php artisan migrate:fresh || true
+  - php artisan db:seed || true
+  - php artisan key:generate
+  - php artisan storage:link
+  - npm install
+  - npm run build
+  - rm -f public/hot
+  - chmod 0750 -R storage || true 

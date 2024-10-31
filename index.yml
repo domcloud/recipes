@@ -124,16 +124,15 @@ frameworks:
   - title: CodeIgniter 4
     file: php-codeigniter4.yml
     group: PHP
-  - title: Laravel
+  - title: Laravel (MySQL)
     file: php-laravel.yml
+  - title: Laravel (PostgreSQL)
+    file: php-laravel-pgsql.yml
     group: PHP
-  - title: Node CJS
-    file: node-cjs.yml
+  - title: Node app.js
+    file: node-app.yml
     group: JavaScript
-  - title: Node ESM
-    file: node-esm.yml
-    group: JavaScript
-  - title: Node TSC
+  - title: Node Typescript
     file: node-tsc.yml
     group: JavaScript
   - title: Next.js
@@ -148,17 +147,17 @@ frameworks:
   - title: Nest.js
     file: node-nestjs.yml
     group: JavaScript
-  - title: Deno (GLS)
-    file: deno-gls.yml
+  - title: Deno app.ts
+    file: deno-app.yml
     group: JavaScript
-  - title: Bun (GLS)
-    file: bun-gls.yml
+  - title: Bun app.ts
+    file: bun-app.yml
     group: JavaScript
+  - title: Python main.py
+    file: python-app.yml
+    group: Python
   - title: Python main.py (WSGI)
     file: python-wsgi.yml
-    group: Python
-  - title: Python main.py (GLS)
-    file: python-gls.yml
     group: Python
   - title: Uvicorn (ASGI)
     file: python-uvicorn.yml
@@ -175,21 +174,27 @@ frameworks:
   - title: Ruby on Rails
     file: ruby-rails.yml
     group: Ruby
-  - title: Go (GLS + Go Run)
-    file: go-gls.yml
+  - title: Go (Go Run)
+    file: go-run.yml
     group: Go
-  - title: Go (GLS + Binary Build)
+  - title: Go (Binary Build)
     file: go-binary.yml
     group: Go
-  - title: Rust (GLS + Cargo Run)
-    file: rust-gls.yml
+  - title: Rust (Cargo Run)
+    file: rust-cargo.yml
     group: Rust
-  - title: Rust (GLS + Binary Build)
+  - title: Rust (Binary Build)
     file: rust-binary.yml
     group: Rust
-  - title: Zig (GLS + Binary Build)
+  - title: Zig (Binary Build)
     file: zig-binary.yml
     group: Zig
+  - title: Java Main.java
+    file: java-app.yml
+    group: Java
+  - title: Dotnet Run
+    file: dotnet-run.yml
+    group: Dotnet
   - title: Docker Compose
     file: docker-comp.yml
     group: Docker

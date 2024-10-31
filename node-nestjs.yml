@@ -5,8 +5,6 @@ nginx:
   root: public_html/client
   passenger:
     enabled: 'on'
-    app_type: node
-    startup_file: dist/main.js
-    nodejs: .local/opt/node/bin/node
+    app_start_command: env PORT=$PORT dist/main.js
 commands:
   - nest build

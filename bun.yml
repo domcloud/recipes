@@ -5,7 +5,7 @@ nginx:
   root: public_html/public
   passenger:
     enabled: "on"
-    app_start_command: env PORT=$PORT bunfix bun app.ts
+    app_start_command: env PORT=$PORT proxfix bun app.ts
 commands:
   - filename: app.ts
     content: |

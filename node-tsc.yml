@@ -4,9 +4,7 @@ nginx:
   root: public_html/public
   passenger:
     enabled: 'on'
-    app_type: node
-    startup_file: dist/src/index.js
-    nodejs: .local/opt/node/bin/node
+    app_start_command: env PORT=$PORT node dist/src/index.js
 commands:
   - npm install
   - npm run build
