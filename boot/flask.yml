@@ -16,3 +16,4 @@ commands:
   - cp .env.example .env
   - pip install -r requirements.txt
   - echo "application = app" >> server.py
+

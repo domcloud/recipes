@@ -166,6 +166,12 @@ frameworks:
   - title: Flask
     file: python-flask.yml
     group: Python
+  - title: Flask (MySQL)
+    file: python-flask-mysql.yml
+    group: Python
+  - title: Flask (PostgreSQL)
+    file: python-flask-pgsql.yml
+    group: Python
   - title: Django
     file: python-django.yml
     group: Python

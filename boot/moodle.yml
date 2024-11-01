@@ -1,4 +1,4 @@
-source:	https://git.in.moodle.com/moodle/moodle#MOODLE_403_STABLE
+source:	https://git.in.moodle.com/moodle/moodle#MOODLE_405_STABLE
 features:
   - mysql
 nginx:
@@ -15,3 +15,4 @@ commands:
   - sed -i "s/= 'password'/= '${PASSWORD}'/g" config.php
   - sed -i "s|/home/example|${HOME}|g" config.php
   - sed -i "s|http://example.com/moodle|https://${DOMAIN}|g" config.php
+  - mkdir -p $HOME/moodledata; chmod -R 0750 $HOME/moodledata

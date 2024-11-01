@@ -1,5 +1,6 @@
 features:
   - python stable
+  - postgresql
 nginx:
   root: public_html/app/static
   passenger:
@@ -12,7 +13,7 @@ nginx:
     env_var_list:
     - PYTHONDONTWRITEBYTECODE=1
 commands:
-  - pip install -r requirements.txt || pip install flask
+  - pip install -r requirements.txt || pip install flask psycopg2
   - filename: wsgi.py
     content: | 
       # We expect you export app variable in app/__init__.py or app.py
@@ -23,4 +24,4 @@ commands:
   - echo "SECRET_KEY=$(openssl rand -base64 32)" >> .env
   - echo "SESSION_COOKIE_SECURE=True" >> .env
   - echo "PREFERRED_URL_SCHEME=https" >> .env
-  - echo "SQLALCHEMY_DATABASE_URI=sqlite:////$HOME/db.sqlite" >> .env
+  - echo "SQLALCHEMY_DATABASE_URI=postgresql+psycopg2://$USERNAME:$PASSWORD@localhost/$DATABASE" >> .env
