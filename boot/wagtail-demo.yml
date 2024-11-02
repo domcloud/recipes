@@ -1,0 +1,20 @@
+source:  https://github.com/wagtail/bakerydemo.git
+features:
+- python stable
+nginx:
+  root: public_html/public
+  passenger:
+    enabled: "on"
+    app_type: python
+    python: .pyenv/shims/python
+    startup_file: wsgi.py
+commands:
+  - cp .env.example .env
+  - cp bakerydemo/settings/local.py.example bakerydemo/settings/local.py
+  - pip install -r requirements/development.txt
+  - python manage.py collectstatic --noinput
+  - python manage.py migrate
+    # login user "admin" pass "changeme"
+  - python manage.py load_initial_data
+  - content: from bakerydemo.wsgi import application
+    filename: wsgi.py

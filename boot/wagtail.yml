@@ -1,11 +1,13 @@
+source: clear
 features:
   - python stable
 nginx:
   root: public_html/public
   passenger:
     enabled: "on"
+    app_type: python
     python: .pyenv/shims/python
-source: clear
+    startup_file: wsgi.py
 commands:
   - pip install wagtail
   - wagtail start app .
@@ -16,4 +18,4 @@ commands:
     DJANGO_SUPERUSER_PASSWORD=$PASSWORD python manage.py 
     createsuperuser --username=admin --email=admin@$DOMAIN --noinput
   - content: from app.wsgi import application
-    filename: passenger_wsgi.py
+    filename: wsgi.py
