@@ -12,6 +12,7 @@ nginx:
     - match: ~ \.[^\/]+(?<!\.php)$
       try_files: $uri =404
 commands:
+  - composer install
   - cp .env.example .env
   - sed -ri "s/(# )?DB_CONNECTION=.*/DB_CONNECTION=mysql/g" .env
   - sed -ri "s/(# )?DB_HOST=.*/DB_HOST=localhost/g" .env
