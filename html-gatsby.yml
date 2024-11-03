@@ -1,9 +1,10 @@
 features:
   - node lts
 nginx:
-  root: public_html/build
+  root: public_html/public
   locations:
     - match: /
+      # CSR Only!
       try_files: $uri $uri/ /index.html
 commands:
   - yarn install

@@ -1,0 +1,17 @@
+source: clear
+features:
+  - node lts
+nginx:
+  root: public_html/public
+  locations:
+    - match: /
+      try_files: $uri $uri/ /index.html
+  passenger:
+    enabled: on
+    # TODO: SSR/SSG not work
+    app_start_command: npm run serve -- --port $PORT
+commands:
+  - npm install -g gatsby-cli
+  - gatsby new . https://github.com/gatsbyjs/gatsby-starter-default
+  - npm install
+  - npm run build
