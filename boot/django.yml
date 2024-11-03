@@ -7,7 +7,7 @@ nginx:
     python: .pyenv/shims/python
 source: clear
 commands:
-  - pip install django
+  - pip install django 
   - django-admin startproject app .
   - sed -i "s/ALLOWED_HOSTS = \[\]/ALLOWED_HOSTS = \['${DOMAIN}'\]/g" app/settings.py
   - mkdir -p public/static ; echo "STATIC_ROOT = 'public/static/'" >> app/settings.py

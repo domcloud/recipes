@@ -19,7 +19,7 @@ commands:
   - sed -ri "s/(# )?DB_PASSWORD=.*/DB_PASSWORD=${PASSWORD}/g" .env
   - sed -ri "s/APP_URL=.*/APP_URL=https:\/\/${DOMAIN}/g" .env
   - composer install
-  - php artisan migrate:fresh || true
+  - php artisan migrate:fresh --seed || true
   - php artisan db:seed || true
   - php artisan key:generate
   - php artisan storage:link

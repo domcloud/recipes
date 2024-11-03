@@ -20,7 +20,7 @@ commands:
   - sed -ri "s/(# )?DB_USERNAME=.*/DB_USERNAME=${USERNAME}/g" .env
   - sed -ri "s/(# )?DB_PASSWORD=.*/DB_PASSWORD=${PASSWORD}/g" .env
   - sed -ri "s/APP_URL=.*/APP_URL=https:\/\/${DOMAIN}/g" .env
-  - php artisan migrate:fresh
+  - php artisan migrate:fresh --seed
   - php artisan key:generate
   - php artisan storage:link
   - npm install

@@ -1,8 +1,10 @@
+source: https://github.com/pterodactyl/panel
+root: public_html/public
 features:
+  - php 8.2
+  - node 14
   - mysql
-  - php latest
 nginx:
-  root: public_html/public
   fastcgi: "on"
   locations:
     - match: /
@@ -10,7 +12,7 @@ nginx:
     - match: ~ \.[^\/]+(?<!\.php)$
       try_files: $uri =404
 commands:
-  - cp .env.example .env || touch .env
+  - cp .env.example .env
   - sed -ri "s/(# )?DB_CONNECTION=.*/DB_CONNECTION=mysql/g" .env
   - sed -ri "s/(# )?DB_HOST=.*/DB_HOST=localhost/g" .env
   - sed -ri "s/(# )?DB_PORT=.*/DB_PORT=3306/g" .env
@@ -18,11 +20,13 @@ commands:
   - sed -ri "s/(# )?DB_USERNAME=.*/DB_USERNAME=${USERNAME}/g" .env
   - sed -ri "s/(# )?DB_PASSWORD=.*/DB_PASSWORD=${PASSWORD}/g" .env
   - sed -ri "s/APP_URL=.*/APP_URL=https:\/\/${DOMAIN}/g" .env
-  - composer install
-  - php artisan migrate:fresh --seed || true
+    # https://github.com/pterodactyl/panel/issues/5240
+  - sed -ri '/^enable the sandbox mode/d' ./database/schema/mysql-schema.sql
+  - php artisan migrate:fresh --seed --force
   - php artisan key:generate
   - php artisan storage:link
-  - npm install
-  - npm run build
-  - rm -f public/hot
-  - chmod 0750 -R storage || true 
+  - yarn install --frozen-lockfile
+  - yarn run build:production || true
+  - chmod 0750 -R storage || true
+    # create root user, username + password see manage tab
+  - php artisan p:user:make -n --email=admin@$DOMAIN --username=${USERNAME} --password=$PASSWORD --admin=1 --name-first=My --name-last=Admin
