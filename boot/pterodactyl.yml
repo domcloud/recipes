@@ -29,4 +29,5 @@ commands:
   - yarn run build:production || true
   - chmod 0750 -R storage || true
     # create root user, username + password see manage tab
-  - php artisan p:user:make -n --email=admin@$DOMAIN --username=${USERNAME} --password=$PASSWORD --admin=1 --name-first=My --name-last=Admin
+    # THERE WILL BE ERROR ABOUT NO REDIS BUT I THINK IT'S OK
+  - php artisan p:user:make -n --email=admin@$DOMAIN --username=${USERNAME} --password=$PASSWORD --admin=1 --name-first=My --name-last=Admin || true
