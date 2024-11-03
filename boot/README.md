@@ -21,47 +21,47 @@ These recipes includes framework or open-source software that can be self-hosted
 
 | Name  | Runtime | Deploy Now | See Recipe |
 |---|---|---|---|
-| CodeIgniter 4 | ![php] | [↗️](https://my.domcloud.co/start?from=https://raw.githubusercontent.com/domcloud/dom-templates/master/boot/codeigniter.yml) | [📜](./codeigniter.yml)
-| CodeIgniter 3 | ![php] | [↗️](https://my.domcloud.co/start?from=https://raw.githubusercontent.com/domcloud/dom-templates/master/boot/codeigniter3.yml) | [📜](./codeigniter3.yml)
-| CakePHP | ![php] | [↗️](https://my.domcloud.co/start?from=https://raw.githubusercontent.com/domcloud/dom-templates/master/boot/cakephp.yml) | [📜](./cakephp.yml)
-| Laravel | ![php] | [↗️](https://my.domcloud.co/start?from=https://raw.githubusercontent.com/domcloud/dom-templates/master/boot/laravel.yml) | [📜](./laravel.yml)
-| Create React App | ![node] | [↗️](https://my.domcloud.co/start?from=https://raw.githubusercontent.com/domcloud/dom-templates/master/boot/cra.yml) | [📜](./cra.yml)
-| Express | ![node] | [↗️](https://my.domcloud.co/start?from=https://raw.githubusercontent.com/domcloud/dom-templates/master/boot/express.yml) | [📜](./express.yml)
-| Nest.js | ![node] | [↗️](https://my.domcloud.co/start?from=https://raw.githubusercontent.com/domcloud/dom-templates/master/boot/nestjs.yml) | [📜](./nestjs.yml)
-| Next.js | ![node] | [↗️](https://my.domcloud.co/start?from=https://raw.githubusercontent.com/domcloud/dom-templates/master/boot/nextjs.yml) | [📜](./nextjs.yml)
-| Nuxt.js | ![node] | [↗️](https://my.domcloud.co/start?from=https://raw.githubusercontent.com/domcloud/dom-templates/master/boot/nuxtjs.yml) | [📜](./nuxts.yml)
-| SvelteKit | ![node] | [↗️](https://my.domcloud.co/start?from=https://raw.githubusercontent.com/domcloud/dom-templates/master/boot/sveltekit.yml) | [📜](./sveltekit.yml)
-| Flask | ![python] | [↗️](https://my.domcloud.co/start?from=https://raw.githubusercontent.com/domcloud/dom-templates/master/boot/flask.yml) | [📜](./flask.yml)
-| Django | ![python] | [↗️](https://my.domcloud.co/start?from=https://raw.githubusercontent.com/domcloud/dom-templates/master/boot/django.yml) | [📜](./django.yml)
-| Ruby on Rails | ![ruby] | [↗️](https://my.domcloud.co/start?from=https://raw.githubusercontent.com/domcloud/dom-templates/master/boot/rails.yml) | [📜](./rails.yml)
-| Jekyll | ![ruby] | [↗️](https://my.domcloud.co/start?from=https://raw.githubusercontent.com/domcloud/dom-templates/master/boot/jekyl.yml) | [📜](./jekyll.yml)
+| CodeIgniter 4 | ![php] | [↗️](https://my.domcloud.co/start?from=/boot/codeigniter.yml) | [📜](./codeigniter.yml)
+| CodeIgniter 3 | ![php] | [↗️](https://my.domcloud.co/start?from=/boot/codeigniter3.yml) | [📜](./codeigniter3.yml)
+| CakePHP | ![php] | [↗️](https://my.domcloud.co/start?from=/boot/cakephp.yml) | [📜](./cakephp.yml)
+| Laravel | ![php] | [↗️](https://my.domcloud.co/start?from=/boot/laravel.yml) | [📜](./laravel.yml)
+| Create React App | ![node] | [↗️](https://my.domcloud.co/start?from=/boot/cra.yml) | [📜](./cra.yml)
+| Express | ![node] | [↗️](https://my.domcloud.co/start?from=/boot/express.yml) | [📜](./express.yml)
+| Nest.js | ![node] | [↗️](https://my.domcloud.co/start?from=/boot/nestjs.yml) | [📜](./nestjs.yml)
+| Next.js | ![node] | [↗️](https://my.domcloud.co/start?from=/boot/nextjs.yml) | [📜](./nextjs.yml)
+| Nuxt.js | ![node] | [↗️](https://my.domcloud.co/start?from=/boot/nuxtjs.yml) | [📜](./nuxts.yml)
+| SvelteKit | ![node] | [↗️](https://my.domcloud.co/start?from=/boot/sveltekit.yml) | [📜](./sveltekit.yml)
+| Flask | ![python] | [↗️](https://my.domcloud.co/start?from=/boot/flask.yml) | [📜](./flask.yml)
+| Django | ![python] | [↗️](https://my.domcloud.co/start?from=/boot/django.yml) | [📜](./django.yml)
+| Ruby on Rails | ![ruby] | [↗️](https://my.domcloud.co/start?from=/boot/rails.yml) | [📜](./rails.yml)
+| Jekyll | ![ruby] | [↗️](https://my.domcloud.co/start?from=/boot/jekyl.yml) | [📜](./jekyll.yml)
 
 ## CMS / CMF / Blogging / Ecommerce
 
 + **WordPress**  
   World’s most-used blogging and CMS engine.
 
-  ![php] [![deploy]](https://my.domcloud.co/start?from=https://raw.githubusercontent.com/domcloud/dom-templates/master/boot/wordpress.yml) [![recipe]](./wordpress.yml) [![website]](https://wordpress.org) [![source]](https://github.com/WordPress/wordpress-develop)
+  ![php] [![deploy]](https://my.domcloud.co/start?from=/boot/wordpress.yml) [![recipe]](./wordpress.yml) [![website]](https://wordpress.org) [![source]](https://github.com/WordPress/wordpress-develop)
 
 + **WooCommerce**  
   WordPress based e-commerce solution.
 
-  ![php] [![deploy]](https://my.domcloud.co/start?from=https://raw.githubusercontent.com/domcloud/dom-templates/master/boot/woocommerce.yml) [![recipe]](./wordpress.yml) [![website]](https://woo.com) [![source]](https://github.com/woocommerce/woocommerce)
+  ![php] [![deploy]](https://my.domcloud.co/start?from=/boot/woocommerce.yml) [![recipe]](./wordpress.yml) [![website]](https://woo.com) [![source]](https://github.com/woocommerce/woocommerce)
 
 + **Drupal**  
   Advanced open source content management platform.
 
-  ![php] [![deploy]](https://my.domcloud.co/start?from=https://raw.githubusercontent.com/domcloud/dom-templates/master/boot/drupal.yml) [![recipe]](./drupal.yml) [![website]](https://drupal.org/) [![source]](https://git.drupalcode.org/project/drupal)
+  ![php] [![deploy]](https://my.domcloud.co/start?from=/boot/drupal.yml) [![recipe]](./drupal.yml) [![website]](https://drupal.org/) [![source]](https://git.drupalcode.org/project/drupal)
 
 + **Magento**  
   Leading provider of open omnichannel innovation.
 
-  ![php] [![deploy]](https://my.domcloud.co/start?from=https://raw.githubusercontent.com/domcloud/dom-templates/master/boot/magento.yml) [![recipe]](./magento.yml) [![website]](https://business.adobe.com/products/magento/open-source.html) [![source]](https://github.com/magento/magento2)
+  ![php] [![deploy]](https://my.domcloud.co/start?from=/boot/magento.yml) [![recipe]](./magento.yml) [![website]](https://business.adobe.com/products/magento/open-source.html) [![source]](https://github.com/magento/magento2)
 
 + **Bagisto**  
   Leading Laravel open source e-commerce framework with multi-inventory sources, taxation, localization, dropshipping and more exciting features.
 
-  ![php] [![deploy]](https://my.domcloud.co/start?from=https://raw.githubusercontent.com/domcloud/dom-templates/master/boot/bagisto.yml) [![recipe]](./bagisto.yml) [![website]](https://bagisto.com/) [![source]](https://github.com/bagisto/bagisto/)
+  ![php] [![deploy]](https://my.domcloud.co/start?from=/boot/bagisto.yml) [![recipe]](./bagisto.yml) [![website]](https://bagisto.com/) [![source]](https://github.com/bagisto/bagisto/)
 
 + **QloApps**  
   https://qloapps.com/
@@ -69,17 +69,17 @@ These recipes includes framework or open-source software that can be self-hosted
 + **Ghost**  
   Independent technology for modern publishing, memberships, subscriptions and newsletters.
 
-  ![node] [![deploy]](https://my.domcloud.co/start?from=https://raw.githubusercontent.com/domcloud/dom-templates/master/boot/ghost.yml) [![recipe]](./ghost.yml) [![website]](https://ghost.org/) [![source]](https://github.com/TryGhost/Ghost)
+  ![node] [![deploy]](https://my.domcloud.co/start?from=/boot/ghost.yml) [![recipe]](./ghost.yml) [![website]](https://ghost.org/) [![source]](https://github.com/TryGhost/Ghost)
 
 + **Strapi**  
   The most advanced open-source Content Management Framework (headless-CMS) to build powerful API with no effort.
 
-  ![node] [![deploy]](https://my.domcloud.co/start?from=https://raw.githubusercontent.com/domcloud/dom-templates/master/boot/strapi.yml) [![recipe]](./strapi.yml) [![website]](https://strapi.io/) [![source]](https://github.com/strapi/strapi)
+  ![node] [![deploy]](https://my.domcloud.co/start?from=/boot/strapi.yml) [![recipe]](./strapi.yml) [![website]](https://strapi.io/) [![source]](https://github.com/strapi/strapi)
 
 + **Medusa.js** ![untested]  
   Open-source headless commerce engine that enables developers to create amazing digital commerce experiences.
   
-  ![node] [![deploy]](https://my.domcloud.co/start?from=https://raw.githubusercontent.com/domcloud/dom-templates/master/boot/medusajs.yml) [![recipe]](./medusajs.yml) [![website]](https://medusajs.com/) [![source]](https://github.com/medusajs/medusa)
+  ![node] [![deploy]](https://my.domcloud.co/start?from=/boot/medusajs.yml) [![recipe]](./medusajs.yml) [![website]](https://medusajs.com/) [![source]](https://github.com/medusajs/medusa)
 
 + **Payload CMS**  
   https://payloadcms.com/
@@ -87,7 +87,7 @@ These recipes includes framework or open-source software that can be self-hosted
 + **Wagtail**  
   Django content management system focused on flexibility and user experience.
 
-  ![python] [![deploy]](https://my.domcloud.co/start?from=https://raw.githubusercontent.com/domcloud/dom-templates/master/boot/wagtail.yml) [![recipe]](./wagtail.yml) [![website]](https://wagtail.io/) [![source]](https://github.com/wagtail/wagtail)
+  ![python] [![deploy]](https://my.domcloud.co/start?from=/boot/wagtail.yml) [![recipe]](./wagtail.yml) [![website]](https://wagtail.io/) [![source]](https://github.com/wagtail/wagtail)
 
 + **Saleor**  
   https://saleor.io/
@@ -100,27 +100,27 @@ These recipes includes framework or open-source software that can be self-hosted
 + **Flarum**  
   Simple forum software for building great communities.
 
-  ![php] [![deploy]](https://my.domcloud.co/start?from=https://raw.githubusercontent.com/domcloud/dom-templates/master/boot/flarum.yml) [![recipe]](./flarum.yml) [![website]](https://flarum.org/) [![source]](https://github.com/flarum/flarum)
+  ![php] [![deploy]](https://my.domcloud.co/start?from=/boot/flarum.yml) [![recipe]](./flarum.yml) [![website]](https://flarum.org/) [![source]](https://github.com/flarum/flarum)
 
 + **Open Journal System**  
   Open source software to manage scholarly journals.
 
-  ![php] [![deploy]](https://my.domcloud.co/start?from=https://raw.githubusercontent.com/domcloud/dom-templates/master/boot/ojs.yml) [![recipe]](./ojs.yml) [![website]](https://pkp.sfu.ca/software/ojs) [![source]](https://github.com/pkp/ojs)
+  ![php] [![deploy]](https://my.domcloud.co/start?from=/boot/ojs.yml) [![recipe]](./ojs.yml) [![website]](https://pkp.sfu.ca/software/ojs) [![source]](https://github.com/pkp/ojs)
 
 + **Open Monograph Press**  
   Open source software to manage scholarly presses.
 
-  ![php] [![deploy]](https://my.domcloud.co/start?from=https://raw.githubusercontent.com/domcloud/dom-templates/master/boot/omp.yml) [![recipe]](./omp.yml) [![website]](https://pkp.sfu.ca/software/omp) [![source]](https://github.com/pkp/omp)
+  ![php] [![deploy]](https://my.domcloud.co/start?from=/boot/omp.yml) [![recipe]](./omp.yml) [![website]](https://pkp.sfu.ca/software/omp) [![source]](https://github.com/pkp/omp)
 
 + **Cal.com** ![untested]  
   The open-source online appointment scheduling system.
 
-  ![node] [![deploy]](https://my.domcloud.co/start?from=https://raw.githubusercontent.com/domcloud/dom-templates/master/boot/calcom.yml) [![recipe]](./calcom.yml) [![website]](https://cal.com/) [![source]]( https://github.com/calcom/cal.com)
+  ![node] [![deploy]](https://my.domcloud.co/start?from=/boot/calcom.yml) [![recipe]](./calcom.yml) [![website]](https://cal.com/) [![source]]( https://github.com/calcom/cal.com)
 
 + **Linkwarden** ![untested] ![lite_plan]  
   A self-hosted bookmark + archive manager to store your useful links.
    
-  ![node] [![deploy]](https://my.domcloud.co/start?from=https://raw.githubusercontent.com/domcloud/dom-templates/master/boot/linkwarden.yml) [![recipe]](./linkwarden.yml) [![website]](https://linkwarden.app/) [![source]](https://github.com/linkwarden/linkwarden)
+  ![node] [![deploy]](https://my.domcloud.co/start?from=/boot/linkwarden.yml) [![recipe]](./linkwarden.yml) [![website]](https://linkwarden.app/) [![source]](https://github.com/linkwarden/linkwarden)
 
 + **Chatwoot**  
   https://www.chatwoot.com/
@@ -137,7 +137,7 @@ These recipes includes framework or open-source software that can be self-hosted
 + **Moodle**   
   Learning and courses platform with one of the largest open source communities worldwide.
 
-  ![node] [![deploy]](https://my.domcloud.co/start?from=https://raw.githubusercontent.com/domcloud/dom-templates/master/boot/moodle.yml) [![recipe]](./moodle.yml) [![website]](https://moodle.org/) [![source]](https://git.in.moodle.com/moodle/moodle)
+  ![node] [![deploy]](https://my.domcloud.co/start?from=/boot/moodle.yml) [![recipe]](./moodle.yml) [![website]](https://moodle.org/) [![source]](https://git.in.moodle.com/moodle/moodle)
 
 + **Canvas**  
   https://www.instructure.com/canvas
@@ -173,17 +173,17 @@ These recipes includes framework or open-source software that can be self-hosted
 + **Directus**  
   An Instant App & API for your SQL Database.
 
-  ![node] [![deploy]](https://my.domcloud.co/start?from=https://raw.githubusercontent.com/domcloud/dom-templates/master/boot/flarum.yml) [![recipe]](./flarum.yml) [![website]](https://directus.io/) [![source]](https://github.com/directus/directus)
+  ![node] [![deploy]](https://my.domcloud.co/start?from=/boot/flarum.yml) [![recipe]](./flarum.yml) [![website]](https://directus.io/) [![source]](https://github.com/directus/directus)
 
 + **Supabase**  ![kit_plan]  
   The Open Source Firebase Alternative.
    
-  ![docker] [![deploy]](https://my.domcloud.co/start?from=https://raw.githubusercontent.com/domcloud/dom-templates/master/boot/supabase.yml) [![recipe]](./supabase.yml) [![website]](https://supabase.io/) [![source]](https://github.com/supabase/supabase)
+  ![docker] [![deploy]](https://my.domcloud.co/start?from=/boot/supabase.yml) [![recipe]](./supabase.yml) [![website]](https://supabase.io/) [![source]](https://github.com/supabase/supabase)
   
 + **Jupyter Notebook**  
   The classic web-based interactive computing platform.
 
-  ![python] [![deploy]](https://my.domcloud.co/start?from=https://raw.githubusercontent.com/domcloud/dom-templates/master/boot/jupyter.yml) [![recipe]](./jupyter.yml) [![website]](https://jupyter.org/) [![source]](https://github.com/jupyter/notebook)
+  ![python] [![deploy]](https://my.domcloud.co/start?from=/boot/jupyter.yml) [![recipe]](./jupyter.yml) [![website]](https://jupyter.org/) [![source]](https://github.com/jupyter/notebook)
 
 + **ArchiveBox**  
   https://archivebox.io/
