@@ -22,7 +22,7 @@ commands:
   - sed -ri "s/(# )?DB_PASSWORD=.*/DB_PASSWORD=${PASSWORD}/g" .env
   - sed -ri "s/APP_URL=.*/APP_URL=https:\/\/${DOMAIN}/g" .env
     # https://github.com/pterodactyl/panel/issues/5240
-  - sed -ri '/^enable the sandbox mode/d' ./database/schema/mysql-schema.sql
+  - sed -ri '/enable the sandbox mode/d' ./database/schema/mysql-schema.sql
   - php artisan migrate:fresh --seed --force
   - php artisan key:generate
   - php artisan storage:link
