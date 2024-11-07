@@ -1,0 +1,128 @@
+source: clear
+features:
+- docker
+nginx:
+  root: public_html/public
+  passenger:
+    enabled: on
+    app_start_command: "env TARGET=$(cat ip):8080 proxfix ./wings --config config.yml"
+commands:
+  - curl -L -o wings "https://github.com/pterodactyl/wings/releases/latest/download/wings_linux_$([[ "$(uname -m)" == "x86_64" ]] && echo "amd64" || echo "arm64")"
+  - chmod +x wings
+  - echo "127.$((RANDOM % 256)).$((RANDOM % 256)).$((RANDOM % 256))" | tee ip
+  - filename: config.yml
+    content: |
+      # MAKE SURE CREATE THIS IN THE SAME SERVER!
+      # When creating nodes....
+      # -- Fully Qualified Domain Name: read ip above
+      # -- Communicate Over SSL: Use SSL Connection
+      # -- Behind Proxy: Behind Proxy
+      # -- Daemon Port: 8080
+      # -- SFTP Port: 2202
+      # -----THEN EDIT THESE CONFIG BASED ON THE PANEL----------
+      debug: false
+      app_name: Pterodactyl
+      uuid: e3598167-0001-4000-8000-c27181500057
+      token_id: iTheTokenId
+      token: xTheVeryLongTokenYouShouldCopyFromThePanel
+      remote: https://domain_to_panel_here
+      # ---------------OK STOP EDITING-------------------------
+      api:
+        host: 0.0.0.0
+        port: 8080
+        ssl:
+          enabled: false
+          cert: /etc/letsencrypt/live/test-nodes-pte.domcloud.dev/fullchain.pem
+          key: /etc/letsencrypt/live/test-nodes-pte.domcloud.dev/privkey.pem
+        disable_remote_download: false
+        upload_limit: 100
+        trusted_proxies: []
+      system:
+        root_directory: ./lib/pterodactyl
+        log_directory: ./log/pterodactyl
+        data: ./lib/pterodactyl/volumes
+        archive_directory: ./lib/pterodactyl/archives
+        backup_directory: ./lib/pterodactyl/backups
+        tmp_directory: ./tmp/pterodactyl
+        username: username_here
+        timezone: ""
+        user:
+          rootless:
+            enabled: true
+            container_uid: 0
+            container_gid: 0
+          uid: 0
+          gid: 0
+        disk_check_interval: 150
+        activity_send_interval: 60
+        activity_send_count: 100
+        check_permissions_on_boot: true
+        enable_log_rotate: false
+        websocket_log_count: 150
+        sftp:
+          bind_address: 0.0.0.0
+          bind_port: 2022 # Set SFTP Port number here
+          read_only: false
+        crash_detection:
+          enabled: true
+          detect_clean_exit_as_crash: true
+          timeout: 60
+        backups:
+          write_limit: 0
+          compression_level: best_speed
+        transfers:
+          download_limit: 0
+        openat_mode: auto
+      docker:
+        network:
+          interface: 172.18.0.1
+          dns:
+          - 1.1.1.1
+          - 1.0.0.1
+          name: pterodactyl_nw
+          ispn: false
+          driver: bridge
+          network_mode: pterodactyl_nw
+          is_internal: false
+          enable_icc: true
+          network_mtu: 1500
+          interfaces:
+            v4:
+              subnet: 172.18.0.0/16
+              gateway: 172.18.0.1
+            v6:
+              subnet: fdba:17c8:6c94::/64
+              gateway: fdba:17c8:6c94::1011
+        domainname: ""
+        registries: {}
+        tmpfs_size: 100
+        container_pid_limit: 512
+        installer_limits:
+          memory: 1024
+          cpu: 100
+        overhead:
+          override: false
+          default_multiplier: 1.05
+          multipliers: {}
+        use_performant_inspect: true
+        userns_mode: ""
+        log_config:
+          type: local
+          config:
+            compress: "false"
+            max-file: "1"
+            max-size: 5m
+            mode: non-blocking
+      throttles:
+        enabled: true
+        lines: 2000
+        line_reset_interval: 100
+      remote_query:
+        timeout: 30
+        boot_servers_per_page: 50
+      allowed_mounts: []
+      allowed_origins: []
+      allow_cors_private_network: false
+      ignore_panel_config_updates: false
+  - sed -i "s/username_here/${USERNAME}/g" config.yml
+  - sed -i "s/0.0.0.0/$(cat ip)/g" config.yml
