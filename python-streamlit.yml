@@ -5,6 +5,6 @@ nginx:
   passenger:
     enabled: "on"
     python: .pyenv/shims/python
-    app_start_command: env PORT=$PORT python app.py
+    app_start_command: streamlit run app.py --server.port $PORT
 commands:
-  - pip install -r requirements.txt || touch $_
+  - pip install -r requirements.txt || pip install streamlit

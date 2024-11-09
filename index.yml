@@ -154,11 +154,14 @@ frameworks:
   - title: Bun app.ts
     file: bun-app.yml
     group: JavaScript
-  - title: Python main.py
+  - title: Python app.py
     file: python-app.yml
     group: Python
-  - title: Python main.py (WSGI)
+  - title: Python wsgi.py (WSGI)
     file: python-wsgi.yml
+    group: Python
+  - title: Streamlit app.py
+    file: python-streamlit.yml
     group: Python
   - title: Uvicorn (ASGI)
     file: python-uvicorn.yml
