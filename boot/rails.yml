@@ -16,5 +16,6 @@ commands:
         get "/articles", to: "articles#index"
         root "articles#index"
       end
+  - export RAILS_ENV=production
   - rails db:migrate && rake db:setup && rails db:seed || true
   - rake assets:precompile
