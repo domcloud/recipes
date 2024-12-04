@@ -1,6 +1,6 @@
 source: clear
 features:
-  - node lts
+  - node 20
 nginx:
   root: public_html/public
   passenger:
