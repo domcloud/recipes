@@ -1,0 +1,16 @@
+source: https://github.com/ExpressionEngine/ExpressionEngine
+root: public_html
+features:
+  - php latest
+  - mysql
+nginx:
+  fastcgi: "on"
+  locations:
+    - match: /
+      try_files: $uri $uri/ /index.php$is_args$args
+    - match: ~ \.[^\/]+(?<!\.php)$
+      try_files: $uri =404
+commands:
+  - composer install
+  - touch system/user/config/config.php
+  - echo "EE_INSTALL_MODE=TRUE" > .env.php

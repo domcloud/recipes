@@ -52,6 +52,12 @@ These recipes includes framework or open-source software that can be self-hosted
   Advanced open source content management platform.
 
   ![php] [![deploy]](https://my.domcloud.co/start?from=/boot/drupal.yml) [![recipe]](./drupal.yml) [![website]](https://drupal.org/) [![source]](https://git.drupalcode.org/project/drupal)
+  
++ **Expression Engine** 
+  The world’s most flexible & secure open source CMS.
+
+  ![php] [![deploy]](https://my.domcloud.co/start?from=/boot/eengine.yml) [![recipe]](./eengine.yml) [![website]](https://expressionengine.com/) [![source]](https://github.com/ExpressionEngine/ExpressionEngine)
+
 
 + **Magento**  
   Leading provider of open omnichannel innovation.
