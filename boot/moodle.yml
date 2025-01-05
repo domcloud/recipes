@@ -12,7 +12,7 @@ commands:
   - sed -i "s/= 'pgsql'/= 'mariadb'/g" config.php
   - sed -i "s/= 'moodle'/= '${DATABASE}'/g" config.php
   - sed -i "s/= 'username'/= '${USERNAME}'/g" config.php
-  - sed -i "s/= 'password'/= '${PASSWORD}'/g" config.php
+  - sed -i "s/= 'password'/= '${MYPASSWD}'/g" config.php
   - sed -i "s|/home/example|${HOME}|g" config.php
   - sed -i "s|http://example.com/moodle|https://${DOMAIN}|g" config.php
   - mkdir -p $HOME/moodledata; chmod -R 0750 $HOME/moodledata

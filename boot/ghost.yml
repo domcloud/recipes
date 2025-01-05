@@ -14,4 +14,4 @@ features:
   - node lts
 commands:
   - npm install ghost-cli@latest -g
-  - ghost install local --url https://${DOMAIN} --no-prompt --db mysql --dbhost localhost --dbuser ${USERNAME} --dbpass ${PASSWORD} --dbname ${DATABASE}
+  - ghost install local --url https://${DOMAIN} --no-prompt --db mysql --dbhost localhost --dbuser ${USERNAME} --dbpass ${MYPASSWD} --dbname ${DATABASE}

@@ -9,7 +9,7 @@ nginx:
     app_env: development
     app_start_command: env PORT=$PORT yarn start
 commands:
-- DB_URL="postgres://${USERNAME}:${PASSWORD}@localhost:5432/${DATABASE}"
+- DB_URL="postgres://${USERNAME}:${PGPASSWD}@localhost:5432/${DATABASE}"
 - echo NEXTAUTH_SECRET=$(openssl rand -base64 24) > .env
 - echo NEXTAUTH_URL=https://${DOMAIN}/api/v1/auth >> .env
 - echo NEXT_PUBLIC_WEBAPP_URL=https://${DOMAIN} >> .env

@@ -15,6 +15,6 @@ commands:
   - sed -ri "s/(# )?CI_ENVIRONMENT.*/CI_ENVIRONMENT = development/g" .env 
   - sed -ri "s/(# )?database.default.database.*/database.default.database = ${DATABASE}/g" .env
   - sed -ri "s/(# )?database.default.username.*/database.default.username = ${USERNAME}/g" .env
-  - sed -ri "s/(# )?database.default.password.*/database.default.password = ${PASSWORD}/g" .env
+  - sed -ri "s/(# )?database.default.password.*/database.default.password = ${MYPASSWD}/g" .env
   - sed -ri "s/(# )?app.baseURL.*/app.baseURL = https:\/\/${DOMAIN}/g" .env
   - composer install

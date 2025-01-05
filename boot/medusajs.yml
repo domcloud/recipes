@@ -10,7 +10,7 @@ nginx:
     app_type: node
     startup_file: index.js
 commands:
-  - DB_URL="postgres://${USERNAME}:${PASSWORD}@localhost:5432/${DATABASE}"
+  - DB_URL="postgres://${USERNAME}:${PGPASSWD}@localhost:5432/${DATABASE}"
   - ARGS="--seed --db-url ${DB_URL} --no-browser --with-nextjs-starter --directory-path $PWD"
   - SCRIPT="https://gist.githubusercontent.com/willnode/2f0a3160a97950e10da142871f65c2b3/raw/3522442e403b511ad87cd8e01f26f49442409fee/install-medusa-no-tty.sh"
   - wget $SCRIPT -O ~/tmp/medusa.sh && expect -df ~/tmp/medusa.sh "$ARGS" admin@$DOMAIN

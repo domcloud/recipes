@@ -16,6 +16,6 @@ commands:
   - echo "'driver' => 'mysql'," >> settings.php
   - echo "'database' => '${DATABASE}'," >> settings.php
   - echo "'username' => '${USERNAME}'," >> settings.php
-  - echo "'password' => '${PASSWORD}'," >> settings.php
+  - echo "'password' => '${MYPASSWD}'," >> settings.php
   - echo "'host' => 'localhost'," >> settings.php
   - echo ");" >> settings.php

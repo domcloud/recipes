@@ -12,7 +12,7 @@ commands:
   - chmod +x bin/cake ; cd ./config
   - cp app_local.example.php app_local.php
   - sed -ri "s/'username' => 'my_app'/'username' => '${USERNAME}'/g" app_local.php
-  - sed -ri "s/'password' => 'secret'/'password' => '${PASSWORD}'/g" app_local.php
+  - sed -ri "s/'password' => 'secret'/'password' => '${MYPASSWD}'/g" app_local.php
   - sed -ri "s/'database' => 'my_app'/'database' => '${DATABASE}'/g" app_local.php
   - hash=`node -e "console.log(require('crypto').randomBytes(16).toString('hex'))"`
   - sed -i "s/__SALT__/${hash}/g" app_local.php

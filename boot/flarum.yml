@@ -17,12 +17,12 @@ commands:
   - 'echo "  host: localhost" >> conf.yml'
   - 'echo "  database: ${DATABASE}" >> conf.yml'
   - 'echo "  username: ${USERNAME}" >> conf.yml'
-  - 'echo "  password: ${PASSWORD}" >> conf.yml'
+  - 'echo "  password: ${MYPASSWD}" >> conf.yml'
   - 'echo "  prefix: flarum_" >> conf.yml'
   - 'echo "adminUser:" >> conf.yml'
 # To edit default admin user login, change here
   - 'echo "  username: admin" >> conf.yml'
-  - 'echo "  password: ${PASSWORD}" >> conf.yml'
+  - 'echo "  password: ${MYPASSWD}" >> conf.yml'
   - 'echo "  email: admin@example.com" >> conf.yml'
   - composer install -o --no-progress
   - php flarum install --file=conf.yml

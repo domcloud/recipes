@@ -24,4 +24,4 @@ commands:
   - echo "SECRET_KEY=$(openssl rand -base64 32)" >> .env
   - echo "SESSION_COOKIE_SECURE=True" >> .env
   - echo "PREFERRED_URL_SCHEME=https" >> .env
-  - echo "SQLALCHEMY_DATABASE_URI=postgresql+psycopg2://$USERNAME:$PASSWORD@localhost/$DATABASE" >> .env
+  - echo "SQLALCHEMY_DATABASE_URI=postgresql+psycopg2://$USERNAME:$PGPASSWD@localhost/$DATABASE" >> .env

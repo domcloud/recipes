@@ -14,7 +14,7 @@ commands:
   - sed -i "s/DB_HOST=127.0.0.1/DB_HOST=localhost/g" .env
   - sed -ri "s/DB_DATABASE=.*/DB_DATABASE=${DATABASE}/g" .env
   - sed -ri "s/DB_USERNAME=.*/DB_USERNAME=${USERNAME}/g" .env
-  - sed -ri "s/DB_PASSWORD=.*/DB_PASSWORD=${PASSWORD}/g" .env
+  - sed -ri "s/DB_PASSWORD=.*/DB_PASSWORD=${MYPASSWD}/g" .env
   - sed -ri "s/APP_URL=.*/APP_URL=http:\/\/${DOMAIN}/g" .env
   - php artisan bagisto:install --no-interaction
   - chmod g+r -R storage || true 

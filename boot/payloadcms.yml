@@ -11,4 +11,4 @@ nginx:
 commands:
   - npx create-payload-app@latest . -t payload-demo
   - echo PAYLOAD_SECRET=$(openssl rand -base64 24) > .env
-  - echo DATABASE_URI="postgres://${USERNAME}:${PASSWORD}@localhost:5432/${DATABASE}" >> .env
+  - echo DATABASE_URI="postgres://${USERNAME}:${PGPASSWD}@localhost:5432/${DATABASE}" >> .env

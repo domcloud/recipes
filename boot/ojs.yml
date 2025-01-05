@@ -16,7 +16,7 @@ commands:
   - sed -i "s@base_url = \"https://pkp.sfu.ca/ojs\"@base_url = \"https://${DOMAIN}\"@g" config.inc.php
   - sed -i "s/allowed_hosts = ''/allowed_hosts = '[\"${DOMAIN}\"]'/g" config.inc.php
   - sed -i "s/username = ojs/username = ${USERNAME}/g" config.inc.php
-  - sed -i "s/password = ojs/password = ${PASSWORD}/g" config.inc.php
+  - sed -i "s/password = ojs/password = ${MYPASSWD}/g" config.inc.php
   - sed -i "s/name = ojs/name = ${DATABASE}/g" config.inc.php
   - sed -i "s/restful_urls = Off/restful_urls = On/g" config.inc.php
   - composer --working-dir=lib/pkp install

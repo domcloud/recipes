@@ -16,7 +16,7 @@ commands:
   - sed -i "s@base_url = \"https://pkp.sfu.ca/omp\"@base_url = \"https://${DOMAIN}\"@g" config.inc.php
   - sed -i "s/allowed_hosts = ''/allowed_hosts = '[\"${DOMAIN}\"]'/g" config.inc.php
   - sed -i "s/username = omp/username = ${USERNAME}/g" config.inc.php
-  - sed -i "s/password = omp/password = ${PASSWORD}/g" config.inc.php
+  - sed -i "s/password = omp/password = ${MYPASSWD}/g" config.inc.php
   - sed -i "s/name = omp/name = ${DATABASE}/g" config.inc.php
   - sed -i "s/restful_urls = Off/restful_urls = On/g" config.inc.php
   - composer --working-dir=lib/pkp install
