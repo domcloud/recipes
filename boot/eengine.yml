@@ -1,38 +1,10 @@
 source: https://github.com/ExpressionEngine/ExpressionEngine/releases/download/7.5.6/ExpressionEngine7.5.6.zip
 root: public_html
 features:
-  - php latest
+  - php 8.2
   - mysql
 nginx:
   fastcgi: "on"
   locations:
     - match: /
       try_files: $uri $uri/ /index.php$is_args$args
-    - match: ~ \.[^\/]+(?<!\.php)$
-      try_files: $uri =404
-commands:
-  - composer install
-  - filename: system/user/config/config.php
-    content:
-      <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-      $config['index_page'] = '';
-      $config['save_tmpl_files'] = 'y';
-      $config['show_ee_news'] = 'y';
-      $config['encryption_key'] = 'encryption_key_here';
-      $config['session_crypt_key'] = 'session_key_here';
-      $config['database'] = array(
-              'expressionengine' => array(
-                      'hostname' => 'localhost',
-                      'database' => 'database_name_here',
-                      'username' => 'username_here',
-                      'password' => 'password_here',
-                      'dbprefix' => 'exp_',
-                      'char_set' => 'utf8mb4',
-                      'dbcollat' => 'utf8mb4_unicode_ci',
-                      'port'     => ''
-              ),
-      );
-  - sed -i "s/database_name_here/${DATABASE}/g" wp-config.php
-  - sed -i "s/username_here/${USERNAME}/g" wp-config.php
-  - sed -i "s/password_here/${MYPASSWD}/g" wp-config.php
-  - echo "EE_INSTALL_MODE=TRUE" > .env.php
