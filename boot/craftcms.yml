@@ -1,0 +1,28 @@
+source: https://github.com/craftcms/cms/releases/download/5.5.9/CraftCMS-5.5.9.zip
+root: public_html/web
+features:
+- php 8.2
+- postgresql
+nginx:
+  fastcgi: "on"
+  locations:
+    - match: /
+      try_files: $uri $uri/ /index.php$is_args$args
+    - match: ~ \.[^\/]+(?<!\.php)$
+      try_files: $uri =404
+commands:
+ - echo "CRAFT_APP_ID=app" > .env
+ - echo "CRAFT_ENVIRONMENT=dev" >> .env
+ - echo "CRAFT_DB_DRIVER=pgsql " >> .env
+ - echo "CRAFT_DB_PORT=5432" >> .env
+ - echo "CRAFT_DB_DATABASE=$DATABASE" >> .env
+ - echo "CRAFT_DB_USER=$USERNAME" >> .env
+ - echo "CRAFT_DB_PASSWORD=$PGPASSWD" >> .env
+ - echo "CRAFT_DB_SCHEMA=public" >> .env
+ - echo "CRAFT_DB_TABLE_PREFIX=craft_" >> .env
+ - echo "CRAFT_SECURITY_KEY=$(openssl rand -base64 32)" >> .env
+ - echo "CRAFT_ALLOW_ADMIN_CHANGES=true" >> .env
+ - composer install
+ - rm -f config/project/project.yaml
+ # Goto /admin/install to complete installation
+
