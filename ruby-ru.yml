@@ -7,3 +7,4 @@ nginx:
     ruby: .rvm/rubies/default/bin/ruby
 commands:
   - bundle install || touch Gemfile
+  - gem install rack

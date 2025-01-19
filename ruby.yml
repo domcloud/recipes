@@ -37,3 +37,4 @@ commands:
     content: |
       require './app'
       run App.new
+  - gem install rack
