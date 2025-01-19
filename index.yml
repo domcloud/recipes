@@ -27,7 +27,7 @@ templates:
     color: "#000000"
   - title: Nuxt.js
     file: boot/nuxtjs.yml
-    icon: https://simpleicons.org/icons/nuxtdotjs.svg
+    icon: https://simpleicons.org/icons/nuxt.svg
     color: "#00DC82"
   - title: SvelteKit
     file: boot/sveltekit.yml
