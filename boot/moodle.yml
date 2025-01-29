@@ -1,4 +1,7 @@
-source:	https://git.in.moodle.com/moodle/moodle#MOODLE_405_STABLE
+source:	
+  url: https://git.in.moodle.com/moodle/moodle#MOODLE_405_STABLE
+  type: clone
+  shallow: true
 features:
   - mysql
 nginx:
