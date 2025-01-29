@@ -9,7 +9,7 @@ nginx:
   fastcgi: "on"
   locations:
     - match: /
-      try_files: $uri $uri/ /index.php$is_args$args
+      try_files: $uri $uri/ /index.php$uri$is_args$args
 commands:
   - cp config-dist.php config.php
   - sed -i "s/= 'pgsql'/= 'mariadb'/g" config.php
