@@ -19,3 +19,4 @@ commands:
   - sed -i "s|/home/example|${HOME}|g" config.php
   - sed -i "s|http://example.com/moodle|https://${DOMAIN}|g" config.php
   - mkdir -p $HOME/moodledata; chmod -R 0750 $HOME/moodledata
+  - echo "max_input_vars=9999" >> .user.ini
