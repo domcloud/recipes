@@ -13,6 +13,8 @@ nginx:
 commands:
   - bundle install
   - export RAILS_ENV=production
+  - "[ -f discourse.conf ] || touch config/discourse.conf"
+  - sed -ri '/^(hostname|redis_.+|db_.+)=/d' config/discourse.conf
   - echo "hostname = $DOMAIN" >> config/discourse.conf
   - echo "redis_username = $USERNAME" >> config/discourse.conf
   - echo "redis_password = $RDPASSWD" >> config/discourse.conf
