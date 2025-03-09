@@ -1,0 +1,25 @@
+source:	
+  url: https://github.com/discourse/discourse
+  type: clone
+  shallow: true
+features:
+  - postgresql
+  - redis
+nginx:
+  root: public_html/public
+  passenger:
+    enabled: "on"
+    ruby: .rvm/rubies/default/bin/ruby
+commands:
+  - bundle install
+  - export RAILS_ENV=production
+  - echo "hostname = $DOMAIN" >> config/discourse.conf
+  - echo "redis_username = $USERNAME" >> config/discourse.conf
+  - echo "redis_password = $RDPASSWD" >> config/discourse.conf
+  - echo "db_host = localhost" >> config/discourse.conf
+  - echo "db_port = 5432" >> config/discourse.conf
+  - echo "db_name = $DATABASE" >> config/discourse.conf
+  - echo "db_username = $USERNAME" >> config/discourse.conf
+  - echo "db_password = $PGPASSWD" >> config/discourse.conf
+  - rails db:migrate && rake db:setup && rails db:seed || true
+  - rake assets:precompile
