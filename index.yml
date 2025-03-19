@@ -69,10 +69,10 @@ templates:
     file: boot/flarum.yml
     icon: https://domcloud.co/assets/feat/flarum.svg
     color: "#FF2D20"
-  - title: Magento
-    file: boot/magento.yml
-    icon: https://simpleicons.org/icons/magento.svg
-    color: "#EE672F"
+  - title: Discourse
+    file: boot/discourse.yml
+    icon: https://simpleicons.org/icons/discourse.svg
+    color: "#000000"
   - title: Jupyter
     file: boot/jupyter.yml
     icon: https://simpleicons.org/icons/jupyter.svg
