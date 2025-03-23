@@ -4,6 +4,7 @@ features:
   - php 8.2
   - node 14
   - mysql
+  - redis
 nginx:
   fastcgi: "on"
   locations:
@@ -12,23 +13,22 @@ nginx:
     - match: ~ \.[^\/]+(?<!\.php)$
       try_files: $uri =404
 commands:
-  - composer install
   - cp .env.example .env
+  - composer install
   - sed -ri "s/(# )?DB_CONNECTION=.*/DB_CONNECTION=mysql/g" .env
   - sed -ri "s/(# )?DB_HOST=.*/DB_HOST=localhost/g" .env
   - sed -ri "s/(# )?DB_PORT=.*/DB_PORT=3306/g" .env
   - sed -ri "s/(# )?DB_DATABASE=.*/DB_DATABASE=${DATABASE}/g" .env
   - sed -ri "s/(# )?DB_USERNAME=.*/DB_USERNAME=${USERNAME}/g" .env
   - sed -ri "s/(# )?DB_PASSWORD=.*/DB_PASSWORD=${MYPASSWD}/g" .env
+  - sed -ri "s/(# )?REDIS_PASSWORD=.*/REDIS_PASSWORD=${DATABASE}:::${RDPASSWD}/g" .env
+  - sed -ri "s/(# )?REDIS_PORT=.*/REDIS_PORT=6479/g" .env
   - sed -ri "s/APP_URL=.*/APP_URL=https:\/\/${DOMAIN}/g" .env
-    # https://github.com/pterodactyl/panel/issues/5240
-  - sed -ri '/enable the sandbox mode/d' ./database/schema/mysql-schema.sql
   - php artisan migrate:fresh --seed --force
   - php artisan key:generate
   - php artisan storage:link
   - yarn install --frozen-lockfile
   - yarn run build:production || true
   - chmod 0750 -R storage || true
-    # create root user, username + password see manage tab
-    # THERE WILL BE ERROR ABOUT NO REDIS BUT I THINK IT'S OK
-  - php artisan p:user:make -n --email=admin@$DOMAIN --username=${USERNAME} --password=$PASSWORD --admin=1 --name-first=My --name-last=Admin || true
+  - php artisan p:user:make -n --email=admin@$DOMAIN --username=${USERNAME} --password=$PASSWORD --admin=1 --name-first=My --name-last=Admin
+  - 'printf "Done! Login to the admin panel with\n Username: ${USERNAME}\n Password: ${PASSWORD}\n"'
