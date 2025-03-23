@@ -10,8 +10,6 @@ nginx:
   locations:
     - match: /
       try_files: $uri $uri/ /index.php$is_args$args
-    - match: ~ \.[^\/]+(?<!\.php)$
-      try_files: $uri =404
 commands:
   - cp .env.example .env
   - composer install

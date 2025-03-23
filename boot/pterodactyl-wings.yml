@@ -5,16 +5,16 @@ nginx:
   root: public_html/public
   passenger:
     enabled: on
-    app_start_command: "env TARGET=$(cat ip):8080 proxfix ./wings --config config.yml"
+    app_start_command: "env TARGET=$(cat ip):8080 NOHUP=1 proxfix ./wings --config config.yml"
 commands:
-  - curl -L -o wings "https://github.com/pterodactyl/wings/releases/latest/download/wings_linux_$([[ "$(uname -m)" == "x86_64" ]] && echo "amd64" || echo "arm64")"
+  - curl -sSLo wings "https://github.com/pterodactyl/wings/releases/latest/download/wings_linux_$([[ "$(uname -m)" == "x86_64" ]] && echo "amd64" || echo "arm64")"
   - chmod +x wings
   - echo "127.$((RANDOM % 256)).$((RANDOM % 256)).$((RANDOM % 256))" | tee ip
   - filename: config.yml
     content: |
       # MAKE SURE CREATE THIS IN THE SAME SERVER!
       # When creating nodes....
-      # -- Fully Qualified Domain Name: read ip above
+      # -- Fully Qualified Domain Name: the domain name
       # -- Communicate Over SSL: Use SSL Connection
       # -- Behind Proxy: Behind Proxy
       # -- Daemon Port: 8080
