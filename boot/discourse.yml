@@ -1,10 +1,12 @@
 source:	
-  url: https://github.com/discourse/discourse
+  url: https://github.com/discourse/discourse#stable
   type: clone
   shallow: true
 features:
   - postgresql
   - redis
+  - node 22
+  - ruby 3.3
 nginx:
   root: public_html/public
   passenger:
@@ -12,16 +14,25 @@ nginx:
     ruby: .rvm/rubies/default/bin/ruby
 commands:
   - bundle install
-  - export RAILS_ENV=production
+  - "[[ -z $RAILS_ENV ]] && echo 'export RAILS_ENV=production' >> ~/.bashrc && export RAILS_ENV=production"
   - "[ -f discourse.conf ] || touch config/discourse.conf"
   - sed -ri '/^(hostname|redis_.+|db_.+)=/d' config/discourse.conf
   - echo "hostname = $DOMAIN" >> config/discourse.conf
-  - echo "redis_username = $USERNAME" >> config/discourse.conf
-  - echo "redis_password = $RDPASSWD" >> config/discourse.conf
+  - echo "redis_host = localhost" >> config/discourse.conf
+  - echo "redis_port = 6479" >> config/discourse.conf
+  - echo "redis_password = $DATABASE:::$RDPASSWD" >> config/discourse.conf
+  - echo "message_bus_redis_enabled = true" >> config/discourse.conf
+  - echo "message_bus_redis_host = localhost" >> config/discourse.conf
+  - echo "message_bus_redis_port = 6479" >> config/discourse.conf
+  - echo "message_bus_redis_password = $DATABASE:::$RDPASSWD" >> config/discourse.conf
   - echo "db_host = localhost" >> config/discourse.conf
   - echo "db_port = 5432" >> config/discourse.conf
   - echo "db_name = $DATABASE" >> config/discourse.conf
   - echo "db_username = $USERNAME" >> config/discourse.conf
   - echo "db_password = $PGPASSWD" >> config/discourse.conf
-  - rails db:migrate && rake db:setup && rails db:seed || true
+  - echo "secret_key_base = $(openssl rand -base64 32)" >> config/discourse.conf
+  - rails db:migrate
+  - rails db:seed
+  - corepack use pnpm@9
   - rake assets:precompile
+  - printf "DONE! Please run `rake admin:create` in SSH for creating admin account\n"
