@@ -16,6 +16,8 @@ commands:
         get "/articles", to: "articles#index"
         root "articles#index"
       end
-  - export RAILS_ENV=production
-  - rails db:migrate && rake db:setup && rails db:seed || true
+# ---- let's pin RAILS_ENV=production so migration works
+  - "[[ -z $RAILS_ENV ]] && echo 'export RAILS_ENV=production' >> ~/.bashrc && export RAILS_ENV=production"
+  - rails db:migrate || true
+  - rails db:seed || true
   - rake assets:precompile

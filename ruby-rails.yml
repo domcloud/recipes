@@ -4,10 +4,14 @@ nginx:
   root: public_html/public
   passenger:
     enabled: "on"
+#   ---- sets RAILS_ENV ----
+    app_env: "production"
+# ---- use ruby from RVM instead of system ---
     ruby: .rvm/rubies/default/bin/ruby
 commands:
   - bundle install || (bundle init && bundle add rails)
-  - export RAILS_ENV=production
+# ---- let's pin RAILS_ENV=production so migration works
+  - "[[ -z $RAILS_ENV ]] && echo 'export RAILS_ENV=production' >> ~/.bashrc && export RAILS_ENV=production"
   - rails db:migrate || true
   - rails db:seed || true
   - rake assets:precompile

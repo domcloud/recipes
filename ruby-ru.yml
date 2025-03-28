@@ -4,7 +4,10 @@ nginx:
   root: public_html/public
   passenger:
     enabled: "on"
+#   ---- sets RAILS_ENV ----
+    app_env: "production"
+# ---- use ruby from RVM instead of system ---
     ruby: .rvm/rubies/default/bin/ruby
 commands:
-  - bundle install || touch Gemfile
+  - bundle install || bundle init
   - gem install rack

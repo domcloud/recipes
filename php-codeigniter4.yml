@@ -1,20 +1,31 @@
 features:
   - mysql
-  - php latest
+  - php latest # or pick version between 7.4 to latest
 nginx:
   root: public_html/public
   fastcgi: "on"
   locations:
     - match: /
       try_files: $uri $uri/ /index.php$is_args$args
+
+#   ---- For your security, we avoid PHP processing if user request other than PHP files
+#   ---- IF YOU USE DYNAMIC FILE/IMAGE GENERATORS THEN DELETE THIS
     - match: ~ \.[^\/]+(?<!\.php)$
       try_files: $uri =404
+
 commands:
-  - cp env .env
+# ---- create .env from env or download from CI4 repo ----
+  - (cp env .env) || https://raw.githubusercontent.com/codeigniter4/CodeIgniter4/refs/heads/develop/env
   - rm public/.htaccess
-  - sed -ri "s/(# )?CI_ENVIRONMENT.*/CI_ENVIRONMENT = development/g" .env 
+  - sed -ri "s/(# )?app.baseURL.*/app.baseURL = https:\/\/${DOMAIN}/g" .env
   - sed -ri "s/(# )?database.default.database.*/database.default.database = ${DATABASE}/g" .env
   - sed -ri "s/(# )?database.default.username.*/database.default.username = ${USERNAME}/g" .env
   - sed -ri "s/(# )?database.default.password.*/database.default.password = ${MYPASSWD}/g" .env
-  - sed -ri "s/(# )?app.baseURL.*/app.baseURL = https:\/\/${DOMAIN}/g" .env
+  - sed -ri "s/(# )?CI_ENVIRONMENT.*/CI_ENVIRONMENT = production/g" .env 
+
+# ---- if you want to debug/code/show errors, uncomment this ----
+# - echo "opcache.revalidate_freq = 0" >> public/.user.ini
+# - sed -ri "s/(# )?CI_ENVIRONMENT.*/CI_ENVIRONMENT = development/g" .env 
+
+# ---- if you found engine incompability please adjust PHP version above ----
   - composer install

@@ -1,14 +1,18 @@
 features:
   - mysql
-  - php 7.4
+  - php 7.4 # most likely CI3 doesn't work well with 8.x
 nginx:
   root: public_html
   fastcgi: "on"
   locations:
     - match: /
       try_files: $uri $uri/ /index.php$is_args$args
+
+#   ---- For your security, we avoid PHP processing if user request other than PHP files
+#   ---- IF YOU USE DYNAMIC FILE/IMAGE GENERATORS THEN DELETE THIS
     - match: ~ \.[^\/]+(?<!\.php)$
       try_files: $uri =404
+
 commands:
   - sed -ri "s/(config\['base_url'\]).*/\1 = 'https:\/\/${DOMAIN}\/';/g" application/config/config.php
   - sed -ri "s/(config\['index_page'\]).*/\1 = '';/g" application/config/config.php

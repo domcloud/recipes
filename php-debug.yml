@@ -4,8 +4,10 @@ features:
 nginx:
   root: public_html
   locations:
+#   Ability to hide *.php extension in URLs 
   - match: /
     try_files: $uri $uri/ $uri.php
+# Enable directory listing
   autoindex: on
   fastcgi: "on"
 commands:
