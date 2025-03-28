@@ -1,6 +1,6 @@
 features:
   - mysql
-  - php 7.4
+  - php 7.4 # change php version here
 nginx:
   root: public_html
   locations:
@@ -9,7 +9,13 @@ nginx:
   autoindex: on
   fastcgi: "on"
 commands:
+#  ---- quick access to php info ---- 
   - echo "<?php phpinfo(15);" > phpinfo.php
-  - echo "display_errors = On" > .user.ini
-  - echo "display_startup_errors = On" >> .user.ini
-  - echo "opcache.revalidate_freq = 0" >> .user.ini
+#  ---- init .user.ini (must same as "root" above!) ---- 
+  - $INI = .user.ini; rm -f $INI; touch $INI
+#  ---- show php errors in the browser ---- 
+  - echo "display_errors = On" >> $INI
+  - echo "display_startup_errors = On" >> $INI
+#  ---- by default opcache caches PHP in 60 seconds
+#  ---- disable it so file changes are reflected immediately
+  - echo "opcache.revalidate_freq = 0" >> $INI
