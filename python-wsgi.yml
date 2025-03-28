@@ -4,12 +4,17 @@ nginx:
   root: public_html/public
   passenger:
     enabled: "on"
-    app_env: development
+#   --- Sets $PWD. default value is parent of root ---
     app_root: public_html
+#   ---- sets WSGI_ENV ----
+    app_env: "production"
+#  --- Use installed python instead of system ---
     python: .pyenv/shims/python
     app_type: python
+#   --- WSGI start file ---
     startup_file: wsgi.py
     env_var_list:
+#   --- Do not write .pyc files ---
     - PYTHONDONTWRITEBYTECODE=1
 commands:
   - pip install -r requirements.txt 

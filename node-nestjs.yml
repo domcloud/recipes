@@ -1,5 +1,8 @@
 features:
-- node lts
+  - node lts
+# - mysql
+# - postgresql
+# - redis
 nginx:
   index: index.html
   root: public_html/client
@@ -7,4 +10,17 @@ nginx:
     enabled: 'on'
     app_start_command: env PORT=$PORT dist/main.js
 commands:
+#  ---- Change "yarn" here if needed, it will referred later as $NPM ----
+  - NPM=`which yarn`
+  - $NPM install
   - nest build
+
+#  ---- Choose your database stack (also uncomment related feature above) ----
+# - echo "DB_CONNECTION=sqlite:////$HOME/db.sqlite" >> .env
+# - echo "DB_CONNECTION=mysql://$USERNAME:$MYPASSWD@localhost/$DATABASE" >> .env
+# - echo "DB_CONNECTION=postgresql://$USERNAME:$PGPASSWD@localhost/$DATABASE" >> .env
+# - echo -e "REDIS_HOST=localhost\nREDIS_PORT=6479\nREDIS_PASSWORD=${DATABASE}:::${RDPASSWD}" >> .env
+
+#  ---- If you use next-auth ----
+# - echo AUTH_SECRET=$(openssl rand -base64 33) >> .env
+# - echo AUTH_TRUST_HOST=true >> .env

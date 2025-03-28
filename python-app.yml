@@ -4,7 +4,9 @@ nginx:
   root: public_html/public
   passenger:
     enabled: "on"
-    python: .pyenv/shims/python
     app_start_command: env PORT=$PORT python app.py
+    env_var_list:
+#   --- Do not write .pyc files ---
+    - PYTHONDONTWRITEBYTECODE=1
 commands:
   - pip install -r requirements.txt || touch $_

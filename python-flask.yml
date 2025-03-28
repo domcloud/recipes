@@ -1,24 +1,35 @@
 features:
   - python stable
 nginx:
+# --- Your static files can be anywhere but usually it's in app/static ---
   root: public_html/app/static
   passenger:
     enabled: "on"
-    app_env: development
+#   --- Sets $PWD. default value is parent of root ---
     app_root: public_html
+#   ---- sets WSGI_ENV ----
+    app_env: "production"
+#  --- Use installed python instead of system ---
     python: .pyenv/shims/python
     app_type: python
+#   --- WSGI start file (we write it below) ---
     startup_file: wsgi.py
     env_var_list:
+#   --- Do not write .pyc files ---
     - PYTHONDONTWRITEBYTECODE=1
+
 commands:
   - pip install -r requirements.txt || pip install flask
+
+#   --- Write WSGI start file ---
   - filename: wsgi.py
     content: | 
-      # We expect you export app variable in app/__init__.py or app.py
+      # We expect you export app variable in app/__init__.py or app.py!
       from app import app as application
       application.config.from_file(".env")
   - "[ -f .env ] || touch .env"
+
+#  --- Write envars for Auth + HTTPS config + Flask-SQLAlchemy SQLITE ---
   - sed -ri '/^(SECRET_KEY|SESSION_COOKIE_SECURE|PREFERRED_URL_SCHEME|SQLALCHEMY_DATABASE_URI)=/d' .env
   - echo "SECRET_KEY=$(openssl rand -base64 32)" >> .env
   - echo "SESSION_COOKIE_SECURE=True" >> .env

@@ -1,13 +1,36 @@
 features:
   - node lts
+# - mysql
+# - postgresql
+# - redis
 nginx:
+#  ---- Next.js default public folder ---- 
   root: public_html/public
   passenger:
     enabled: "on"
+#   ---- sets NODE_ENV ----
+    app_env: "production"
+#   ---- if your main script is not "yarn start" change it here ----
     app_start_command: env PORT=$PORT yarn start
+#   --- Sets $PWD. default value is parent of root ---
+#   passenger_app_root: public_html
   locations:
-    - match: /_next/
-      alias: public_html/.next/
+#   ---- set up proper next.js static build e-tag cache --- 
+    - match: /_next/static/
+      alias: public_html/.next/static/
 commands:
-  - yarn install
-  - yarn build
+#  ---- Change "yarn" here if needed, it will referred later as $NPM ----
+  - NPM=`which yarn`
+  - $NPM install
+  - $NPM run build
+  - "[ -f .env ] || touch .env"
+
+#  ---- Choose your database stack (also uncomment related feature above) ----
+# - echo "DB_CONNECTION=sqlite:////$HOME/db.sqlite" >> .env
+# - echo "DB_CONNECTION=mysql://$USERNAME:$MYPASSWD@localhost/$DATABASE" >> .env
+# - echo "DB_CONNECTION=postgresql://$USERNAME:$PGPASSWD@localhost/$DATABASE" >> .env
+# - echo -e "REDIS_HOST=localhost\nREDIS_PORT=6479\nREDIS_PASSWORD=${DATABASE}:::${RDPASSWD}" >> .env
+
+#  ---- If you use next-auth ----
+# - echo AUTH_SECRET=$(openssl rand -base64 33) >> .env
+# - echo AUTH_TRUST_HOST=true >> .env

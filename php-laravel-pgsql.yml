@@ -1,33 +1,53 @@
 features:
   - postgresql
 # - redis
-  - php latest
+  - php latest    # or pick version between 7.4 to latest
+# - node latest   # uncomment if use pnpm or need specific version
 nginx:
   root: public_html/public
   fastcgi: "on"
   locations:
     - match: /
       try_files: $uri $uri/ /index.php$is_args$args
+
+#   ---- For your security, we avoid PHP processing if user request other than PHP files
+#   ---- IF YOU USE DYNAMIC FILE/IMAGE GENERATORS THEN UNCOMMENT THIS
     - match: ~ \.[^\/]+(?<!\.php)$
       try_files: $uri =404
+
 commands:
+#   ---- .env.example MUST EXISTS to enable DB autoconfiguration! ----
   - cp .env.example .env || touch .env
+  - sed -ri "s/APP_URL=.*/APP_URL=https:\/\/${DOMAIN}/g" .env
   - sed -ri "s/(# )?DB_CONNECTION=.*/DB_CONNECTION=pgsql/g" .env
   - sed -ri "s/(# )?DB_HOST=.*/DB_HOST=localhost/g" .env
   - sed -ri "s/(# )?DB_PORT=.*/DB_PORT=5432/g" .env
   - sed -ri "s/(# )?DB_DATABASE=.*/DB_DATABASE=${DATABASE}/g" .env
   - sed -ri "s/(# )?DB_USERNAME=.*/DB_USERNAME=${USERNAME}/g" .env
   - sed -ri "s/(# )?DB_PASSWORD=.*/DB_PASSWORD=${PGPASSWD}/g" .env
+
+#   ---- if you need redis, uncomment this and "redis" above ----
 # - sed -ri "s/(# )?REDIS_PASSWORD=.*/REDIS_PASSWORD=${DATABASE}:::${RDPASSWD}/g" .env
 # - sed -ri "s/(# )?REDIS_PORT=.*/REDIS_PORT=6479/g" .env
-  - sed -ri "s/APP_URL=.*/APP_URL=https:\/\/${DOMAIN}/g" .env
+
+#   ---- errorlog lets you view php error logs via portal ----
   - sed -ri "s/LOG_STACK=single/LOG_STACK=daily,errorlog/g" .env
+
+#  if you found engine incompability please adjust PHP version above
   - composer install
+
+#  ---- if you find migration has failing, please fix it and rerun this ----
   - php artisan migrate:fresh --seed || true
-  - php artisan db:seed || true
   - php artisan key:generate
   - php artisan storage:link
   - npm install
+
+#  ---- if you change your frontend servers later please rerun this ----
   - npm run build
-  - rm -f public/hot
+
+#  ---- remnants of local dev server ----
   - chmod 0750 -R storage || true 
+  - rm -f public/hot
+
+# ---- if you planning to code in production, uncomment this ----
+# - echo "opcache.revalidate_freq = 0" >> public_html/.user.ini

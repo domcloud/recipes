@@ -8,5 +8,6 @@ nginx:
 commands:
   - bundle install || (bundle init && bundle add rails)
   - export RAILS_ENV=production
-  - rails db:migrate && rake db:setup && rails db:seed || true
+  - rails db:migrate || true
+  - rails db:seed || true
   - rake assets:precompile

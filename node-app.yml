@@ -1,9 +1,35 @@
+# This is a template for simple node server like express/koa.js
+# There's should not any extra compilation step when using it.
 features:
   - node lts
+# - mysql
+# - postgresql
+# - redis
 nginx:
+#  ---- Do you have "static" folder set up? put it here. ---- 
   root: public_html/public
   passenger:
     enabled: "on"
+#   ---- sets NODE_ENV ----
+    app_env: "production"
+#   ---- if your main script is not "app.js" change it here ----
+#   ---- you app MUST listen to $PORT! Change env name if needed  ----
     app_start_command: env PORT=$PORT node app.js
+#   --- Sets $PWD. default value is parent of root ---
+#   passenger_app_root: public_html
+
 commands:
-  - npm install
+#  ---- Change "npm" here if needed, it will referred later as $NPM ----
+  - NPM=`which npm`
+  - $NPM install
+  - "[ -f .env ] || touch .env"
+
+#  ---- Choose your database stack (also uncomment related feature above) ----
+# - echo "DB_CONNECTION=sqlite:////$HOME/db.sqlite" >> .env
+# - echo "DB_CONNECTION=mysql://$USERNAME:$MYPASSWD@localhost/$DATABASE" >> .env
+# - echo "DB_CONNECTION=postgresql://$USERNAME:$PGPASSWD@localhost/$DATABASE" >> .env
+# - echo -e "REDIS_HOST=localhost\nREDIS_PORT=6479\nREDIS_PASSWORD=${DATABASE}:::${RDPASSWD}" >> .env
+
+#  ---- If you use next-auth ----
+# - echo AUTH_SECRET=$(openssl rand -base64 33) >> .env
+# - echo AUTH_TRUST_HOST=true >> .env

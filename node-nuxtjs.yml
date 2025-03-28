@@ -1,10 +1,32 @@
 features:
   - node lts
+# - mysql
+# - postgresql
+# - redis
 nginx:
+#  ---- Nuxt.js default public folder ---- 
   root: public_html/.output/public
   passenger:
     enabled: "on"
+#   ---- sets NODE_ENV ----
+    app_env: "production"
+#   ---- Nuxt.js has index.js in parent of root so we just use "node server/index.mjs"  ----
     app_start_command: env PORT=$PORT node server/index.mjs
+#   ---- Sets $PWD. default value is parent of root  ----
+#   passenger_app_root: public_html/build
 commands:
-  - yarn install
-  - yarn build
+#  ---- Change "yarn" here if needed, it will referred later as $NPM ----
+  - NPM=`which yarn`
+  - $NPM install
+  - $NPM run build
+  - "[ -f .env ] || touch .env"
+
+#  ---- Choose your database stack (also uncomment related feature above) ----
+# - echo "DB_CONNECTION=sqlite:////$HOME/db.sqlite" >> .env
+# - echo "DB_CONNECTION=mysql://$USERNAME:$MYPASSWD@localhost/$DATABASE" >> .env
+# - echo "DB_CONNECTION=postgresql://$USERNAME:$PGPASSWD@localhost/$DATABASE" >> .env
+# - echo -e "REDIS_HOST=localhost\nREDIS_PORT=6479\nREDIS_PASSWORD=${DATABASE}:::${RDPASSWD}" >> .env
+
+#  ---- If you use next-auth ----
+# - echo AUTH_SECRET=$(openssl rand -base64 33) >> .env
+# - echo AUTH_TRUST_HOST=true >> .env
