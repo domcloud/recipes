@@ -20,7 +20,7 @@ commands:
 - sed -ri "s/(# )?FRONTEND_HOST=.*/FRONTEND_HOST=https:\/\/${DOMAIN}/g" .env
 - sed -ri "s/(# )?BACKEND_CORS_ORIGINS=.*/BACKEND_CORS_ORIGINS=https:\/\/${DOMAIN}/g" .env
 - sed -ri "s/(# )?ENVIRONMENT=.*/ENVIRONMENT=production/g" .env
-- sed -ri "s/(# )?SECRET_KEY=.*/SECRET_KEY=$(openssl rand -base64 33)/g" .env
+- sed -ri "s|(# )?SECRET_KEY=.*|SECRET_KEY=$(openssl rand -base64 33)|g" .env
 - sed -ri "s/(# )?FIRST_SUPERUSER=.*/FIRST_SUPERUSER=admin@$DOMAIN/g" .env
 - sed -ri "s/(# )?FIRST_SUPERUSER_PASSWORD=.*/FIRST_SUPERUSER_PASSWORD='$PASSWORD'/g" .env
 - sed -ri "s/(# )?POSTGRES_DB=.*/POSTGRES_DB=$DATABASE/g" .env
