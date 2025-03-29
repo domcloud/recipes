@@ -65,14 +65,14 @@ templates:
     file: boot/jekyll.yml
     icon: https://simpleicons.org/icons/jekyll.svg
     color: "#CC0000"
-  - title: Flarum
-    file: boot/flarum.yml
-    icon: https://domcloud.co/assets/feat/flarum.svg
-    color: "#FF2D20"
   - title: Discourse
     file: boot/discourse.yml
     icon: https://simpleicons.org/icons/discourse.svg
     color: "#000000"
+  - title: FastAPI
+    file: boot/fastapi.yml
+    icon: https://simpleicons.org/icons/fastapi.svg
+    color: "#009688"
   - title: Jupyter
     file: boot/jupyter.yml
     icon: https://simpleicons.org/icons/jupyter.svg

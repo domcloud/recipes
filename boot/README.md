@@ -33,6 +33,7 @@ These recipes includes framework or open-source software that can be self-hosted
 | SvelteKit | ![node] | [↗️](https://my.domcloud.co/start?from=/boot/sveltekit.yml) | [📜](./sveltekit.yml)
 | Flask | ![python] | [↗️](https://my.domcloud.co/start?from=/boot/flask.yml) | [📜](./flask.yml)
 | Django | ![python] | [↗️](https://my.domcloud.co/start?from=/boot/django.yml) | [📜](./django.yml)
+| FastAPI | ![python] | [↗️](https://my.domcloud.co/start?from=/boot/fastapi.yml) | [📜](./fastapi.yml)
 | Ruby on Rails | ![ruby] | [↗️](https://my.domcloud.co/start?from=/boot/rails.yml) | [📜](./rails.yml)
 | Jekyll | ![ruby] | [↗️](https://my.domcloud.co/start?from=/boot/jekyl.yml) | [📜](./jekyll.yml)
 
