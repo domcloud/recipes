@@ -1,0 +1,7 @@
+source:	
+  url: https://github.com/odoo/odoo.git
+  type: clone
+  shallow: true
+features:
+- postgresql
+- python lts
