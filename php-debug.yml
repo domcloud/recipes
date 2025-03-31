@@ -14,7 +14,7 @@ commands:
 #  ---- quick access to php info ---- 
   - echo "<?php phpinfo(15);" > phpinfo.php
 #  ---- init .user.ini (must same as "root" above!) ---- 
-  - $INI = .user.ini; rm -f $INI; touch $INI
+  - INI = .user.ini; rm -f $INI; touch $INI
 #  ---- show php errors in the browser ---- 
   - echo "display_errors = On" >> $INI
   - echo "display_startup_errors = On" >> $INI
