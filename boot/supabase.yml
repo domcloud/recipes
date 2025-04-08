@@ -1,25 +1,16 @@
 source: 
-  url: https://github.com/supabase/supabase
+  url: https://github.com/willnode/supabase-docker
   shallow: true
-features: docker
-nginx:
-  locations:
-    - match: /
-      proxy_pass: docker:8000
-      # access to logflare
-    - match: /logflare/
-      proxy_pass: docker:4000
-      rewrite: /logflare/(.*) /$1 break
+features: 
+- docker
+- postgresql
 commands:
-  # remove everything else except docker
-  - shopt -s extglob
-  - rm -rf ./!(docker)
-  - mv docker/* .
   - cp .env.example .env
-  - sed -i "s|/var/run/docker.sock|/run/user/$(id -u)/docker.sock|g" .env
   - sed -i "s|http://localhost:8000|https://$DOMAIN|g" .env
   - sed -ri "s|DASHBOARD_USERNAME=.*|DASHBOARD_USERNAME=$USERNAME|g" .env
   - sed -ri "s|DASHBOARD_PASSWORD=.*|DASHBOARD_PASSWORD=$PASSWORD|g" .env
-  - sed -i "s|your-super-secret-and-long-postgres-password|$(openssl rand -base64 48)|g" .env
+  - sed -ri "s|POSTGRES_DB=.*|POSTGRES_DB=$DATABASE|g" .env
+  - sed -ri "s|POSTGRES_USERNAME=.*|POSTGRES_USERNAME=$USERNAME|g" .env
+  - sed -ri "s|POSTGRES_PASSWORD=.*|POSTGRES_PASSWORD=$PGPASSWD|g" .env
   - sed -i "s|your-super-secret-jwt-token-with-at-least-32-characters-long|$(openssl rand -base64 48)|g" .env
 services: docker-compose.yml#8000

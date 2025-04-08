@@ -19,11 +19,13 @@ nginx:
     - match: /_next/static/
       alias: public_html/.next/static/
 commands:
+  - 'echo "NEXT_PUBLIC_SITE_URL=\"https://${DOMAIN}\"" >> .env'
 #  ---- Change "yarn" here if needed, it will referred later as $NPM ----
   - NPM=`which yarn`
   - $NPM install
+
+# ---- if you change the code or NEXT_PUBLIC_* env, you need to rebuild it ----
   - $NPM run build
-  - "[ -f .env ] || touch .env"
 
 #  ---- Choose your database stack (also uncomment related feature above) ----
 # - echo "DB_CONNECTION=sqlite:////$HOME/db.sqlite" >> .env
