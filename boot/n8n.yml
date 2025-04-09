@@ -12,17 +12,19 @@ nginx:
     app_start_command: env NOHUP=1 proxfix loadenv ~/.yarn/bin/n8n start
   ssl: 'always'
 commands:
-  - echo "GENERIC_TIMEZONE=America/New_York" > .env
-  - echo "DB_TYPE=postgresdb " >> .env
+  - echo "# after you made changes here, run 'restart'" > .env
+  - echo "GENERIC_TIMEZONE=America/New_York" >> .env
+  - echo "WEBHOOK_URL=https://$DOMAIN" >> .env
+  - echo "N8N_HIDE_USAGE_PAGE=true" >> .env
+  - echo "N8N_PORT=\$PORT " >> .env
+  - echo "N8N_RUNNERS_ENABLED=true" >> .env
+  - echo "N8N_LOG_LEVEL=warn" >> .env
   - echo "DB_TYPE=postgresdb " >> .env
   - echo "DB_POSTGRESDB_PORT=5432" >> .env
   - echo "DB_POSTGRESDB_HOST=localhost" >> .env
   - echo "DB_POSTGRESDB_DATABASE=$DATABASE" >> .env
   - echo "DB_POSTGRESDB_USER=$USERNAME" >> .env
   - echo "DB_POSTGRESDB_PASSWORD=\"$PGPASSWD\"" >> .env
-  - echo "N8N_RUNNERS_ENABLED=true" >> .env
-  - echo "WEBHOOK_URL=https://$DOMAIN" >> .env
-  - echo "N8N_LOG_LEVEL=debug" >> .env
   - mkdir -p ~/.n8n; touch ~/.n8n/config; chmod 0600 ~/.n8n/config
   - pathman add $(yarn global bin)
   - yarn global add n8n
