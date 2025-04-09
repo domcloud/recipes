@@ -10,6 +10,7 @@ commands:
   - sed -ri "s|DASHBOARD_USERNAME=.*|DASHBOARD_USERNAME=$USERNAME|g" .env
   - sed -ri "s|DASHBOARD_PASSWORD=.*|DASHBOARD_PASSWORD=$PASSWORD|g" .env
   - sed -ri "s|POSTGRES_DB=.*|POSTGRES_DB=$DATABASE|g" .env
+  - sed -ri "s|POSTGRES_HOST=.*|POSTGRES_HOST=10.0.2.2|g" .env
   - sed -ri "s|POSTGRES_USERNAME=.*|POSTGRES_USERNAME=$USERNAME|g" .env
   - sed -ri "s|POSTGRES_PASSWORD=.*|POSTGRES_PASSWORD=$PGPASSWD|g" .env
   - sed -i "s|your-super-secret-jwt-token-with-at-least-32-characters-long|$(openssl rand -base64 48)|g" .env
