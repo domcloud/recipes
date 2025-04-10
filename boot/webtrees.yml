@@ -1,0 +1,21 @@
+source: https://github.com/fisharebest/webtrees/releases/download/2.2.1/webtrees-2.2.1.zip#webtrees
+features:
+- php latest
+- mysql
+nginx:
+  root: public_html
+  fastcgi: "on"
+  locations:
+    - match: /
+      try_files: $uri $uri/ /index.php$is_args$args
+commands:
+- echo "; <?php return; ?> DO NOT DELETE THIS LINE" > data/config.ini.php
+- echo "dbtype=\"mysql\"" >> data/config.ini.php
+- echo "dbhost=\"localhost\"" >> data/config.ini.php
+- echo "dbport=\"3306\"" >> data/config.ini.php
+- echo "dbuser=\"$USERNAME\"" >> data/config.ini.php
+- echo "dbpass=\"$MYPASSWD\"" >> data/config.ini.php
+- echo "dbname=\"$DATABASE\"" >> data/config.ini.php
+- echo "tblpfx=\"wt_\"" >> data/config.ini.php
+- echo "base_url=\"https://$DOMAIN\"" >> data/config.ini.php
+- echo "rewrite_urls=\"1\"" >> data/config.ini.php
