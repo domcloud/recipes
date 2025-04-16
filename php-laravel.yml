@@ -42,6 +42,7 @@ commands:
   - composer install
 
 #  ---- if you find migration has failing, please fix it and rerun this ----
+  - find database -name "*.sql" -type f -exec sed -i 's/utf8mb4_0900_ai_ci/utf8mb4_unicode_ci/g' {} \; || true
   - php artisan migrate:fresh --seed || true
   - php artisan key:generate
   - php artisan storage:link
