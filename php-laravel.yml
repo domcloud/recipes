@@ -30,15 +30,14 @@ commands:
 # - sed -ri "s/(# )?REDIS_PASSWORD=.*/REDIS_PASSWORD=${DATABASE}:::${RDPASSWD}/g" .env
 # - sed -ri "s/(# )?REDIS_PORT=.*/REDIS_PORT=6479/g" .env
 
-# ---- let's disable app debug, see errors to php error logs instead ----
+# ---- log errors to php error logs and enable debugging ----
   - sed -ri "s/LOG_STACK=single/LOG_STACK=daily,errorlog/g" .env
-  - sed -ri "s/(# )?APP_DEBUG=.*/APP_DEBUG=false/g" .env
+  - sed -ri "s/(# )?APP_DEBUG=.*/APP_DEBUG=true/g" .env
 
-# ---- if you want to debug/code/show errors, uncomment this ----
+# ---- if you want to disable php cache, uncomment this ----
 # - echo "opcache.revalidate_freq = 0" >> public/.user.ini
-# - sed -ri "s/(# )?APP_DEBUG=.*/APP_DEBUG=true/g" .env
 
-# ---- if you found engine incompability please adjust PHP version above ----
+# ---- if you found engine incompability please change PHP version above ----
   - composer install
 
 #  ---- if you find migration has failing, please fix it and rerun this ----
