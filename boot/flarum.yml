@@ -1,7 +1,6 @@
 source: https://github.com/flarum/flarum
 features:
   - mysql
-  - firewall
 nginx:
   root: public_html/public
   fastcgi: "on"
