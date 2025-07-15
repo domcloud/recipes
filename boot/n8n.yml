@@ -1,30 +1,40 @@
+# TODO: If you have issues, create this in x64 servers
 source:	clear
 features:
-- node lts
 - postgresql
-- docker # need this to make n8n run 24/7
+- docker
 nginx:
   root: public_html/public
-  passenger:
-    enabled: 'on'
-    # we use proxfix since n8n has long bootup time
-    # the loadenv will load .env envars
-    app_start_command: env NOHUP=1 proxfix loadenv ~/.yarn/bin/n8n start
-  ssl: 'always'
 commands:
-  - echo "# after you made changes here, run 'restart'" > .env
-  - echo "GENERIC_TIMEZONE=America/New_York" >> .env
+  - echo "GENERIC_TIMEZONE=America/New_York" > .env
   - echo "WEBHOOK_URL=https://$DOMAIN" >> .env
   - echo "N8N_HIDE_USAGE_PAGE=true" >> .env
-  - echo "N8N_PORT=\$PORT " >> .env
   - echo "N8N_RUNNERS_ENABLED=true" >> .env
   - echo "N8N_LOG_LEVEL=warn" >> .env
   - echo "DB_TYPE=postgresdb " >> .env
   - echo "DB_POSTGRESDB_PORT=5432" >> .env
-  - echo "DB_POSTGRESDB_HOST=localhost" >> .env
+  - echo "DB_POSTGRESDB_HOST=10.0.2.2" >> .env
   - echo "DB_POSTGRESDB_DATABASE=$DATABASE" >> .env
   - echo "DB_POSTGRESDB_USER=$USERNAME" >> .env
   - echo "DB_POSTGRESDB_PASSWORD=\"$PGPASSWD\"" >> .env
   - mkdir -p ~/.n8n; touch ~/.n8n/config; chmod 0600 ~/.n8n/config
-  - pathman add $(yarn global bin)
-  - yarn global add n8n
+services:
+  n8n:
+    image: docker.n8n.io/n8nio/n8n
+    entrypoint: ["n8n"] 
+    environment:
+      - GENERIC_TIMEZONE
+      - WEBHOOK_URL
+      - N8N_HIDE_USAGE_PAGE
+      - N8N_RUNNERS_ENABLED
+      - N8N_LOG_LEVEL
+      - DB_TYPE
+      - DB_POSTGRESDB_PORT
+      - DB_POSTGRESDB_HOST
+      - DB_POSTGRESDB_DATABASE
+      - DB_POSTGRESDB_USER
+      - DB_POSTGRESDB_PASSWORD
+    ports:
+      - 5678:5678
+    volumes:
+      -  ~/.n8n:/home/node/.n8n
