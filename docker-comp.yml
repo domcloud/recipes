@@ -1,2 +1,3 @@
-features: docker
+features: 
+- docker
 services: docker-compose.yml
