@@ -5,8 +5,8 @@ nginx:
     enabled: "on"
     app_start_command: ./pocketbase serve --http=0.0.0.0:$PORT --dir=data --publicDir=public --hooksDir=hooks
 commands:
-- POCKETBASE=pocketbase_0.22.21_linux_$( [ "$(uname -m)" = "aarch64" ] && echo "arm64" || echo "amd64" )
-- wget https://github.com/pocketbase/pocketbase/releases/download/v0.22.21/$POCKETBASE.zip
+- POCKETBASE=pocketbase_0.29.0_linux_$( [ "$(uname -m)" = "aarch64" ] && echo "arm64" || echo "amd64" )
+- wget https://github.com/pocketbase/pocketbase/releases/download/v0.29.0/$POCKETBASE.zip
 - unzip $POCKETBASE.zip && rm $POCKETBASE.zip
 - mkdir -p data public hooks
 - echo "<html><head><meta http-equiv='refresh' content='0; url=/_/'></head></html>" > public/index.html
