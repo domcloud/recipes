@@ -5,10 +5,6 @@ templates:
     file: boot/wordpress.yml
     icon: https://simpleicons.org/icons/wordpress.svg
     color: "#21759B"
-  - title: Drupal
-    file: boot/drupal.yml
-    icon: https://simpleicons.org/icons/drupal.svg
-    color: "#0678BE"
   - title: CodeIgniter
     file: boot/codeigniter.yml
     icon: https://simpleicons.org/icons/codeigniter.svg
@@ -17,7 +13,7 @@ templates:
     file: boot/laravel.yml
     icon: https://simpleicons.org/icons/laravel.svg
     color: "#FF2D20"
-  - title: Express + TSC
+  - title: Express
     file: boot/express.yml
     icon: https://simpleicons.org/icons/express.svg
     color: "#000000"
@@ -41,6 +37,10 @@ templates:
     file: boot/django.yml
     icon: https://simpleicons.org/icons/django.svg
     color: "#092E20"
+  - title: FastAPI
+    file: boot/fastapi.yml
+    icon: https://simpleicons.org/icons/fastapi.svg
+    color: "#009688"
   - title: Rails
     file: boot/rails.yml
     icon: https://simpleicons.org/icons/rubyonrails.svg
@@ -61,26 +61,58 @@ templates:
     file: boot/directus.yml
     icon: https://simpleicons.org/icons/directus.svg
     color: "#263238"
-  - title: Jekyll
-    file: boot/jekyll.yml
-    icon: https://simpleicons.org/icons/jekyll.svg
-    color: "#CC0000"
   - title: Discourse
     file: boot/discourse.yml
     icon: https://simpleicons.org/icons/discourse.svg
     color: "#000000"
-  - title: FastAPI
-    file: boot/fastapi.yml
-    icon: https://simpleicons.org/icons/fastapi.svg
-    color: "#009688"
-  - title: Jupyter
-    file: boot/jupyter.yml
-    icon: https://simpleicons.org/icons/jupyter.svg
-    color: "#F37626"
-  - title: Moodle
-    file: boot/moodle.yml
-    icon: https://simpleicons.org/icons/moodle.svg
-    color: "#F98012"
+templates_more:
+  - file: boot/bagisto.yml
+  - file: boot/cakephp.yml
+  - file: boot/calcom.yml
+  - file: boot/codeigniter.yml
+  - file: boot/codeigniter3.yml
+  - file: boot/cra.yml
+  - file: boot/craftcms.yml
+  - file: boot/directus.yml
+  - file: boot/discourse.yml
+  - file: boot/django.yml
+  - file: boot/drupal.yml
+  - file: boot/eengine.yml
+  - file: boot/express.yml
+  - file: boot/fastapi.yml
+  - file: boot/flarum.yml
+  - file: boot/flask.yml
+  - file: boot/gatsby.yml
+  - file: boot/ghost.yml
+  - file: boot/jekyll.yml
+  - file: boot/jupyter.yml
+  - file: boot/laravel.yml
+  - file: boot/linkwarden.yml
+  - file: boot/magento.yml
+  - file: boot/medusajs.yml
+  - file: boot/moodle.yml
+  - file: boot/n8n.yml
+  - file: boot/nestjs.yml
+  - file: boot/nextjs.yml
+  - file: boot/nuxtjs.yml
+  - file: boot/odoo.yml
+  - file: boot/ojs.yml
+  - file: boot/omp.yml
+  - file: boot/paperlessngx.yml
+  - file: boot/payloadcms.yml
+  - file: boot/plausible.yml
+  - file: boot/pocketbase.yml
+  - file: boot/pterodactyl-wings.yml
+  - file: boot/pterodactyl.yml
+  - file: boot/rails.yml
+  - file: boot/strapi.yml
+  - file: boot/supabase.yml
+  - file: boot/sveltekit.yml
+  - file: boot/wagtail-demo.yml
+  - file: boot/wagtail.yml
+  - file: boot/webtrees.yml
+  - file: boot/woocommerce.yml
+  - file: boot/wordpress.yml
 frameworks:
   - title: Static Web (HTML)
     file: html.yml
