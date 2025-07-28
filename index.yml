@@ -150,6 +150,9 @@ frameworks:
   - title: PHP Dev (like XAMPP)
     file: php-debug.yml
     group: PHP
+  - title: PHP Index
+    file: php-index.yml
+    group: PHP
   - title: CodeIgniter 3
     file: php-codeigniter3.yml
     group: PHP
@@ -240,3 +243,6 @@ frameworks:
   - title: Docker Compose
     file: docker-comp.yml
     group: Docker
+  - title: Lazyvim
+    file: lazyvim.yml
+    group: Tools

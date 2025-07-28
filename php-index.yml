@@ -1,0 +1,8 @@
+features:
+  - php latest    # or pick version between 7.4 to latest
+nginx:
+  root: public_html # or public_html/public?
+  fastcgi: "on"
+  locations:
+    - match: /
+      try_files: $uri $uri/ /index.php$is_args$args
