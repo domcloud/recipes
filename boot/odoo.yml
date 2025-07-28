@@ -1,7 +1,24 @@
-source:	
+source:
   url: https://github.com/odoo/odoo.git
   type: clone
   shallow: true
 features:
-- postgresql
-- python lts
+  - postgresql
+  - python lts
+nginx:
+  root: public_html/web
+  passenger:
+    enabled: "on"
+    app_root: public_html
+    app_start_command: python odoo-bin -c odoo.conf --xmlrpc-port $PORT
+commands:
+  - echo "[options]" > odoo.conf
+  - echo "admin_passwd = ${PASSWORD}" >> odoo.conf
+  - echo "db_host = localhost" >> odoo.conf
+  - echo "db_port = 5432" >> odoo.conf
+  - echo "db_name = ${DATABASE}" >> odoo.conf
+  - echo "db_user = ${USERNAME}" >> odoo.conf
+  - echo "db_password = ${PGPASSWD}" >> odoo.conf
+  - echo "addons_path = "addons" >> odoo.conf
+  - echo "logfile = $HOME/log/odoo.log" >> odoo.conf
+  - pip install -r requirements.txt
