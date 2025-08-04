@@ -1,3 +1,7 @@
-# WIP
-features:
-  - go latest
+nginx:
+  root: public_html/public
+commands:
+# If you use SCSS, replace "hugo" to "hugo-extended"
+- curl -sSL https://webi.sh/hugo | sh
+- source ~/.config/envman/PATH.env
+- hugo
