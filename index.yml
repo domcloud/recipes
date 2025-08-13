@@ -66,6 +66,7 @@ templates:
     icon: https://simpleicons.org/icons/discourse.svg
     color: "#000000"
 templates_more:
+  - file: boot/alist.yml
   - file: boot/bagisto.yml
   - file: boot/cakephp.yml
   - file: boot/calcom.yml
