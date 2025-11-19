@@ -6,7 +6,7 @@ nginx:
   root: public_html/client
   passenger:
     enabled: 'on'
-    app_start_command: env PORT=$PORT dist/main.js
+    app_start_command: env PORT=$PORT node dist/main.js
 commands:
 # https://github.com/nestjs/nest-cli/issues/3191
   - npm install -g @nestjs/cli@10

@@ -8,7 +8,7 @@ nginx:
   root: public_html/client
   passenger:
     enabled: 'on'
-    app_start_command: env PORT=$PORT dist/main.js
+    app_start_command: env PORT=$PORT node dist/main.js
 commands:
 #  ---- Change "yarn" here if needed, it will referred later as $NPM ----
   - NPM=`which yarn`
