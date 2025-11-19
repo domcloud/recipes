@@ -8,6 +8,7 @@ nginx:
     enabled: 'on'
     app_start_command: env PORT=$PORT dist/main.js
 commands:
-  - npm install -g @nestjs/cli
+# https://github.com/nestjs/nest-cli/issues/3191
+  - npm install -g @nestjs/cli@10
   - nest new -p yarn .
   - nest build
