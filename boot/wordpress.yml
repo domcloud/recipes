@@ -14,7 +14,6 @@ commands:
   - sed -i "s/database_name_here/${DATABASE}/g" wp-config.php
   - sed -i "s/username_here/${USERNAME}/g" wp-config.php
   - sed -i "s/password_here/${MYPASSWD}/g" wp-config.php
-  - sed -i "s/utf8/utf8mb4/g" wp-config.php
 
 #   install WP CLI
   - curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
