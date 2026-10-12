@@ -3,8 +3,8 @@ source:
   type: clone
   shallow: true
 features:
-- python 3.12
-- node 20
+- python
+- bun
 - postgresql
 nginx:
   root: public_html/frontend/dist
@@ -24,22 +24,22 @@ commands:
 - sed -ri "s/(# )?FIRST_SUPERUSER=.*/FIRST_SUPERUSER=admin@$DOMAIN/g" .env
 - sed -ri "s/(# )?FIRST_SUPERUSER_PASSWORD=.*/FIRST_SUPERUSER_PASSWORD='$PASSWORD'/g" .env
 - sed -ri "s/(# )?POSTGRES_DB=.*/POSTGRES_DB=$DATABASE/g" .env
-- sed -ri "s/(# )?POSTGRES_USER=.*/POSTGRES_USER=$USERNAME/g" .env
 - sed -ri "s/(# )?POSTGRES_PASSWORD=.*/POSTGRES_PASSWORD='$PGPASSWD'/g" .env
+- sed -ri "s|(# )?DATABASE_URL=.*|DATABASE_URL='postgresql://${USERNAME}:${PGPASSWD}@localhost:5432/${DATABASE}'|g" .env
 - sed -ri "s/(# )?VITE_API_URL=.*/VITE_API_URL=https:\/\/${DOMAIN}/g" frontend/.env
 - filename: scripts/run.sh
   content: |
     #!/bin/bash
     set -e ; set -a
-    source backend/.venv/bin/activate
+    source .venv/bin/activate
     source .env
     fastapi run --reload backend/app/main.py --port $PORT
-- cd backend ; uv sync
+- uv sync
 - source .venv/bin/activate # uv install things to .venv, so we need to init it
-- alembic upgrade head # migrate
+- cd backend ; alembic upgrade head # migrate
 - python app/initial_data.py # init admin user
-- deactivate; cd ../frontend
-- npm install
-- npm run build
+- cd ../frontend
+- bun install
+- bun run build
 - cd ..
 - 'printf "Done! Login to the admin panel with\n Email: admin@${DOMAIN}\n Password: ${PASSWORD}\n"'
