@@ -1,0 +1,6 @@
+source: clear
+services:
+  hello:
+    image: nginxdemos/hello
+    ports:
+      - "80"

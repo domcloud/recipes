@@ -77,6 +77,8 @@ templates_more:
   - file: boot/directus.yml
   - file: boot/discourse.yml
   - file: boot/django.yml
+  - file: boot/docker-hello.yml
+  - file: boot/docker-whoami.yml
   - file: boot/drupal.yml
   - file: boot/eengine.yml
   - file: boot/express.yml

@@ -1,0 +1,8 @@
+source: clear
+features:
+- docker
+services:
+  whoami:
+    image: traefik/whoami
+    ports:
+      - "80"
