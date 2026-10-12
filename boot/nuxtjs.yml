@@ -8,5 +8,6 @@ nginx:
     app_start_command: env PORT=$PORT node server/index.mjs
 commands:
   - echo "telemetry.enabled=false" > ~/.nuxtrc
-  - npx nuxi init . --packageManager yarn --gitInit
+  - npx nuxi init . -t content --packageManager=yarn -f --gitInit --no-modules
+  - yarn add better-sqlite3
   - yarn build

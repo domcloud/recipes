@@ -8,6 +8,6 @@ nginx:
     app_start_command: env PORT=$PORT node .
 commands:
   - yarn install
-  - yarn add @sveltejs/adapter-node
-  - sed -i "s/adapter-auto/adapter-node/g" svelte.config.js
+  - yarn add -D @sveltejs/adapter-node
+  - sed -i "s/adapter-auto/adapter-node/g" vite.config.js
   - yarn build

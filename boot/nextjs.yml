@@ -10,5 +10,5 @@ nginx:
     - match: /_next/
       alias: public_html/.next/
 commands:
-  - yes "" | yarn create next-app .
+  - yarn create next-app . --yes
   - yarn build

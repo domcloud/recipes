@@ -21,7 +21,7 @@ commands:
 
 # ----- "adapter-auto" won't work with production build, use adapter-node! ----
   - $NPM add @sveltejs/adapter-node
-  - sed -i "s/adapter-auto/adapter-node/g" svelte.config.js
+  - sed -i "s/adapter-auto/adapter-node/g" vite.config.js
   - $NPM run build
   - "[ -f .env ] || touch .env"
 
