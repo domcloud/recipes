@@ -32,7 +32,7 @@ commands:
   - echo "db_password = $PGPASSWD" >> config/discourse.conf
   - echo "secret_key_base = $(openssl rand -base64 32)" >> config/discourse.conf
   - corepack use pnpm@10
+  - rake assets:precompile
   - rails db:migrate
   - rails db:seed
-  - rake assets:precompile
   - printf "DONE! Please run `rake admin:create` in SSH for creating admin account\n"
