@@ -1,4 +1,4 @@
-source: https://github.com/riad-azz/flask-template
+source: https://github.com/willnode/flask-template
 features:
   - python stable
 nginx:
