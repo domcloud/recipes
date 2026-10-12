@@ -29,4 +29,4 @@ commands:
   - npm install
   - npm run build
   - chmod 0750 -R storage || true 
-  - echo "opcache.revalidate_freq = 0" >> public_html/.user.ini
+  - echo "opcache.revalidate_freq = 0" >> public/.user.ini
