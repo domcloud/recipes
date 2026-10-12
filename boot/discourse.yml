@@ -5,8 +5,8 @@ source:
 features:
   - postgresql
   - redis
-  - node 22
-  - ruby 3.3
+  - node 24
+  - ruby 3.4
 nginx:
   root: public_html/public
   passenger:
