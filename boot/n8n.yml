@@ -38,4 +38,4 @@ services:
     volumes:
       -  n8n-data:/home/node/.n8n
 volumes:
-  n8n-data: {}
+  n8n-data: null
