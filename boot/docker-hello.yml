@@ -1,4 +1,6 @@
 source: clear
+features:
+- docker
 services:
   hello:
     image: nginxdemos/hello
